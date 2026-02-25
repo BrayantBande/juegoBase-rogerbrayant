@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://c4rbtfdm3fcm3"]
+
+[ext_resource type="Texture2D" uid="uid://5xi4xv4n21yk" path="res://assets/recursos/crosshair.svg" id="1_yixhe"]
+[ext_resource type="Script" uid="uid://bj8euwji4xhg3" path="res://UI/inventory_ui.gd" id="2_ijstf"]
+[ext_resource type="Texture2D" uid="uid://cal8xf64h1tvf" path="res://assets/recursos/inventory.jpg" id="3_4n7mi"]
+[ext_resource type="FontFile" uid="uid://cgsd35tke1ia2" path="res://assets/recursos/fonts/BebasNeue-Regular.ttf" id="4_uk570"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aou4a"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2wx0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0.3764706)
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gppie"]
+bg_color = Color(0.36078432, 0.11764706, 0.08627451, 0.9882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ptjp"]
+bg_color = Color(0.36078432, 0.11764706, 0.08627451, 0.19607843)
+border_width_bottom = 2
+border_color = Color(0.36078432, 0.11764706, 0.08627451, 1)
+
+[node name="interfaz" type="CanvasLayer" unique_id=365222599]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1226821747]
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_yixhe")
+expand_mode = 1
+
+[node name="FondoEstamina" type="ColorRect" parent="." unique_id=278588866]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 316.0
+offset_bottom = 55.0
+color = Color(0, 0, 0, 0.5647059)
+metadata/_edit_use_anchors_ = true
+
+[node name="BarraEstamina" type="ColorRect" parent="FondoEstamina" unique_id=502550591]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 15.0
+color = Color(0.105882354, 0.5294118, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FondoSalud" type="ColorRect" parent="." unique_id=256560102]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 316.0
+offset_bottom = 31.0
+color = Color(0, 0, 0, 0.74509805)
+metadata/_edit_use_anchors_ = true
+
+[node name="BarraSalud" type="ColorRect" parent="FondoSalud" unique_id=18657391]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 15.0
+color = Color(0.829998, 0.00015808546, 0.060681127, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoInteraccion" type="Label" parent="." unique_id=1523785165]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 16.0
+offset_right = 71.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "[E] Recoger Objeto"
+label_settings = SubResource("LabelSettings_aou4a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelInventario" type="ColorRect" parent="." unique_id=1300925466]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -225.0
+offset_right = 400.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("2_ijstf")
+
+[node name="FondoVisual" type="TextureRect" parent="PanelInventario" unique_id=577461418]
+modulate = Color(0.5471651, 0.43355677, 0.3918827, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4n7mi")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ContenedorPrincipal" type="HBoxContainer" parent="PanelInventario" unique_id=534225779]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -205.0
+offset_right = 380.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="LadoIzquierdo" type="VBoxContainer" parent="PanelInventario/ContenedorPrincipal" unique_id=1750126723]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Pestañas" type="HBoxContainer" parent="PanelInventario/ContenedorPrincipal/LadoIzquierdo" unique_id=238196992]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnClaves" type="Button" parent="PanelInventario/ContenedorPrincipal/LadoIzquierdo/Pestañas" unique_id=1353104522]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_uk570")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2wx0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gppie")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ptjp")
+text = "Objetos Claves"
+
+[node name="BtnConsumibles" type="Button" parent="PanelInventario/ContenedorPrincipal/LadoIzquierdo/Pestañas" unique_id=1381159052]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_uk570")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2wx0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gppie")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ptjp")
+text = "Consumibles
+"
+
+[node name="BtnNotas" type="Button" parent="PanelInventario/ContenedorPrincipal/LadoIzquierdo/Pestañas" unique_id=55180725]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_uk570")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2wx0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gppie")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ptjp")
+text = "Ecos
+"
+
+[node name="CuadriculaItems" type="GridContainer" parent="PanelInventario/ContenedorPrincipal/LadoIzquierdo" unique_id=351999397]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+
+[node name="PanelDetalles" type="VBoxContainer" parent="PanelInventario/ContenedorPrincipal" unique_id=1816887960]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NombreItem" type="Label" parent="PanelInventario/ContenedorPrincipal/PanelDetalles" unique_id=390509569]
+layout_mode = 2
+
+[node name="DescripcionItem" type="RichTextLabel" parent="PanelInventario/ContenedorPrincipal/PanelDetalles" unique_id=1170932602]
+layout_mode = 2
+size_flags_vertical = 3
+fit_content = true

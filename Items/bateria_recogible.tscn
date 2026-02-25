@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://boead06osg5uf"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_moiar"]
+[ext_resource type="Resource" uid="uid://b38rxohn7vikw" path="res://Items/item_bateria.tres" id="2_8lieu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lieu"]
+albedo_color = Color(0.43369994, 0.5983114, 0.79185945, 1)
+emission_enabled = true
+emission = Color(0.2509804, 0.8784314, 0.8156863, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_esnc2"]
+material = SubResource("StandardMaterial3D_8lieu")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jcokx"]
+height = 0.3
+radius = 0.1
+
+[node name="BateriaRecogible" type="StaticBody3D" unique_id=2116277780]
+script = ExtResource("1_moiar")
+item_recurso = ExtResource("2_8lieu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1671463145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26357388, 0)
+mesh = SubResource("CylinderMesh_esnc2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=576187450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26322138, 0)
+shape = SubResource("CylinderShape3D_jcokx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=23553773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46022862, 0)
+light_color = Color(0.2509804, 0.8784314, 0.8156863, 1)
+light_size = 1.0
+shadow_enabled = true
+omni_range = 1.0

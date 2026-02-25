@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d3puk4jbpbt76"]
+
+[ext_resource type="Texture2D" uid="uid://bcyo7ebixsupc" path="res://assets/recursos/suelo/Tiles107_2K-JPG_Color.jpg" id="1_7j6if"]
+[ext_resource type="Texture2D" uid="uid://cstuiltt1fvh0" path="res://assets/recursos/suelo/Tiles107_2K-JPG_AmbientOcclusion.jpg" id="2_has1v"]
+[ext_resource type="Texture2D" uid="uid://chmreqetm8lfr" path="res://assets/recursos/suelo/Tiles107_2K-JPG_NormalDX.jpg" id="3_m1vgi"]
+[ext_resource type="Texture2D" uid="uid://cyw80r1sbq83e" path="res://assets/recursos/suelo/Tiles107_2K-JPG_Roughness.jpg" id="4_1bodn"]
+[ext_resource type="Texture2D" uid="uid://c0ilsw0wqo1p2" path="res://assets/recursos/pared/PaintedPlaster016_2K-JPG_Color.jpg" id="5_6bs12"]
+[ext_resource type="Texture2D" uid="uid://bks4tv0rrkxmd" path="res://assets/recursos/pared/PaintedPlaster016_2K-JPG_AmbientOcclusion.jpg" id="6_amofe"]
+[ext_resource type="Texture2D" uid="uid://2xdc3i2nl6k0" path="res://assets/recursos/pared/PaintedPlaster016_2K-JPG_NormalDX.jpg" id="7_ppd06"]
+[ext_resource type="Texture2D" uid="uid://cx05kxmnucqhw" path="res://assets/recursos/pared/PaintedPlaster016_2K-JPG_Roughness.jpg" id="8_w4e5f"]
+[ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
+[ext_resource type="PackedScene" uid="uid://boead06osg5uf" path="res://Items/bateria_recogible.tscn" id="10_has1v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5g5eo"]
+albedo_texture = ExtResource("1_7j6if")
+roughness_texture = ExtResource("4_1bodn")
+normal_enabled = true
+normal_texture = ExtResource("3_m1vgi")
+ao_enabled = true
+ao_texture = ExtResource("2_has1v")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wx08"]
+albedo_color = Color(0.47843137, 0.50980395, 0.41568628, 1)
+albedo_texture = ExtResource("5_6bs12")
+roughness_texture = ExtResource("8_w4e5f")
+normal_enabled = true
+normal_texture = ExtResource("7_ppd06")
+ao_enabled = true
+ao_texture = ExtResource("6_amofe")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+
+[sub_resource type="Environment" id="Environment_5ckkb"]
+background_mode = 1
+ambient_light_color = Color(0.039215688, 0.06666667, 0.15686275, 1)
+ambient_light_energy = 0.1
+
+[node name="Juego" type="Node3D" unique_id=83092484]
+
+[node name="Mapa" type="Node3D" parent="." unique_id=1148766541]
+
+[node name="PisoPasillo1" type="CSGBox3D" parent="Mapa" unique_id=97066237]
+transform = Transform3D(1, 0, 0, 0, 0.99698967, 0, 0, 0, 1, 18.542953, -0.0057361573, -7.039809)
+use_collision = true
+size = Vector3(16.880371, 0.5, 6)
+material = SubResource("StandardMaterial3D_5g5eo")
+
+[node name="PisoSpawn" type="CSGBox3D" parent="Mapa" unique_id=874752362]
+transform = Transform3D(1, 0, 0, 0, 0.99698967, 0, 0, 0, 1, 0.106374264, -0.0057361573, 0.46019077)
+use_collision = true
+size = Vector3(20, 0.5, 21)
+material = SubResource("StandardMaterial3D_5g5eo")
+
+[node name="ParedSpawn" type="CSGBox3D" parent="Mapa" unique_id=410375667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0806249, 0.22343826, 1.9728386, -10.253725)
+use_collision = true
+size = Vector3(20.2, 4.443344, 0.4)
+material = SubResource("StandardMaterial3D_8wx08")
+
+[node name="Player" parent="." unique_id=1191387589 instance=ExtResource("9_hppdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46330106, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2108903115]
+transform = Transform3D(0.16247864, -0.21371245, 0.96329004, 0.035544917, 0.97689664, 0.21073578, -0.98607165, 0, 0.16632122, 33.279907, 9.323355, 0)
+visible = false
+light_color = Color(0.54901963, 0.7019608, 0.8509804, 1)
+light_energy = 0.15
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646132796]
+environment = SubResource("Environment_5ckkb")
+
+[node name="BateriaRecogible" parent="." unique_id=2116277780 instance=ExtResource("10_has1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2345314, 0.5, -4.8657603)

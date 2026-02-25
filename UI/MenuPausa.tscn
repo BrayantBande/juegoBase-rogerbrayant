@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bcqdrwqljynll"]
+
+[ext_resource type="Script" uid="uid://cgjcq7do14hhu" path="res://UI/menu_pausa.gd" id="1_0ugkp"]
+
+[node name="MenuPausa" type="CanvasLayer" unique_id=985465779]
+script = ExtResource("1_0ugkp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=425449247]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6313726)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=590702113]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -33.0
+offset_right = 56.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+
+[node name="continuar" type="Button" parent="ColorRect/VBoxContainer" unique_id=1842785895]
+process_mode = 3
+layout_mode = 2
+text = "Continuar"
+
+[node name="salirDelJuego" type="Button" parent="ColorRect/VBoxContainer" unique_id=1858052235]
+process_mode = 3
+layout_mode = 2
+text = "Salir del Juego"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/salirDelJuego" to="." method="_on_salir_del_juego_pressed"]

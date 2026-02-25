@@ -14,6 +14,10 @@ config/name="juego1"
 run/main_scene="uid://d3puk4jbpbt76"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[autoload]
+
+InventoryManager="*uid://cenc5vbw72owd"
+
 [display]
 
 window/stretch/mode="canvas_items"
