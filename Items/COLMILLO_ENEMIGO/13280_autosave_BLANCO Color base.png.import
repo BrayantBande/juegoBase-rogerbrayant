@@ -2,18 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmahph42srcr2"
-path.s3tc="res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.s3tc.ctex"
-path.etc2="res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.etc2.ctex"
+uid="uid://dabgh4abcvsgl"
+path.s3tc="res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.s3tc.ctex"
+path.etc2="res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "283340169bb6b7af3c5159242ba6945f"
+}
 
 [deps]
 
-source_file="res://Items/bateria_01.png"
-dest_files=["res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.s3tc.ctex", "res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.etc2.ctex"]
+source_file="res://Items/COLMILLO_ENEMIGO/13280_autosave_BLANCO Color base.png"
+dest_files=["res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.s3tc.ctex", "res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.etc2.ctex"]
 
 [params]
 

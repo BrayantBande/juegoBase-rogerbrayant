@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmahph42srcr2"
-path.s3tc="res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.s3tc.ctex"
-path.etc2="res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.etc2.ctex"
+uid="uid://dqnytrpgvmoea"
+path="res://.godot/imported/BLANCO Color base.png-29cd6f5c9a2815af01c42e974a80124c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/bateria_01.png"
-dest_files=["res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.s3tc.ctex", "res://.godot/imported/bateria_01.png-40ac9adc7a606d58c50bfdd50e8562dc.etc2.ctex"]
+source_file="res://Items/COLMILLO_ENEMIGO/BLANCO Color base.png"
+dest_files=["res://.godot/imported/BLANCO Color base.png-29cd6f5c9a2815af01c42e974a80124c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -25,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -39,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

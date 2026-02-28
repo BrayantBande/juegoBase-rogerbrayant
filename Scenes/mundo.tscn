@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ou0storvo0x7" path="res://Scenes/zonaSegura.gd" id="1_uqtxj"]
 [ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="2_gqidu"]
 [ext_resource type="PackedScene" uid="uid://bpba6r1lam7rh" path="res://Scenes/node_3d.tscn" id="4_glouy"]
+[ext_resource type="PackedScene" uid="uid://ek42fp00ffkq" path="res://Scenes/DIENTE.tscn" id="5_yf8a8"]
 [ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4cw5y"]
@@ -135,6 +136,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.77927905, -25)
 
 [node name="Node3D" parent="." unique_id=1079887153 instance=ExtResource("4_glouy")]
 transform = Transform3D(0.102, 0, 0, 0, 0.1, 0, 0, 0, 0.102, 0.56364083, 1.157091, -0.97676635)
+
+[node name="Node3D2" parent="." unique_id=948883553 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3930385, -0.044996798, -2.6334617)
 
 [connection signal="body_entered" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_exited"]

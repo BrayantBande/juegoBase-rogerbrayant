@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ek42fp00ffkq"]
+
+[ext_resource type="PackedScene" uid="uid://chfyo7cwjx3hy" path="res://Items/COLMILLO_ENEMIGO/13280_autosave.glb" id="1_xyyh1"]
+
+[node name="Node3D" type="Node3D" unique_id=948883553]
+
+[node name="13280_autosave" parent="." unique_id=1342625496 instance=ExtResource("1_xyyh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3731892, 0, 1.5078378)
+
+[editable path="13280_autosave"]
