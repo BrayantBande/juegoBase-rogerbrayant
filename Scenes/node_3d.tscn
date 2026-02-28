@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bpba6r1lam7rh"]
+
+[ext_resource type="PackedScene" uid="uid://ca7ccumr3ef82" path="res://Items/Moneda/31284_autosave.glb" id="1_wosnj"]
+[ext_resource type="Texture2D" uid="uid://c263qhn8jr7f2" path="res://Items/Moneda/DORADO Color base.002.png" id="2_t3l2h"]
+[ext_resource type="Texture2D" uid="uid://du6qhs4fu00dt" path="res://Items/Moneda/31284_autosave_PLATEADO Color base.png" id="3_a8auw"]
+[ext_resource type="Texture2D" uid="uid://b3t4plucadt56" path="res://Items/Moneda/NEGRO Color base.001.png" id="4_ifh66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeo3b"]
+albedo_texture = ExtResource("2_t3l2h")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_worak"]
+albedo_texture = ExtResource("3_a8auw")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvjhm"]
+albedo_texture = ExtResource("4_ifh66")
+metallic = 1.0
+
+[node name="Node3D" type="Node3D" unique_id=1079887153]
+
+[node name="31284_autosave" parent="." unique_id=1689493596 instance=ExtResource("1_wosnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83033836, 0, 2.2407234)
+
+[node name="Cilindro" parent="31284_autosave" index="0" unique_id=1655549617]
+surface_material_override/0 = SubResource("StandardMaterial3D_aeo3b")
+surface_material_override/1 = SubResource("StandardMaterial3D_worak")
+surface_material_override/2 = SubResource("StandardMaterial3D_rvjhm")
+
+[editable path="31284_autosave"]

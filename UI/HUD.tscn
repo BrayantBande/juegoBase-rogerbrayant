@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4rbtfdm3fcm3"]
 
 [ext_resource type="Texture2D" uid="uid://5xi4xv4n21yk" path="res://assets/recursos/crosshair.svg" id="1_yixhe"]
+[ext_resource type="Script" uid="uid://nmbkxxmg0jy3" path="res://Scripts.gd" id="2_f2wx0"]
 [ext_resource type="Script" uid="uid://bj8euwji4xhg3" path="res://UI/inventory_ui.gd" id="2_ijstf"]
 [ext_resource type="Texture2D" uid="uid://cal8xf64h1tvf" path="res://assets/recursos/inventory.jpg" id="3_4n7mi"]
 [ext_resource type="FontFile" uid="uid://cgsd35tke1ia2" path="res://assets/recursos/fonts/BebasNeue-Regular.ttf" id="4_uk570"]
@@ -92,6 +93,15 @@ offset_right = 300.0
 offset_bottom = 15.0
 color = Color(0.829998, 0.00015808546, 0.060681127, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="FondoSalud" unique_id=1787552633]
+
+[node name="Label" type="Label" parent="FondoSalud/CanvasLayer" unique_id=111864871]
+offset_left = 960.0
+offset_top = 28.0
+offset_right = 1000.0
+offset_bottom = 51.0
+script = ExtResource("2_f2wx0")
 
 [node name="TextoInteraccion" type="Label" parent="." unique_id=1523785165]
 anchors_preset = 8
