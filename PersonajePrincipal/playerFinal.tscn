@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://nmuk2c6ifq4a" path="res://PersonajePrincipal/PlayerT.fbx" id="1_58v7b"]
 [ext_resource type="Animation" uid="uid://bltyr3v4cr8n2" path="res://PersonajePrincipal/anim_idle.res" id="2_58v7b"]
 [ext_resource type="Animation" uid="uid://1ttl6rnsk6cp" path="res://PersonajePrincipal/anim_jump.res" id="3_hhk3f"]
-[ext_resource type="Animation" uid="uid://d3ayko3htm4dl" path="res://PersonajePrincipal/anim_run.res" id="4_cgh7m"]
-[ext_resource type="Animation" uid="uid://dwwiv7mrn8nhp" path="res://PersonajePrincipal/anim_walk.res" id="5_f1sfe"]
+[ext_resource type="Animation" uid="uid://cie5sklrys55x" path="res://PersonajePrincipal/anim_run.res" id="4_cgh7m"]
+[ext_resource type="Animation" uid="uid://86jp4d3lfgxe" path="res://PersonajePrincipal/anim_walking.res" id="5_f1sfe"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ml7u"]
 _data = {

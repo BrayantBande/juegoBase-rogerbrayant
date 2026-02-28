@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dv54b2i6rkp77"]
+
+[ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="1_g72ev"]
+[ext_resource type="Script" uid="uid://c2yo0vivkpoy0" path="res://Scenes/zona_segura.gd" id="1_rvmrb"]
+[ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="2_rvmrb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_x8nhl"]
+vertices = PackedVector3Array(-2.5, 0.425, -3.4951057, -2.5, 0.425, 3.0048943, 2.5, 0.425, 3.0048943, 2.5, 0.425, -3.4951057, -7.5, 0.425, -3.7451057, 7.5, 0.425, -3.7451057, 7.5, 0.425, -27.995106, -7.5, 0.425, -27.995106)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 7), PackedInt32Array(5, 7, 6)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvmrb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dplol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dplol"]
+size = Vector3(6, 5, 7)
+
+[sub_resource type="Environment" id="Environment_rvmrb"]
+background_mode = 1
+background_color = Color(0.011764706, 0.019607844, 0.039215688, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.16470589, 0.20784314, 0.26666668, 1)
+tonemap_mode = 3
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+
+[node name="PruebaEnemigo" type="Node3D" unique_id=561628876]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=662788043]
+navigation_mesh = SubResource("NavigationMesh_x8nhl")
+
+[node name="Mapa" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=444820487]
+use_collision = true
+
+[node name="PisoEntradaPrincipal" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=1785818266]
+size = Vector3(6, 0.15, 7)
+material = SubResource("StandardMaterial3D_rvmrb")
+
+[node name="PisoLobby" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=1680418964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.995105)
+size = Vector3(16, 0.15, 25)
+material = SubResource("StandardMaterial3D_dplol")
+
+[node name="Conducto1" type="Marker3D" parent="NavigationRegion3D/Mapa" unique_id=631722327 groups=["conductos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.532258, 0.71910954, -24)
+
+[node name="Conducto2" type="Marker3D" parent="NavigationRegion3D/Mapa" unique_id=476503475 groups=["conductos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.905001, 0.5, -5)
+
+[node name="ZonaSegura" type="Area3D" parent="NavigationRegion3D/Mapa" unique_id=1533184107]
+script = ExtResource("1_rvmrb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Mapa/ZonaSegura" unique_id=1863175040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.392923, 0)
+shape = SubResource("BoxShape3D_dplol")
+
+[node name="Enemigo" parent="." unique_id=1574111470 instance=ExtResource("1_g72ev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.214422, 0.48627067, -25.36808)
+
+[node name="Player" parent="." unique_id=1191387589 instance=ExtResource("2_rvmrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8291825, -2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=125693103]
+light_color = Color(0.27450982, 0.35686275, 0.4509804, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_opacity = 0.85
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=473928846]
+environment = SubResource("Environment_rvmrb")
+
+[connection signal="body_entered" from="NavigationRegion3D/Mapa/ZonaSegura" to="NavigationRegion3D/Mapa/ZonaSegura" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion3D/Mapa/ZonaSegura" to="NavigationRegion3D/Mapa/ZonaSegura" method="_on_body_exited"]

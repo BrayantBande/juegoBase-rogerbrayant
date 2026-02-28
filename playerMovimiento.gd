@@ -3,15 +3,22 @@ extends CharacterBody3D
 # --- SEÑALES (Comunicación con la UI y otros sistemas) ---
 # El jugador grita "¡Cambió mi estamina!" y la UI lo escucha para mover la barra.
 signal stamina_changed(actual, maxima)
-signal health_changed(actual, maxima)
+signal health_changed(salud_actual, salud_maxima)
 signal interaction_detected(texto)
 signal interaction_cleared()
 signal toggle_inventory()
 signal toggle_pause()
+signal battery_changed(actual, maxima) # La señal para la UI
+
+# --- ESTADÍSTICAS LINTERNA ---
+var bateria_maxima = 100.0
+var bateria_actual = 100.0
+var consumo_bateria = 3.0 # Cuánta energía gasta por segundo
+var linterna_encendida: bool = false
 
 # --- ESTADÍSTICAS DEL PACIENTE 018 ---
-var salud_maxima = 100.0
-var salud_actual = 100.0
+var salud_maxima: float = 100.0
+var salud_actual: float = 100.0
 
 var estamina_maxima = 100.0
 var estamina_actual = 100.0
@@ -19,13 +26,14 @@ var consumo_estamina = 20.0
 var recarga_estamina = 14.28 
 
 var tiempo_sin_correr = 0.0 
-var espera_recarga = 3.0    
+var espera_recarga = 3.0   
+var esta_a_salvo: bool = false # Le dirá al monstruo que nos ignore 
 
 # --- MOVIMIENTO ---
-const VELOCIDAD_CAMINAR = 3.5
-const VELOCIDAD_CORRER = 7.0
+const VELOCIDAD_CAMINAR = 2.5
+const VELOCIDAD_CORRER = 4.5
+var nivel_ruido = 0.0 # Qué tan grande es la burbuja de ruido que hace Vance
 var velocidad_actual = VELOCIDAD_CAMINAR 
-const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003 
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -47,6 +55,7 @@ func _ready():
 	# Al inicio, le avisamos a la UI cómo están nuestras barras
 	health_changed.emit(salud_actual, salud_maxima)
 	stamina_changed.emit(estamina_actual, estamina_maxima)
+	battery_changed.emit(bateria_actual, bateria_maxima)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -59,7 +68,14 @@ func _input(event):
 		toggle_pause.emit() # Le avisa al menú de pausa que debe abrirse
 		
 	if event.is_action_pressed("linterna") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		linterna.visible = not linterna.visible
+		# Si ya está prendida, siempre te dejo apagarla
+		if linterna.visible:
+			linterna.visible = false
+			linterna_encendida = false # <--- ¡AÑADIMOS ESTO!
+		# Pero para prenderla, revisamos si tiene energía
+		elif bateria_actual > 0:
+			linterna.visible = true
+			linterna_encendida = true # <--- ¡AÑADIMOS ESTO!
 		
 	if event.is_action_pressed("inventario"):
 		toggle_inventory.emit() # Le avisa al inventario que debe abrirse
@@ -69,30 +85,44 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# 2. Manejar el Salto
-	# (Cambia "ui_accept" por el nombre de tu tecla de salto si usas otra, como "saltar")
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY # O la variable que uses para la fuerza del salto
-		anim.play("Jump/Jump")
-# (Cambia "correr" por el nombre de tu input en el mapa de controles, por ejemplo "sprint")
-	if Input.is_action_pressed("correr") and is_on_floor():
-		velocidad_actual = VELOCIDAD_CORRER
-	else:
-		velocidad_actual = 3.0 # PON AQUÍ TU VELOCIDAD DE CAMINAR (o tu variable VELOCIDAD_CAMINAR)
-	# ----------------------------------------------
-
-	# 3. Obtener la dirección de entrada
-	# (Cambia los "ui_..." si tienes nombres personalizados como "mover_adelante")
+	# 2. Obtener la dirección de entrada
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# --- 3. SISTEMA DE ESTAMINA Y SPRINT ---
+	# Solo corremos si apretamos el botón, estamos en el piso, NOS ESTAMOS MOVIENDO y tenemos estamina
+	if Input.is_action_pressed("correr") and is_on_floor() and direction != Vector3.ZERO and estamina_actual > 0:
+		velocidad_actual = VELOCIDAD_CORRER
+		nivel_ruido = 15.0 # ¡Vance hace mucho ruido al correr!
+		estamina_actual -= consumo_estamina * delta
+		tiempo_sin_correr = 0.0 
+		stamina_changed.emit(estamina_actual, estamina_maxima) 
+	else:
+		velocidad_actual = VELOCIDAD_CAMINAR
+		# Si se mueve hace un poco de ruido, si está quieto es silencioso
+		if direction != Vector3.ZERO:
+			nivel_ruido = 3.0 
+		else:
+			nivel_ruido = 0.0
+		
+		# Sistema de recarga de estamina (solo recarga si no estamos corriendo)
+		if estamina_actual < estamina_maxima:
+			tiempo_sin_correr += delta # Contamos cuánto tiempo llevamos sin correr
+			
+			# Si ya pasó el tiempo de espera (ej. 3 segundos), empezamos a recargar
+			if tiempo_sin_correr >= espera_recarga:
+				estamina_actual += recarga_estamina * delta
+				if estamina_actual > estamina_maxima:
+					estamina_actual = estamina_maxima
+				stamina_changed.emit(estamina_actual, estamina_maxima) # Avisamos a la UI
+	# ----------------------------------------------
 
 	# 4. Movimiento y Animaciones de Caminar/Correr/Quieto
 	if direction:
 		velocity.x = direction.x * velocidad_actual
 		velocity.z = direction.z * velocidad_actual
 		
-		# Solo cambiamos animación de caminar/correr si estamos tocando el piso
-		# (Para no interrumpir la animación de salto mientras estamos en el aire)
+		# Solo cambiamos animación si estamos tocando el piso
 		if is_on_floor():
 			if velocidad_actual == VELOCIDAD_CORRER:
 				if anim.current_animation != "Run/Run":
@@ -112,6 +142,22 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(_delta):
+	# --- SISTEMA DE LINTERNA ---
+	if linterna.visible and bateria_actual > 0:
+		bateria_actual -= consumo_bateria * _delta
+		battery_changed.emit(bateria_actual, bateria_maxima)
+		
+		# Efecto de terror: La luz pierde fuerza si queda menos del 20%
+		if bateria_actual < 20.0:
+			linterna.light_energy = lerp(0.1, 1.0, bateria_actual / 20.0)
+			
+		# Si se apaga por completo
+		if bateria_actual <= 0:
+			bateria_actual = 0
+			linterna.visible = false
+			linterna_encendida = false # <--- ¡AÑADIMOS ESTO!
+			linterna.light_energy = 1.0 # Reseteamos por si la recarga
+		
 	# --- 3. SISTEMA DE INTERACCIÓN LIMPIO ---
 	if rayo_interaccion.is_colliding():
 		var objeto_mirado = rayo_interaccion.get_collider()
@@ -147,3 +193,21 @@ func _process(_delta):
 		if mirando_item:
 			interaction_cleared.emit()
 			mirando_item = false
+func recargar_linterna(cantidad):
+	bateria_actual += cantidad
+	if bateria_actual > bateria_maxima:
+		bateria_actual = bateria_maxima
+		
+	# Reseteamos el brillo y avisamos a la UI
+	linterna.light_energy = 1.0
+	battery_changed.emit(bateria_actual, bateria_maxima)
+	
+func recibir_dano(cantidad: float):
+	salud_actual -= cantidad
+	health_changed.emit(salud_actual, salud_maxima)
+	print("¡Ay! Recibí daño. Salud restante: ", salud_actual)
+	
+	if salud_actual <= 0:
+		print("¡GAME OVER! El monstruo te atrapó.")
+		# Reiniciamos la escena actual para volver a empezar
+		get_tree().reload_current_scene()

@@ -5,7 +5,7 @@ signal inventory_updated()
 var inventario_cantidades = {}
 var inventario_datos = {}
 
-func agregar_item(item_data: ItemData, cantidad: int = 1):
+func agregar_item(item_data, cantidad: int = 1):
 	var id = item_data.id_item
 	if inventario_cantidades.has(id):
 		inventario_cantidades[id] += cantidad
@@ -18,10 +18,12 @@ func agregar_item(item_data: ItemData, cantidad: int = 1):
 func consumir_item(id_item: String) -> bool:
 	if inventario_cantidades.has(id_item) and inventario_cantidades[id_item] > 0:
 		inventario_cantidades[id_item] -= 1
+		# Si la cantidad llega a 0 o menos, borramos el objeto de los diccionarios
 		if inventario_cantidades[id_item] <= 0:
 			inventario_cantidades.erase(id_item)
 			inventario_datos.erase(id_item)
-		inventory_updated.emit()
+		
+		inventory_updated.emit() # Avisa a la UI que actualice la cuadrícula
 		return true
 	return false
 
