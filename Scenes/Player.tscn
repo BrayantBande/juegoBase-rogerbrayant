@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://bs36ay6fs4mbx" path="res://playerMovimiento.gd" id="1_5ixxa"]
 [ext_resource type="PackedScene" uid="uid://bp58st0ufgg4" path="res://PersonajePrincipal/playerFinal.tscn" id="2_nn08x"]
 [ext_resource type="PackedScene" uid="uid://c4rbtfdm3fcm3" path="res://UI/HUD.tscn" id="3_5ixxa"]
-[ext_resource type="Animation" uid="uid://cie5sklrys55x" path="res://PersonajePrincipal/anim_run.res" id="3_bhhdu"]
+[ext_resource type="Animation" uid="uid://d3ayko3htm4dl" path="res://PersonajePrincipal/anim_run.res" id="3_bhhdu"]
 [ext_resource type="Script" uid="uid://14wugokxc8ss" path="res://UI/hud.gd" id="4_52ee3"]
-[ext_resource type="Animation" uid="uid://86jp4d3lfgxe" path="res://PersonajePrincipal/anim_walking.res" id="4_megsn"]
+[ext_resource type="Animation" uid="uid://olreeajaotp5" path="res://PersonajePrincipal/anim_walking.res" id="4_megsn"]
 [ext_resource type="PackedScene" uid="uid://bcqdrwqljynll" path="res://UI/MenuPausa.tscn" id="4_nn08x"]
 [ext_resource type="AudioStream" uid="uid://mx48gi5v58cj" path="res://assets/recursos/Recoger.wav" id="5_megsn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0oi55"]
-radius = 0.39794922
-height = 2.034546
+radius = 0.34521484
+height = 1.8602104
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yoq75"]
 _data = {
@@ -27,36 +27,37 @@ _data = {
 script = ExtResource("1_5ixxa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=945974553]
-transform = Transform3D(-0.9, 0, -5.6824803e-08, 0, 1, 0, 7.86805e-08, 0, -0.65, 0, 0.963562, 0.03107524)
+transform = Transform3D(-0.9, 0, -5.6824803e-08, 0, 1, 0, 7.86805e-08, 0, -0.65, 0, 0.93787193, -0.04186356)
 shape = SubResource("CapsuleShape3D_0oi55")
+debug_color = Color(0.99771994, 0, 0.15965265, 1)
 
 [node name="PlayerT" parent="." unique_id=582508383 instance=ExtResource("2_nn08x")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.073557615, 0)
 
-[node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 931615998) index="0" unique_id=239979315]
+[node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="0" unique_id=1054946555]
 cast_shadow = 3
 
-[node name="Ch28_Sneakers" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 931615998) index="1" unique_id=1591612902]
+[node name="Ch28_Sneakers" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="1" unique_id=1202113001]
 cast_shadow = 3
 
-[node name="Ch28_Pants" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 931615998) index="2" unique_id=1996888716]
+[node name="Ch28_Pants" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="2" unique_id=1695383466]
 cast_shadow = 3
 
-[node name="Ch28_Hoody" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 931615998) index="3" unique_id=14573001]
+[node name="Ch28_Hoody" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="3" unique_id=1436564965]
 cast_shadow = 3
 
-[node name="Ch28_Eyelashes" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 931615998) index="4" unique_id=645713475]
+[node name="Ch28_Eyelashes" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="4" unique_id=2083191407]
 cast_shadow = 3
 
-[node name="Ch28_Hair" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 931615998) index="5" unique_id=1805391156]
+[node name="Ch28_Hair" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="5" unique_id=617206330]
 cast_shadow = 3
 
-[node name="AnimationPlayer" parent="PlayerT" index="1" unique_id=1201836316]
+[node name="AnimationPlayer" parent="PlayerT" index="1" unique_id=1456765478]
 libraries/Run = SubResource("AnimationLibrary_yoq75")
 libraries/Walking = SubResource("AnimationLibrary_ksbbd")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=680660291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034497738, 1.7270303, -0.40483022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034497738, 1.7270303, -0.23463929)
 
 [node name="Linterna" type="SpotLight3D" parent="Camera3D" unique_id=76177550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
