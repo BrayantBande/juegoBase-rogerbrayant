@@ -1,6 +1,6 @@
 extends CharacterBody3D # [cite: 59]
 
-# --- SEÑALES (Comunicación con la UI y otros sistemas) ---
+
 signal stamina_changed(actual, maxima)
 signal health_changed(salud_actual, salud_maxima)
 signal interaction_detected(texto)
@@ -9,13 +9,13 @@ signal toggle_inventory()
 signal toggle_pause()
 signal battery_changed(actual, maxima)
 
-# --- ESTADÍSTICAS LINTERNA ---
+
 var bateria_maxima = 100.0
 var bateria_actual = 100.0
 var consumo_bateria = 3.0 
 var linterna_encendida: bool = false
 
-# --- ESTADÍSTICAS DEL PACIENTE 018 ---
+
 var salud_maxima: float = 100.0
 var salud_actual: float = 100.0
 
@@ -28,13 +28,19 @@ var tiempo_sin_correr = 0.0
 var espera_recarga = 3.0   
 var esta_a_salvo: bool = false 
 
-# --- MOVIMIENTO Y SIGILO ---
-const VELOCIDAD_AGACHADO = 1.5 # ¡NUEVO! Más lento y silencioso
-const VELOCIDAD_CAMINAR = 2.5
-const VELOCIDAD_CORRER = 4.5
+
+const VELOCIDAD_AGACHADO = 1.0
+const VELOCIDAD_CAMINAR = 1.5
+const VELOCIDAD_CORRER = 4.0
 var nivel_ruido = 0.0 
 var velocidad_actual = VELOCIDAD_CAMINAR 
 const SENSITIVITY = 0.003 
+
+# --- CONFIGURACIÓN ESTILO TJOC ---
+const BOB_FREQ = 3.5 
+const BOB_AMP = 0.12 
+const TILT_AMP = 0.001 
+var t_bob = 0.0
 
 # ¡NUEVO! Variables para agacharse
 var esta_agachado: bool = false
@@ -59,7 +65,15 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # --- VARIABLES DE ESTADO ---
 var mirando_item = false
-
+func _head_bob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	# Movimiento vertical (Y)
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	# Movimiento horizontal (X)
+	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
+	# Inclinación lateral (Z) - El toque secreto de TJoC
+	pos.z = sin(time * BOB_FREQ / 2) * TILT_AMP
+	return pos
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	rayo_interaccion.add_exception(self)
@@ -95,6 +109,27 @@ func _input(event):
 		toggle_inventory.emit() 
 
 func _physics_process(delta):
+	#func _physics_process(delta):
+	# 1. Referencias fundamentales
+	var collision = $CollisionShape3D 
+	var hay_techo = $DetectorTecho.is_colliding() # Asegúrate que el nombre sea exacto
+
+	# 2. Lógica de Head Bob TJoC
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	var target_vars = _head_bob(t_bob)
+	
+	var altura_base = 1.5 
+	if collision.shape.height == altura_agachado:
+		altura_base = 0.5 
+
+	# Aplicamos posición (X, Y) y la rotación lateral (Z)
+	camara.transform.origin.y = lerp(camara.transform.origin.y, altura_base + target_vars.y, delta * 8.0)
+	camara.transform.origin.x = lerp(camara.transform.origin.x, target_vars.x, delta * 8.0)
+	
+	# El lerp_angle hace que el balanceo de la cámara sea fluido
+	camara.rotation.z = lerp_angle(camara.rotation.z, target_vars.z, delta * 5.0)
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
