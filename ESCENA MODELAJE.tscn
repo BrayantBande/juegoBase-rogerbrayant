@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cth6u6of460ss"]
+
+[ext_resource type="PackedScene" uid="uid://dnruhge36gahs" path="res://Items/bisturi/scene.gltf" id="1_6fmya"]
+
+[sub_resource type="Environment" id="Environment_01ufc"]
+background_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6fmya"]
+
+[sub_resource type="Skin" id="Skin_nkrt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42eqn"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1381173219]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=958726019]
+environment = SubResource("Environment_01ufc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1794281143]
+transform = Transform3D(55.57457, 0, 0, 0, 1, 0, 0, 0, 38.91715, 0, 1.104079, 1.2378309)
+mesh = SubResource("PlaneMesh_6fmya")
+skin = SubResource("Skin_nkrt5")
+surface_material_override/0 = SubResource("StandardMaterial3D_42eqn")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1010966944 instance=ExtResource("1_6fmya")]
+transform = Transform3D(1, 0, 0, 0, 1.609234, 0, 0, 0, 1, -15.470698, 4.271247, 4.1920233)

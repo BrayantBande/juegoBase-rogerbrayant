@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://db4jl5hbyvyk4"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/ALICATE/item_alicate.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://d07iuex28lqrf" path="res://Items/ALICATE/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alicate"]
+size = Vector3(1.90239, 0.95909196, 2.3546753)
+
+[node name="AlicateRecogible" type="StaticBody3D" unique_id=353211032]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1473629423]
+transform = Transform3D(3.9178345, 0, 0, 0, 1, 0, 0, 0, 1, -1.1840037, 0.46563837, 0.14541626)
+shape = SubResource("BoxShape3D_alicate")
+
+[node name="AlicateMesh" parent="." unique_id=479837310 instance=ExtResource("3_mesh")]

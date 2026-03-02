@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cq3hp0punrdti"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/Bateria de carro/item_bateria_carro.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://c4gd1mrhg51xv" path="res://Items/Bateria de carro/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bat"]
+size = Vector3(0.9523926, 0.6204834, 0.56988525)
+
+[node name="BateriaCarroRecogible" type="StaticBody3D" unique_id=887350696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8143649, 0)
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=690561272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.046813965, 0.0042419434)
+shape = SubResource("BoxShape3D_bat")
+
+[node name="BateriaMesh" parent="." unique_id=512941308 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
