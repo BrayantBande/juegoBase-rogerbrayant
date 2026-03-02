@@ -56,17 +56,19 @@ cast_shadow = 3
 libraries/Run = SubResource("AnimationLibrary_yoq75")
 libraries/Walking = SubResource("AnimationLibrary_ksbbd")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=680660291]
+[node name="Cabeza" type="Node3D" parent="." unique_id=1691743082]
+
+[node name="Camera3D" type="Camera3D" parent="Cabeza" unique_id=680660291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034497738, 1.7270303, -0.23463929)
 
-[node name="Linterna" type="SpotLight3D" parent="Camera3D" unique_id=76177550]
+[node name="Linterna" type="SpotLight3D" parent="Cabeza/Camera3D" unique_id=76177550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
 visible = false
 shadow_enabled = true
 spot_range = 12.0
 spot_angle = 35.0
 
-[node name="RayoInteraccion" type="RayCast3D" parent="Camera3D" unique_id=760247575]
+[node name="RayoInteraccion" type="RayCast3D" parent="Cabeza/Camera3D" unique_id=760247575]
 target_position = Vector3(0, 0, -3.5)
 
 [node name="interfaz" parent="." unique_id=365222599 instance=ExtResource("3_5ixxa")]
@@ -82,5 +84,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8000001, 0.65968406)
 light_color = Color(0.6313726, 1, 1, 1)
 light_energy = 0.3
 omni_range = 3.0
+
+[node name="DetectorTecho" type="RayCast3D" parent="." unique_id=1787784596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.210989, 0)
+target_position = Vector3(0, 1.5, 0)
 
 [editable path="PlayerT"]

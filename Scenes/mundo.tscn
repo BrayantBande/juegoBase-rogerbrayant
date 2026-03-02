@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ou0storvo0x7" path="res://Scenes/zonaSegura.gd" id="1_uqtxj"]
 [ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="2_gqidu"]
 [ext_resource type="PackedScene" uid="uid://bpba6r1lam7rh" path="res://Scenes/node_3d.tscn" id="4_glouy"]
-[ext_resource type="PackedScene" uid="uid://ek42fp00ffkq" path="res://Scenes/DIENTE.tscn" id="5_yf8a8"]
 [ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4cw5y"]
@@ -55,6 +54,10 @@ use_collision = true
 
 [node name="PisoEntradaPrincipal" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=337599160]
 size = Vector3(6, 0.15, 7)
+
+[node name="PisoEntradaPrincipal2" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=1403779330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92834693, 0.41830182)
+size = Vector3(6, 0.15, 2.0333252)
 
 [node name="PisoLobby" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=1090098904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.995105)
@@ -119,7 +122,7 @@ shape = SubResource("BoxShape3D_gqidu")
 [node name="Entidades_Objetos" type="Node3D" parent="." unique_id=1694996298]
 
 [node name="Player" parent="Entidades_Objetos" unique_id=1191387589 instance=ExtResource("9_hppdt")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.46330106, 2.8602843)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.7713723, 2.8602843)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2108903115]
 transform = Transform3D(0.68830997, -0.52557516, 0.49999997, 0.025911013, 0.70663184, 0.70710677, -0.7249537, -0.47375315, 0.49999997, 33.279907, 9.323355, 0)
@@ -136,9 +139,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.77927905, -25)
 
 [node name="Node3D" parent="." unique_id=1079887153 instance=ExtResource("4_glouy")]
 transform = Transform3D(0.102, 0, 0, 0, 0.1, 0, 0, 0, 0.102, 0.56364083, 1.157091, -0.97676635)
-
-[node name="Node3D2" parent="." unique_id=948883553 instance=ExtResource("5_yf8a8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3930385, -0.044996798, -2.6334617)
 
 [connection signal="body_entered" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_exited"]
