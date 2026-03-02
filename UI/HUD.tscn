@@ -148,6 +148,22 @@ texture = ExtResource("3_4n7mi")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="IMAGEN_AMPLIADA" type="TextureRect" parent="PanelInventario/FondoVisual" unique_id=1713380047]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 12.0
+offset_right = 720.0
+offset_bottom = 173.0
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="PanelInventario/FondoVisual" unique_id=1559124973]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 207.0
+offset_right = 779.0
+offset_bottom = 394.0
+color = Color(0, 0, 0, 0.5254902)
+
 [node name="ContenedorPrincipal" type="HBoxContainer" parent="PanelInventario" unique_id=534225779]
 layout_mode = 1
 anchors_preset = 8
@@ -221,6 +237,7 @@ size_flags_horizontal = 3
 
 [node name="NombreItem" type="Label" parent="PanelInventario/ContenedorPrincipal/PanelDetalles" unique_id=390509569]
 layout_mode = 2
+size_flags_vertical = 10
 
 [node name="DescripcionItem" type="RichTextLabel" parent="PanelInventario/ContenedorPrincipal/PanelDetalles" unique_id=1170932602]
 layout_mode = 2

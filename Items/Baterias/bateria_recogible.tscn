@@ -1,8 +1,8 @@
-[gd_scene format=4 uid="uid://boead06osg5uf"]
+[gd_scene format=4 uid="uid://owrfm221ig6s"]
 
 [ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_moiar"]
-[ext_resource type="Resource" uid="uid://b38rxohn7vikw" path="res://Items/item_bateria.tres" id="2_8lieu"]
-[ext_resource type="Material" uid="uid://c30m27h8e2cxx" path="res://assets/recursos/Texturas/Metal/Metal055A_1K-JPG.tres" id="3_esnc2"]
+[ext_resource type="Resource" uid="uid://d1srwseyrs5vc" path="res://Items/BATERIA_BRAYANT/bateria/item_bateria.tres" id="2_8lieu"]
+[ext_resource type="Material" path="res://Items/BATERIA_BRAYANT/bateria/Metal/Metal055A_1K-JPG.tres" id="3_esnc2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp8v6"]
 resource_name = "lambert4SG"

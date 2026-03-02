@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://btxdyqqpyqk6i"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" uid="uid://1t3vfetrtv04" path="res://Items/Moneda/item_moneda.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://ca7ccumr3ef82" path="res://Items/Moneda/31284_autosave.glb" id="3_mesh"]
+[ext_resource type="Texture2D" uid="uid://c263qhn8jr7f2" path="res://Items/Moneda/DORADO Color base.002.png" id="4_tex1"]
+[ext_resource type="Texture2D" uid="uid://du6qhs4fu00dt" path="res://Items/Moneda/31284_autosave_PLATEADO Color base.png" id="5_tex2"]
+[ext_resource type="Texture2D" uid="uid://b3t4plucadt56" path="res://Items/Moneda/NEGRO Color base.001.png" id="6_tex3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gnl25"]
+height = 2.7539063
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gold"]
+albedo_texture = ExtResource("4_tex1")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_silver"]
+albedo_texture = ExtResource("5_tex2")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_black"]
+albedo_texture = ExtResource("6_tex3")
+metallic = 1.0
+
+[node name="MonedaRecogible" type="StaticBody3D" unique_id=2141260007]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2024480414]
+transform = Transform3D(1.5107673, 0, 0, 0, 0.08596635, 0, 0, 0, 1.5476667, 1.0789912, 2.2780645, -1.9233114)
+shape = SubResource("CylinderShape3D_gnl25")
+
+[node name="31284_autosave" parent="." unique_id=1140460314 instance=ExtResource("3_mesh")]
+
+[node name="Cilindro" parent="31284_autosave" index="0" unique_id=1409654868]
+surface_material_override/0 = SubResource("StandardMaterial3D_gold")
+surface_material_override/1 = SubResource("StandardMaterial3D_silver")
+surface_material_override/2 = SubResource("StandardMaterial3D_black")
+
+[editable path="31284_autosave"]
