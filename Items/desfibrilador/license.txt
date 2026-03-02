@@ -1,0 +1,11 @@
+Model Information:
+* title:	Desfibrilador Mcs-hd-8000d
+* source:	https://sketchfab.com/3d-models/desfibrilador-mcs-hd-8000d-ee90e1e07ab247e2b23ef8cbb9382a5f
+* author:	BrayanCepeda (https://sketchfab.com/BrayanCepeda)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Desfibrilador Mcs-hd-8000d" (https://sketchfab.com/3d-models/desfibrilador-mcs-hd-8000d-ee90e1e07ab247e2b23ef8cbb9382a5f) by BrayanCepeda (https://sketchfab.com/BrayanCepeda) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -34,37 +34,44 @@ debug_color = Color(0.99771994, 0, 0.15965265, 1)
 [node name="PlayerT" parent="." unique_id=582508383 instance=ExtResource("2_nn08x")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.073557615, 0)
 
-[node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="0" unique_id=1054946555]
+[node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="0" unique_id=539730261]
+layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Sneakers" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="1" unique_id=1202113001]
+[node name="Ch28_Sneakers" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="1" unique_id=1527768337]
+layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Pants" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="2" unique_id=1695383466]
+[node name="Ch28_Pants" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="2" unique_id=410585913]
+layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Hoody" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="3" unique_id=1436564965]
+[node name="Ch28_Hoody" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="3" unique_id=424608887]
+layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Eyelashes" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="4" unique_id=2083191407]
+[node name="Ch28_Eyelashes" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="4" unique_id=522565571]
+layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Hair" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="5" unique_id=617206330]
+[node name="Ch28_Hair" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="5" unique_id=217678363]
+layers = 4
 cast_shadow = 3
 
-[node name="AnimationPlayer" parent="PlayerT" index="1" unique_id=1456765478]
+[node name="AnimationPlayer" parent="PlayerT" index="1" unique_id=1175269299]
 libraries/Run = SubResource("AnimationLibrary_yoq75")
 libraries/Walking = SubResource("AnimationLibrary_ksbbd")
 
 [node name="Cabeza" type="Node3D" parent="." unique_id=1691743082]
 
 [node name="Camera3D" type="Camera3D" parent="Cabeza" unique_id=680660291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034497738, 1.7270303, -0.23463929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034, 1.727, -0.05506453)
 
 [node name="Linterna" type="SpotLight3D" parent="Cabeza/Camera3D" unique_id=76177550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
 visible = false
 shadow_enabled = true
+shadow_caster_mask = 4294967291
 spot_range = 12.0
 spot_angle = 35.0
 

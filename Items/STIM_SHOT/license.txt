@@ -1,0 +1,11 @@
+Model Information:
+* title:	Morphine Auto Injector
+* source:	https://sketchfab.com/3d-models/morphine-auto-injector-338fcd5ea9de466ab71641ff9f528724
+* author:	doodyk2019 (https://sketchfab.com/doodyk2019)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Morphine Auto Injector" (https://sketchfab.com/3d-models/morphine-auto-injector-338fcd5ea9de466ab71641ff9f528724) by doodyk2019 (https://sketchfab.com/doodyk2019) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Key with Tag
+* source:	https://sketchfab.com/3d-models/key-with-tag-16ea3fbecc6346df9859f0e18406951b
+* author:	AxonFXDesigns (https://sketchfab.com/AxonFXDesigns)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Key with Tag" (https://sketchfab.com/3d-models/key-with-tag-16ea3fbecc6346df9859f0e18406951b) by AxonFXDesigns (https://sketchfab.com/AxonFXDesigns) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

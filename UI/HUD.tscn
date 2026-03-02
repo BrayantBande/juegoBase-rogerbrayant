@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4rbtfdm3fcm3"]
 
-[ext_resource type="Texture2D" uid="uid://5xi4xv4n21yk" path="res://assets/recursos/crosshair.svg" id="1_yixhe"]
+[ext_resource type="Texture2D" uid="uid://bl4j6k1v4575k" path="res://MODELOS_TESTEO/puntero_blanco.png" id="1_f2wx0"]
 [ext_resource type="Script" uid="uid://nmbkxxmg0jy3" path="res://Scripts.gd" id="2_f2wx0"]
 [ext_resource type="Script" uid="uid://bj8euwji4xhg3" path="res://UI/inventory_ui.gd" id="2_ijstf"]
 [ext_resource type="Texture2D" uid="uid://cal8xf64h1tvf" path="res://assets/recursos/inventory.jpg" id="3_4n7mi"]
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_yixhe")
+texture = ExtResource("1_f2wx0")
 expand_mode = 1
 
 [node name="FondoEstamina" type="ColorRect" parent="." unique_id=278588866]

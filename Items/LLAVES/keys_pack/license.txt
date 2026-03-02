@@ -1,0 +1,8 @@
+Model Information:
+* title:	Keys Pack
+* source:	https://sketchfab.com/3d-models/keys-pack-df7031b3a3b14b7584855d9347c31513
+* author:	assetfactory (https://sketchfab.com/assetfactory)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

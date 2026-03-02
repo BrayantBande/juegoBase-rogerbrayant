@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Music Box
+* source:	https://sketchfab.com/3d-models/old-music-box-a2f9d3e31f5045579881b3d671a1120f
+* author:	Friendly Ninja 27 (https://sketchfab.com/Starovoytovm.20)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Music Box" (https://sketchfab.com/3d-models/old-music-box-a2f9d3e31f5045579881b3d671a1120f) by Friendly Ninja 27 (https://sketchfab.com/Starovoytovm.20) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
