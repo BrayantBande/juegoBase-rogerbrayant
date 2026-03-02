@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ou0storvo0x7" path="res://Scenes/zonaSegura.gd" id="1_uqtxj"]
 [ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="2_gqidu"]
-[ext_resource type="PackedScene" uid="uid://ci8o5mqkw3ojr" path="res://SECCIONES_MAPA/PISO 1/EntradaPrincipal.glb" id="2_yf8a8"]
 [ext_resource type="PackedScene" uid="uid://bpba6r1lam7rh" path="res://Scenes/node_3d.tscn" id="4_glouy"]
 [ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4cw5y"]
-vertices = PackedVector3Array(-2.75, 0.425, -3.7451057, -2.5, 0.425, -1.2451057, 2.5, 0.425, -1.2451057, 2.75, 0.425, -3.7451057, -7.5, 0.425, -27.995106, 7.5, 0.425, -27.995106, -7.5, 0.425, -3.7451057, 7.5, 0.425, -3.7451057, -2.5, 1.425, -0.24510574, -2.5, 1.425, 1.0048943, 2.5, 1.425, 1.0048943, 2.5, 1.425, -0.24510574, -2.5, 0.425, 2.0048943, -2.5, 0.425, 3.0048943, 2.5, 0.425, 3.0048943, 2.5, 0.425, 2.0048943)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 6, 4), PackedInt32Array(5, 7, 3), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cw5y"]
 albedo_color = Color(0.6556007, 0.655601, 0.6556004, 1)
@@ -38,10 +35,6 @@ use_collision = true
 [node name="PisoEntradaPrincipal" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=337599160]
 size = Vector3(6, 0.15, 7)
 
-[node name="PisoEntradaPrincipal2" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=1403779330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92834693, 0.41830182)
-size = Vector3(6, 0.15, 2.0333252)
-
 [node name="PisoLobby" type="CSGBox3D" parent="NavigationRegion3D/Mapa" unique_id=1090098904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.995105)
 size = Vector3(16, 0.15, 25)
@@ -59,9 +52,6 @@ script = ExtResource("1_uqtxj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Mapa/Area3D" unique_id=977772505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075683594, 1.0880127, -0.29816437)
 shape = SubResource("BoxShape3D_gqidu")
-
-[node name="EntradaPrincipal" parent="NavigationRegion3D/Mapa" unique_id=394211909 instance=ExtResource("2_yf8a8")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.5, 0.075, 1.262)
 
 [node name="Entidades_Objetos" type="Node3D" parent="." unique_id=1694996298]
 
