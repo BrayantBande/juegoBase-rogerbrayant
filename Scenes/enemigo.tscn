@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bdtjnjtg3nvdr" path="res://Scenes/s3_investigando.gd" id="4_4kvw7"]
 [ext_resource type="Animation" uid="uid://c51vx03eglxgm" path="res://Enemigo/crawlRunning_anim.res" id="4_nwwci"]
 [ext_resource type="Script" uid="uid://bj5ugqwc8mw1" path="res://Scenes/s4_persiguiendo.gd" id="4_y42jf"]
-[ext_resource type="Animation" uid="uid://b0epkshm26vif" path="res://Enemigo/crawl_anim.res" id="5_r4rf8"]
+[ext_resource type="Animation" uid="uid://c33g5dnyf6myn" path="res://Enemigo/crawl_anim.res" id="5_r4rf8"]
 [ext_resource type="Animation" uid="uid://cpetj42ciui8" path="res://Enemigo/idle_anim.res" id="6_txn3v"]
 [ext_resource type="Script" uid="uid://dcodhssa8w5du" path="res://Scenes/s5_entrar_conducto.gd" id="6_ushq4"]
 [ext_resource type="Animation" uid="uid://dyjdcel1vg07y" path="res://Enemigo/run_anim.res" id="7_f0wvv"]
@@ -399,7 +399,7 @@ script = ExtResource("1_6hm1l")
 [node name="EnemigoModel" parent="." unique_id=790216369 instance=ExtResource("2_0ryvk")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 
-[node name="Skeleton3D" parent="EnemigoModel" index="0" unique_id=438289205]
+[node name="Skeleton3D" parent="EnemigoModel" index="0" unique_id=1521492524]
 bones/1/position = Vector3(0, 0.10198416, -0.018585246)
 bones/1/rotation = Quaternion(-0.09000678, 0, 0, 0.99594116)
 bones/1/scale = Vector3(1, 0.9999995, 0.9999995)
@@ -549,7 +549,7 @@ bones/63/position = Vector3(-7.807686e-08, 0.19947754, -1.198853e-07)
 bones/63/rotation = Quaternion(0.25081763, -0.029354218, 0.0076098517, 0.9675593)
 bones/63/scale = Vector3(0.9999995, 1, 0.99999976)
 
-[node name="AnimationPlayer" parent="EnemigoModel" index="1" unique_id=492651062]
+[node name="AnimationPlayer" parent="EnemigoModel" index="1" unique_id=1642878899]
 libraries/ = SubResource("AnimationLibrary_nrqrd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=319863590]
@@ -588,6 +588,7 @@ script = ExtResource("7_ye8yw")
 
 [node name="GritoAudio" type="AudioStreamPlayer3D" parent="." unique_id=1505594705]
 stream = ExtResource("16_nyoux")
+volume_db = 22.09
 unit_size = 1.0
 pitch_scale = 0.7
 max_distance = 20.0

@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://14wugokxc8ss" path="res://UI/hud.gd" id="4_52ee3"]
 [ext_resource type="Animation" uid="uid://olreeajaotp5" path="res://PersonajePrincipal/anim_walking.res" id="4_megsn"]
 [ext_resource type="PackedScene" uid="uid://bcqdrwqljynll" path="res://UI/MenuPausa.tscn" id="4_nn08x"]
+[ext_resource type="AudioStream" uid="uid://c627dnxybfvtu" path="res://Items/FLASHLIGHT/187335__baidonovan__flashlight-clicking-on.wav" id="5_ksbbd"]
 [ext_resource type="AudioStream" uid="uid://mx48gi5v58cj" path="res://assets/recursos/Recoger.wav" id="5_megsn"]
+[ext_resource type="PackedScene" uid="uid://se1j70gigjou" path="res://Items/FLASHLIGHT/scene.gltf" id="5_yoq75"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0oi55"]
 radius = 0.34521484
@@ -68,15 +70,39 @@ libraries/Walking = SubResource("AnimationLibrary_ksbbd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034, 1.727, -0.05506453)
 
 [node name="Linterna" type="SpotLight3D" parent="Cabeza/Camera3D" unique_id=76177550]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15782243, 0, -0.24620861)
+light_cull_mask = 4294967279
 shadow_enabled = true
-shadow_caster_mask = 4294967291
+shadow_caster_mask = 4294967275
+distance_fade_enabled = true
+distance_fade_begin = 1.0
 spot_range = 12.0
 spot_angle = 35.0
 
+[node name="ENCENDER-APAGAR" type="AudioStreamPlayer" parent="Cabeza/Camera3D/Linterna" unique_id=899775053]
+stream = ExtResource("5_ksbbd")
+volume_db = 18.0
+mix_target = 1
+
 [node name="RayoInteraccion" type="RayCast3D" parent="Cabeza/Camera3D" unique_id=760247575]
 target_position = Vector3(0, 0, -3.5)
+
+[node name="Sketchfab_Scene" parent="Cabeza/Camera3D" unique_id=1180195472 instance=ExtResource("5_yoq75")]
+transform = Transform3D(-1.2239188e-08, 0, 0.28, 0, 0.28, 0, -0.28, 0, -1.2239188e-08, 0.23027903, 0, -0.04324454)
+
+[node name="defaultMaterial" parent="Cabeza/Camera3D/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Flashlight_low" parent_id_path=PackedInt32Array(1180195472, 366192280) index="0" unique_id=1438993479]
+layers = 16
+
+[node name="defaultMaterial2" parent="Cabeza/Camera3D/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Button_low" parent_id_path=PackedInt32Array(1180195472, 1946093217) index="0" unique_id=886245965]
+layers = 16
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cabeza/Camera3D" unique_id=896560200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23027903, 0, -0.29119033)
+visible = false
+shadow_caster_mask = 4294967040
+distance_fade_enabled = true
+spot_range = 0.10663272
+spot_angle = 58.55758
 
 [node name="interfaz" parent="." unique_id=365222599 instance=ExtResource("3_5ixxa")]
 script = ExtResource("4_52ee3")
@@ -97,3 +123,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.210989, 0)
 target_position = Vector3(0, 1.5, 0)
 
 [editable path="PlayerT"]
+[editable path="Cabeza/Camera3D/Sketchfab_Scene"]

@@ -46,6 +46,7 @@ var altura_camara_agachada: float = 0.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # --- NODOS ---
+@onready var sonido_linterna = $Cabeza/Camera3D/Linterna/"ENCENDER-APAGAR"
 @onready var anim = $PlayerT/AnimationPlayer
 @onready var camara = $Cabeza/Camera3D 
 @onready var linterna = $Cabeza/Camera3D/Linterna 
@@ -82,6 +83,7 @@ func _input(event):
 		toggle_pause.emit() 
 		
 	if event.is_action_pressed("linterna") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		sonido_linterna.play()
 		if linterna.visible:
 			linterna.visible = false
 			linterna_encendida = false
