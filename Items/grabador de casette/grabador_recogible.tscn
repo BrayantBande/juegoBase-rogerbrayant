@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ceghfhaqs3q60"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/grabador de casette/item_grabador.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://dsp46yd7c4fui" path="res://Items/grabador de casette/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_grab"]
+size = Vector3(0.13173828, 0.23623046, 0.04689331)
+
+[node name="GrabadorRecogible" type="StaticBody3D" unique_id=531472217]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1780388088]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.0012207031, 0.01772766, 0.0058105597)
+shape = SubResource("BoxShape3D_grab")
+
+[node name="GrabadorMesh" parent="." unique_id=2136362141 instance=ExtResource("3_mesh")]

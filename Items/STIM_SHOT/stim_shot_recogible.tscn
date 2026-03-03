@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://swonnfd643ii"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/STIM_SHOT/item_stim.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://dl14la2ern7kb" path="res://Items/STIM_SHOT/scene.gltf" id="3_mesh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aespr"]
+radius = 0.1977539
+height = 1.8032227
+
+[node name="StimShotRecogible" type="StaticBody3D" unique_id=55019115]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507633756]
+transform = Transform3D(0.335, 0, 0, 0, 0.335, 0, 0, 0, 0.335, -0.9248095, 1.0047766, -0.010945022)
+shape = SubResource("CapsuleShape3D_aespr")
+
+[node name="StimShotMesh" parent="." unique_id=177850160 instance=ExtResource("3_mesh")]
+transform = Transform3D(-4.3711387e-10, -0.01, 0, 0.01, -4.3711387e-10, 0, 0, 0, 0.01, -0.9234988, 0, -0.71319073)

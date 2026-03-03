@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dsit8b167ge5d"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/desfibrilador/item_desfibrilador.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://crytqrtijolfv" path="res://Items/desfibrilador/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_desf"]
+size = Vector3(0.9722748, 0.43519402, 0.91522217)
+
+[node name="DesfibriladorRecogible" type="StaticBody3D" unique_id=228282111]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1671426327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039131165, 0.22098637, -0.43093872)
+shape = SubResource("BoxShape3D_desf")
+
+[node name="DesfibriladorMesh" parent="." unique_id=263532143 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 0, 0, 0)

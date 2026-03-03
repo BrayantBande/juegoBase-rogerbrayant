@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://j1457yj6qfp4"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/Caja de musica/item_caja_musica.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://d10qm5onkx8oa" path="res://Items/Caja de musica/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_music"]
+size = Vector3(0.48510742, 0.45776367, 0.3623047)
+
+[node name="CajaMusicaRecogible" type="StaticBody3D" unique_id=471514358]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1293153277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036499023, 0.19592285, 0.04736328)
+shape = SubResource("BoxShape3D_music")
+
+[node name="MusicBoxMesh" parent="." unique_id=1465370892 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://muxqmaa5qdfo"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/UV_FLASHLIGHT/item_uv_flashlight.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://c3es4clrl1l7t" path="res://Items/UV_FLASHLIGHT/scene.gltf" id="3_mesh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uv"]
+height = 0.42976075
+radius = 0.08642578
+
+[node name="UVFlashlightRecogible" type="StaticBody3D" unique_id=834196396]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=598403941]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -9.871287e-11, 0.0022582859)
+shape = SubResource("CylinderShape3D_uv")
+
+[node name="UVFlashlightMesh" parent="." unique_id=1254760293 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.24, 0, 0, 0, 0.14443561, -0.19167252, 0, 0.19167252, 0.14443561, 0, 0, 0)

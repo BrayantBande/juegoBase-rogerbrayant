@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://nufi6pjetnt5"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/casette/item_casette.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://cta5fuivp1nbn" path="res://Items/casette/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_casette"]
+size = Vector3(0.18215331, 0.1, 0.040478516)
+
+[node name="CasetteRecogible" type="StaticBody3D" unique_id=473123564]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1931479310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017700195, 0, 0.0007568337)
+shape = SubResource("BoxShape3D_casette")
+
+[node name="CasetteMesh" parent="." unique_id=1848238223 instance=ExtResource("3_mesh")]

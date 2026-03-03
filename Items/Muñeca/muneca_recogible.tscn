@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c4b3w7jglnb2l"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/Muñeca/item_muneca.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://cg5wrjse1b3uf" path="res://Items/Muñeca/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_doll"]
+size = Vector3(0.26290894, 0.49387208, 0.2705078)
+
+[node name="MunecaRecogible" type="StaticBody3D" unique_id=1796465846]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1298781168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003616333, 0.25213623, 0.056152344)
+shape = SubResource("BoxShape3D_doll")
+
+[node name="MunecaMesh" parent="." unique_id=1550837128 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

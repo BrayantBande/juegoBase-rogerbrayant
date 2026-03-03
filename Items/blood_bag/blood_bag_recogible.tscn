@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bvgiwmfklydcb"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/blood_bag/item_blood_bag.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://bpgb3akeawf4q" path="res://Items/blood_bag/blood_bag/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blood"]
+size = Vector3(0.6303711, 1.2149048, 0.29486084)
+
+[node name="BloodBagRecogible" type="StaticBody3D" unique_id=1036435536]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1723666219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011962891, 0.7240773, -0.0039978027)
+shape = SubResource("BoxShape3D_blood")
+
+[node name="BloodBagMesh" parent="." unique_id=933429546 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)

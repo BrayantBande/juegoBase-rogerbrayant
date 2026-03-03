@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b26okqg11lk48"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/estetoscopio/item_estetoscopio.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://cgc806ywwxtrv" path="res://Items/estetoscopio/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_estet"]
+size = Vector3(0.352417, 0.1, 0.697876)
+
+[node name="EstetoscopioRecogible" type="StaticBody3D" unique_id=1496480096]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=830658847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13372803, 0, -0.08416748)
+shape = SubResource("BoxShape3D_estet")
+
+[node name="EstetoscopioMesh" parent="." unique_id=296101426 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, 0, 0.08480871)

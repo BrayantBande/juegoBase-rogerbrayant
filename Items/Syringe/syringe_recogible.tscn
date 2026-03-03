@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4eletro7mxat"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/Syringe/item_syringe.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://b1widhl1hkpiv" path="res://Items/Syringe/scene.gltf" id="3_mesh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0wx0"]
+radius = 0.3564453
+height = 2.3452148
+
+[node name="SyringeRecogible" type="StaticBody3D" unique_id=950465613]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1423049478]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, -0.013808593, 0)
+shape = SubResource("CapsuleShape3D_v0wx0")
+
+[node name="SyringeMesh" parent="." unique_id=2107869379 instance=ExtResource("3_mesh")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)

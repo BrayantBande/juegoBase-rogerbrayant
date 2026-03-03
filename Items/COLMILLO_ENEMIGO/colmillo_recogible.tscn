@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7ior4m8x8bor"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/COLMILLO_ENEMIGO/item_colmillo.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://chfyo7cwjx3hy" path="res://Items/COLMILLO_ENEMIGO/13280_autosave.glb" id="3_mesh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6i6sb"]
+height = 1.8583984
+
+[node name="ColmilloRecogible" type="StaticBody3D" unique_id=1671539642]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=762882452]
+transform = Transform3D(1.716328, 0.70912015, 0, -0.790294, 1.540038, 0, 0, 0, 2.1053216, 1.2038454, 2.5879178, 0.3951177)
+shape = SubResource("CapsuleShape3D_6i6sb")
+
+[node name="ColmilloMesh" parent="." unique_id=1576911096 instance=ExtResource("3_mesh")]

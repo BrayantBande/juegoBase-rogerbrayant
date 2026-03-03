@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bw37dnesxf23l"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/Documentos/item_documentos.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://cs46nee584o2b" path="res://Items/Documentos/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_docs"]
+size = Vector3(0.2861145, 0.025317382, 0.36810303)
+
+[node name="DocumentosRecogible" type="StaticBody3D" unique_id=2012912603]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295716234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113616735, 0.006311035, -0.0132751465)
+shape = SubResource("BoxShape3D_docs")
+
+[node name="DocumentosMesh" parent="." unique_id=335506985 instance=ExtResource("3_mesh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

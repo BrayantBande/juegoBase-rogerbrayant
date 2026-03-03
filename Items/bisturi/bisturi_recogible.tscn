@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cbkmbc8qq2v0i"]
+
+[ext_resource type="Script" uid="uid://c1tpbkr1nj78l" path="res://pickup.gd" id="1_script"]
+[ext_resource type="Resource" path="res://Items/bisturi/item_bisturi.tres" id="2_resource"]
+[ext_resource type="PackedScene" uid="uid://dnruhge36gahs" path="res://Items/bisturi/scene.gltf" id="3_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bisturi"]
+size = Vector3(0.12921143, 0.019108582, 0.015003204)
+
+[node name="BisturiRecogible" type="StaticBody3D" unique_id=1193984924]
+script = ExtResource("1_script")
+item_recurso = ExtResource("2_resource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1010750216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00030441466, -0.0011538565)
+shape = SubResource("BoxShape3D_bisturi")
+
+[node name="BisturiMesh" parent="." unique_id=975694292 instance=ExtResource("3_mesh")]
