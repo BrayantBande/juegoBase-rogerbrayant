@@ -110,11 +110,11 @@ func _ejecutar_evento_1():
 	await get_tree().create_timer(2.0).timeout
 	
 	# 3. Iniciar audio
-	print("Ejecutando audio del evento 1. Stream: ", flash_audio.stream)
 	if flash_audio.stream == null:
-		print("ERROR: El stream de audio es NULL")
-	flash_audio.play()
-	print("Audio play llamado")
+		flash_audio.stream = load("res://EVENTOS/EVENTO_1/AUDIO_FLASH.mp3")
+	
+	if flash_audio.stream:
+		flash_audio.play()
 	
 	# 4. Parpadeo rápido durante 5 segundos
 	var tiempo_total = 5.0

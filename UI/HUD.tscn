@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cal8xf64h1tvf" path="res://assets/recursos/inventory.jpg" id="3_4n7mi"]
 [ext_resource type="FontFile" uid="uid://cgsd35tke1ia2" path="res://assets/recursos/fonts/BebasNeue-Regular.ttf" id="4_uk570"]
 [ext_resource type="PackedScene" path="res://UI/ModMenu.tscn" id="5_modmenu"]
-[ext_resource type="Texture2D" uid="uid://c1v0cmwn037k6" path="res://EVENTOS/EVENTO_1/FLASSHSSSHHS.png" id="6_flash_img"]
-[ext_resource type="AudioStream" uid="uid://bxkxk2f15a43b" path="res://EVENTOS/EVENTO_1/FLASH_SOUND.wav" id="7_flash_snd"]
+[ext_resource type="Texture2D" path="res://EVENTOS/EVENTO_1/FLASSHSSSHHS.png" id="6_flash_img"]
+[ext_resource type="AudioStream" path="res://EVENTOS/EVENTO_1/AUDIO_FLASH.mp3" id="7_flash_snd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aou4a"]
 font_size = 12
