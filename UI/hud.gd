@@ -9,6 +9,9 @@ extends CanvasLayer
 @onready var panel_inventario = $PanelInventario
 @onready var barra_bateria = $FondoBateria/BarraBateria
 @onready var ancho_max_bateria = barra_bateria.size.x
+@onready var mod_menu = $ModMenu
+@onready var flash_image = $FlashImage
+@onready var flash_audio = $FlashAudio
 
 # Variables internas para animar (interpolar) las barras suavemente
 var estamina_objetivo = 100.0
@@ -21,6 +24,7 @@ var bateria_max = 100.0
 func _ready():
 	# 1. Ocultar textos y menús al inicio
 	panel_inventario.hide()
+	mod_menu.hide()
 	texto_interaccion.hide()
 	
 	# 2. Conectarse a las señales del Jugador automáticamente
@@ -32,6 +36,9 @@ func _ready():
 		player.interaction_detected.connect(_on_interaction_detected)
 		player.interaction_cleared.connect(_on_interaction_cleared)
 		player.toggle_inventory.connect(_on_toggle_inventory)
+		player.toggle_mod_menu.connect(_on_toggle_mod_menu)
+		mod_menu.closed.connect(_on_toggle_mod_menu)
+		mod_menu.event_triggered.connect(_on_event_triggered)
 
 func _process(delta):
 	# --- ANIMACIÓN SUAVE DE BARRAS ---
@@ -85,7 +92,46 @@ func _on_interaction_cleared():
 
 func _on_toggle_inventory():
 	panel_inventario.visible = not panel_inventario.visible
-	if panel_inventario.visible:
+	_actualizar_mouse_mode()
+
+func _on_toggle_mod_menu():
+	mod_menu.visible = not mod_menu.visible
+	_actualizar_mouse_mode()
+
+func _on_event_triggered(event_name: String):
+	if event_name == "evento_1":
+		_ejecutar_evento_1()
+
+func _ejecutar_evento_1():
+	# 1. Cerrar el menú y resumir el juego
+	_on_toggle_mod_menu()
+	
+	# 2. Esperar 2 segundos
+	await get_tree().create_timer(2.0).timeout
+	
+	# 3. Iniciar audio
+	print("Ejecutando audio del evento 1. Stream: ", flash_audio.stream)
+	if flash_audio.stream == null:
+		print("ERROR: El stream de audio es NULL")
+	flash_audio.play()
+	print("Audio play llamado")
+	
+	# 4. Parpadeo rápido durante 5 segundos
+	var tiempo_total = 5.0
+	var intervalo = 0.05
+	var pasadas = int(tiempo_total / intervalo)
+	
+	for i in range(pasadas):
+		flash_image.visible = not flash_image.visible
+		await get_tree().create_timer(intervalo).timeout
+	
+	# 5. Asegurar que quede oculto al final
+	flash_image.hide()
+
+func _actualizar_mouse_mode():
+	if panel_inventario.visible or mod_menu.visible:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true # Opcional: Pausar el juego si el menú está abierto
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().paused = false

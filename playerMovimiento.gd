@@ -8,6 +8,7 @@ signal interaction_cleared()
 signal toggle_inventory()
 signal toggle_pause()
 signal battery_changed(actual, maxima)
+signal toggle_mod_menu()
 
 
 var bateria_maxima = 100.0
@@ -118,6 +119,9 @@ func _input(event):
 		
 	if event.is_action_pressed("inventario"):
 		toggle_inventory.emit() 
+		
+	if event is InputEventKey and event.pressed and event.keycode == KEY_B:
+		toggle_mod_menu.emit()
 
 func _physics_process(delta):
 	#func _physics_process(delta):

@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://bj8euwji4xhg3" path="res://UI/inventory_ui.gd" id="2_ijstf"]
 [ext_resource type="Texture2D" uid="uid://cal8xf64h1tvf" path="res://assets/recursos/inventory.jpg" id="3_4n7mi"]
 [ext_resource type="FontFile" uid="uid://cgsd35tke1ia2" path="res://assets/recursos/fonts/BebasNeue-Regular.ttf" id="4_uk570"]
+[ext_resource type="PackedScene" path="res://UI/ModMenu.tscn" id="5_modmenu"]
+[ext_resource type="Texture2D" uid="uid://c1v0cmwn037k6" path="res://EVENTOS/EVENTO_1/FLASSHSSSHHS.png" id="6_flash_img"]
+[ext_resource type="AudioStream" uid="uid://bxkxk2f15a43b" path="res://EVENTOS/EVENTO_1/FLASH_SOUND.wav" id="7_flash_snd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aou4a"]
 font_size = 12
@@ -164,6 +167,27 @@ offset_top = 207.0
 offset_right = 779.0
 offset_bottom = 394.0
 color = Color(0, 0, 0, 0.5254902)
+
+[node name="ModMenu" parent="." unique_id=20260302 instance=ExtResource("5_modmenu")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+
+[node name="FlashImage" type="TextureRect" parent="." unique_id=20260303]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_flash_img")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FlashAudio" type="AudioStreamPlayer" parent="." unique_id=20260304]
+stream = ExtResource("7_flash_snd")
+volume_db = 15.0
+bus = &"Master"
 
 [node name="ContenedorPrincipal" type="HBoxContainer" parent="PanelInventario" unique_id=534225779]
 layout_mode = 1
