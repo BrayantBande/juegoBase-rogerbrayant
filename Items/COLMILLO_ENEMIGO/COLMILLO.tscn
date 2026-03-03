@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://hkryx7wdp3he"]
+
+[ext_resource type="PackedScene" uid="uid://chfyo7cwjx3hy" path="res://Items/COLMILLO_ENEMIGO/13280_autosave.glb" id="1_o2fxe"]
+[ext_resource type="Texture2D" uid="uid://dabgh4abcvsgl" path="res://Items/COLMILLO_ENEMIGO/13280_autosave_BLANCO Color base.png" id="2_rl2j6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75pwo"]
+albedo_texture = ExtResource("2_rl2j6")
+metallic = 1.0
+roughness = 0.43
+
+[node name="13280_autosave" unique_id=934942830 instance=ExtResource("1_o2fxe")]
+
+[node name="Cono" parent="." index="0" unique_id=976479108]
+surface_material_override/0 = SubResource("StandardMaterial3D_75pwo")
