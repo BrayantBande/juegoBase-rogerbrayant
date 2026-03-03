@@ -39,3 +39,6 @@ func obtener_items_por_categoria(categoria_buscada: int) -> Array:
 				"cantidad": inventario_cantidades[id]
 			})
 	return items_filtrados
+
+func tiene_item(id_item: String) -> bool:
+	return inventario_cantidades.has(id_item) and inventario_cantidades[id_item] > 0

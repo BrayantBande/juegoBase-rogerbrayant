@@ -37,7 +37,7 @@ var velocidad_actual = VELOCIDAD_CAMINAR
 const SENSITIVITY = 0.003 
 
 # --- CONFIGURACIÓN ESTILO TJOC ---
-const BOB_FREQ = 3.5 
+const BOB_FREQ = 6.5 
 const BOB_AMP = 0.12 
 const TILT_AMP = 0.001 
 var t_bob = 0.0
@@ -58,6 +58,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var linterna = $Cabeza/Camera3D/Linterna 
 @onready var rayo_interaccion = $Cabeza/Camera3D/RayoInteraccion
 @onready var sonido_recoger = $SonidoRecoger
+@onready var modelo_linterna = $Cabeza/Camera3D/Sketchfab_Scene
 
 # ¡NUEVO! Nodos para las físicas de agacharse
 @onready var colision = $CollisionShape3D
@@ -85,6 +86,11 @@ func _ready():
 	health_changed.emit(salud_actual, salud_maxima)
 	stamina_changed.emit(estamina_actual, estamina_maxima)
 	battery_changed.emit(bateria_actual, bateria_maxima)
+	linterna.visible = false
+	
+	# Escuchamos cambios en el inventario para mostrar/ocultar el modelo
+	InventoryManager.inventory_updated.connect(_actualizar_visibilidad_modelo)
+	_actualizar_visibilidad_modelo()
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -97,13 +103,18 @@ func _input(event):
 		toggle_pause.emit() 
 		
 	if event.is_action_pressed("linterna") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		sonido_linterna.play()
-		if linterna.visible:
-			linterna.visible = false
-			linterna_encendida = false
-		elif bateria_actual > 0:
-			linterna.visible = true
-			linterna_encendida = true
+		# Solo permitimos encender si tiene alguna de las dos linternas
+		if InventoryManager.tiene_item("LINTERNA") or InventoryManager.tiene_item("UV_FLASHLIGHT"):
+			sonido_linterna.play()
+			if linterna.visible:
+				linterna.visible = false
+				linterna_encendida = false
+			elif bateria_actual > 0:
+				linterna.visible = true
+				linterna_encendida = true
+		else:
+			# Opcional: Podrías poner un sonido de "error" o un mensaje corto
+			print("No tienes una linterna en el inventario.")
 		
 	if event.is_action_pressed("inventario"):
 		toggle_inventory.emit() 
@@ -275,3 +286,9 @@ func recibir_dano(cantidad: float):
 	
 func cambiar_color_linterna(color_nuevo: Color):
 	linterna.light_color = color_nuevo
+
+func _actualizar_visibilidad_modelo():
+	if InventoryManager.tiene_item("LINTERNA") or InventoryManager.tiene_item("UV_FLASHLIGHT"):
+		modelo_linterna.visible = true
+	else:
+		modelo_linterna.visible = false
