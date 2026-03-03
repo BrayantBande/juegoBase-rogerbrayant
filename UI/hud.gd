@@ -40,6 +40,13 @@ func _ready():
 		mod_menu.closed.connect(_on_toggle_mod_menu)
 		mod_menu.event_triggered.connect(_on_event_triggered)
 
+func _input(event):
+	if event.is_action_pressed("inventario"):
+		_on_toggle_inventory()
+	
+	if event is InputEventKey and event.pressed and event.keycode == KEY_B:
+		_on_toggle_mod_menu()
+
 func _process(delta):
 	# --- ANIMACIÓN SUAVE DE BARRAS ---
 	var porcentaje_estamina = estamina_objetivo / estamina_max

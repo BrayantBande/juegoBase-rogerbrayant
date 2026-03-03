@@ -116,12 +116,6 @@ func _input(event):
 		else:
 			# Opcional: Podrías poner un sonido de "error" o un mensaje corto
 			print("No tienes una linterna en el inventario.")
-		
-	if event.is_action_pressed("inventario"):
-		toggle_inventory.emit() 
-		
-	if event is InputEventKey and event.pressed and event.keycode == KEY_B:
-		toggle_mod_menu.emit()
 
 func _physics_process(delta):
 	#func _physics_process(delta):

@@ -30,6 +30,7 @@ border_width_bottom = 2
 border_color = Color(0.36078432, 0.11764706, 0.08627451, 1)
 
 [node name="interfaz" type="CanvasLayer" unique_id=365222599]
+process_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1226821747]
 custom_minimum_size = Vector2(1, 1)
