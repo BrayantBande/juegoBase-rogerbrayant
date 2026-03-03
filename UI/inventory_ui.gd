@@ -3,6 +3,7 @@ extends ColorRect
 @onready var cuadricula = $ContenedorPrincipal/LadoIzquierdo/CuadriculaItems
 @onready var lbl_nombre = $ContenedorPrincipal/PanelDetalles/NombreItem
 @onready var lbl_descripcion = $ContenedorPrincipal/PanelDetalles/DescripcionItem
+@onready var img_ampliada = $FondoVisual/IMAGEN_AMPLIADA
 
 @onready var btn_claves = $ContenedorPrincipal/LadoIzquierdo/Pestañas/BtnClaves
 @onready var btn_consumibles = $ContenedorPrincipal/LadoIzquierdo/Pestañas/BtnConsumibles
@@ -28,11 +29,13 @@ func _ready():
 	
 	lbl_nombre.text = ""
 	lbl_descripcion.text = "Selecciona un objeto..."
+	img_ampliada.texture = null
 
 func _cambiar_pestana(nueva_pestana: int):
 	pestana_actual = nueva_pestana
 	lbl_nombre.text = ""
 	lbl_descripcion.text = "Selecciona un objeto..."
+	img_ampliada.texture = null
 	
 	# --- NUEVO: Feedback Visual ---
 	# Color Cian Reanimación para el activo: #40e0d0
@@ -61,10 +64,12 @@ func actualizar_ui():
 func _mostrar_detalles(data):
 	lbl_nombre.text = data.nombre_item
 	lbl_descripcion.text = data.descripcion
+	img_ampliada.texture = data.icono
 	item_seleccionado_actual = data
 	
 	# Solo mostramos el botón "Usar" si estamos en la pestaña de Consumibles (1)
-	if pestana_actual == 1:
+	# O si es la linterna normal o UV
+	if pestana_actual == 1 or data.id_item == "LINTERNA" or data.id_item == "UV_FLASHLIGHT":
 		btn_usar.show()
 	else:
 		btn_usar.hide()
@@ -88,4 +93,18 @@ func _on_btn_usar_pressed():
 			item_seleccionado_actual = null
 			lbl_nombre.text = ""
 			lbl_descripcion.text = "¡Linterna recargada!"
+			img_ampliada.texture = null
 			btn_usar.hide()
+	
+	# Cambiar color de linterna (Normal vs UV)
+	elif item_seleccionado_actual.id_item == "LINTERNA":
+		var player = get_tree().get_first_node_in_group("jugador")
+		if player and player.has_method("cambiar_color_linterna"):
+			player.cambiar_color_linterna(Color.WHITE)
+			lbl_descripcion.text = "Modo: Linterna Normal"
+			
+	elif item_seleccionado_actual.id_item == "UV_FLASHLIGHT":
+		var player = get_tree().get_first_node_in_group("jugador")
+		if player and player.has_method("cambiar_color_linterna"):
+			player.cambiar_color_linterna(Color("9400d3ff")) # Violeta/Vibrant Purple
+			lbl_descripcion.text = "Modo: Linterna UV (Violeta)"

@@ -61,7 +61,7 @@ size = Vector3(16, 0.15, 25)
 material = SubResource("StandardMaterial3D_4cw5y")
 
 [node name="Marker3D" type="Marker3D" parent="NavigationRegion3D/Mapa" unique_id=1247634358 groups=["conductos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6318636, 1, -14)
 
 [node name="Marker3D2" type="Marker3D" parent="NavigationRegion3D/Mapa" unique_id=281469530 groups=["conductos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -27)

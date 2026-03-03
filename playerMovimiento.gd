@@ -273,6 +273,5 @@ func recibir_dano(cantidad: float):
 	health_changed.emit(salud_actual, salud_maxima)
 	print("¡Ay! Recibí daño. Salud restante: ", salud_actual)
 	
-	if salud_actual <= 0:
-		print("¡GAME OVER! El monstruo te atrapó.")
-		get_tree().reload_current_scene()
+func cambiar_color_linterna(color_nuevo: Color):
+	linterna.light_color = color_nuevo
