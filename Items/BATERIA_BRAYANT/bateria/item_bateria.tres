@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d1srwseyrs5vc"]
+
+[ext_resource type="Texture2D" uid="uid://bmahph42srcr2" path="res://Items/Baterias/bateria_01.png" id="1_aiwu1"]
+[ext_resource type="Script" uid="uid://c6kk6ygpbf6kp" path="res://Scripts/item_data.gd" id="1_i1tqo"]
+
+[resource]
+script = ExtResource("1_i1tqo")
+id_item = "CONSUMIBLE"
+nombre_item = "Bateria"
+descripcion = "Bateria que alimenta la Linterna"
+icono = ExtResource("1_aiwu1")
+metadata/_custom_type_script = "uid://c6kk6ygpbf6kp"

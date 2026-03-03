@@ -1,8 +1,6 @@
 # Archivos específicos de Godot
 .godot/
 *.translation
-*.res
-*.tres
 
 # Archivos de exportación
 export_presets.cfg

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cwmoaec5wmqtc"]
+
+[ext_resource type="Texture2D" uid="uid://b2r114o63swvs" path="res://Items/FLASHLIGHT/LINTERNA_ICONO.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://c6kk6ygpbf6kp" path="res://Scripts/item_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+id_item = "LINTERNA"
+nombre_item = "Linterna"
+descripcion = "Una linterna de mano. Proporciona una luz potente para ver en la oscuridad. Para usarla necesitarás baterias."
+icono = ExtResource("1_icon")
+metadata/_custom_type_script = "uid://c6kk6ygpbf6kp"

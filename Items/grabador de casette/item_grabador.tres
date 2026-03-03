@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Texture2D" uid="uid://dg0s00h1q5c4" path="res://Items/grabador de casette/REPRODUCTOR_ICONO.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://c6kk6ygpbf6kp" path="res://Scripts/item_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+id_item = "GRABADOR_CASSETTE"
+nombre_item = "Grabador de Cassette"
+descripcion = "Un reproductor y grabador de cintas portátil. Útil para escuchar testimonios grabados."
+icono = ExtResource("1_icon")
+metadata/_custom_type_script = "uid://c6kk6ygpbf6kp"

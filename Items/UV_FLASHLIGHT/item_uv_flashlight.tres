@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cakiocs0oipf"]
+
+[ext_resource type="Texture2D" uid="uid://bnmn0wppvxxlv" path="res://Items/UV_FLASHLIGHT/UV_FLASHLIGHT_ICONO.png" id="1_icon"]
+[ext_resource type="Script" uid="uid://c6kk6ygpbf6kp" path="res://Scripts/item_data.gd" id="2_script"]
+
+[resource]
+script = ExtResource("2_script")
+id_item = "UV_FLASHLIGHT"
+nombre_item = "Linterna UV"
+descripcion = "Una linterna de luz ultravioleta. Revela huellas y marcas invisibles al ojo humano. 
+Para usarla necesitarás baterias"
+icono = ExtResource("1_icon")
+metadata/_custom_type_script = "uid://c6kk6ygpbf6kp"
