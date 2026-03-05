@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bs36ay6fs4mbx" path="res://playerMovimiento.gd" id="1_5ixxa"]
 [ext_resource type="PackedScene" uid="uid://bp58st0ufgg4" path="res://PersonajePrincipal/playerFinal.tscn" id="2_nn08x"]
 [ext_resource type="PackedScene" uid="uid://c4rbtfdm3fcm3" path="res://UI/HUD.tscn" id="3_5ixxa"]
-[ext_resource type="Animation" uid="uid://d3ayko3htm4dl" path="res://PersonajePrincipal/anim_run.res" id="3_bhhdu"]
+[ext_resource type="Animation" uid="uid://cie5sklrys55x" path="res://PersonajePrincipal/anim_run.res" id="3_bhhdu"]
 [ext_resource type="Script" uid="uid://14wugokxc8ss" path="res://UI/hud.gd" id="4_52ee3"]
-[ext_resource type="Animation" uid="uid://olreeajaotp5" path="res://PersonajePrincipal/anim_walking.res" id="4_megsn"]
+[ext_resource type="Animation" uid="uid://86jp4d3lfgxe" path="res://PersonajePrincipal/anim_walking.res" id="4_megsn"]
 [ext_resource type="PackedScene" uid="uid://bcqdrwqljynll" path="res://UI/MenuPausa.tscn" id="4_nn08x"]
 [ext_resource type="AudioStream" uid="uid://c627dnxybfvtu" path="res://Items/FLASHLIGHT/187335__baidonovan__flashlight-clicking-on.wav" id="5_ksbbd"]
 [ext_resource type="AudioStream" uid="uid://mx48gi5v58cj" path="res://assets/recursos/Recoger.wav" id="5_megsn"]
@@ -26,6 +26,10 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" unique_id=1191387589 groups=["jugador"]]
+wall_min_slide_angle = 0.0
+floor_max_angle = 1.0471976
+floor_snap_length = 0.5
+safe_margin = 0.02
 script = ExtResource("1_5ixxa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=945974553]
@@ -36,31 +40,31 @@ debug_color = Color(0.99771994, 0, 0.15965265, 1)
 [node name="PlayerT" parent="." unique_id=582508383 instance=ExtResource("2_nn08x")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.073557615, 0)
 
-[node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="0" unique_id=539730261]
+[node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="0" unique_id=1054946555]
 layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Sneakers" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="1" unique_id=1527768337]
+[node name="Ch28_Sneakers" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="1" unique_id=1202113001]
 layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Pants" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="2" unique_id=410585913]
+[node name="Ch28_Pants" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="2" unique_id=1695383466]
 layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Hoody" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="3" unique_id=424608887]
+[node name="Ch28_Hoody" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="3" unique_id=1436564965]
 layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Eyelashes" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="4" unique_id=522565571]
+[node name="Ch28_Eyelashes" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="4" unique_id=2083191407]
 layers = 4
 cast_shadow = 3
 
-[node name="Ch28_Hair" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 2098150934) index="5" unique_id=217678363]
+[node name="Ch28_Hair" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="5" unique_id=617206330]
 layers = 4
 cast_shadow = 3
 
-[node name="AnimationPlayer" parent="PlayerT" index="1" unique_id=1175269299]
+[node name="AnimationPlayer" parent="PlayerT" index="1" unique_id=1456765478]
 libraries/Run = SubResource("AnimationLibrary_yoq75")
 libraries/Walking = SubResource("AnimationLibrary_ksbbd")
 
@@ -90,10 +94,10 @@ target_position = Vector3(0, 0, -3.5)
 [node name="Sketchfab_Scene" parent="Cabeza/Camera3D" unique_id=1180195472 instance=ExtResource("5_yoq75")]
 transform = Transform3D(-1.2239188e-08, 0, 0.28, 0, 0.28, 0, -0.28, 0, -1.2239188e-08, 0.23027903, 0, -0.04324454)
 
-[node name="defaultMaterial" parent="Cabeza/Camera3D/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Flashlight_low" parent_id_path=PackedInt32Array(1180195472, 366192280) index="0" unique_id=1438993479]
+[node name="defaultMaterial" parent="Cabeza/Camera3D/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Flashlight_low" parent_id_path=PackedInt32Array(1180195472, 37892115) index="0" unique_id=1629310023]
 layers = 16
 
-[node name="defaultMaterial2" parent="Cabeza/Camera3D/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Button_low" parent_id_path=PackedInt32Array(1180195472, 1946093217) index="0" unique_id=886245965]
+[node name="defaultMaterial2" parent="Cabeza/Camera3D/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Button_low" parent_id_path=PackedInt32Array(1180195472, 2040981609) index="0" unique_id=619619168]
 layers = 16
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Cabeza/Camera3D" unique_id=896560200]

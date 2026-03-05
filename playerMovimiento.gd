@@ -84,6 +84,13 @@ func _ready():
 	# Guardamos la altura original de la cámara basándonos en tu escena
 	altura_camara_normal = camara.position.y
 	
+	# --- MEJORAS DE FÍSICAS PARA ESCALERAS ---
+	floor_snap_length = 0.5 # Fuerza al personaje a "pegarse" al suelo al bajar escalones
+	floor_constant_speed = true # Evita que salte o acelere raro al subir escaleras
+	floor_max_angle = deg_to_rad(60.0) # Aumentado a 60 grados para evitar que se considere pared
+	floor_stop_on_slope = false 
+	# -----------------------------------------
+	
 	health_changed.emit(salud_actual, salud_maxima)
 	stamina_changed.emit(estamina_actual, estamina_maxima)
 	battery_changed.emit(bateria_actual, bateria_maxima)
@@ -206,6 +213,10 @@ func _physics_process(delta):
 		velocity.x = direction.x * velocidad_actual
 		velocity.z = direction.z * velocidad_actual
 		
+		# Forzamos al personaje hacia abajo ligeramente al moverse para que no "flote" al intentar bajar la rampa
+		if is_on_floor() and get_floor_normal() != Vector3.UP:
+			velocity.y -= 2.0 
+
 		if is_on_floor():
 			# (Si tienes una animación de agachado, la puedes poner aquí)
 			if velocidad_actual == VELOCIDAD_CORRER:
