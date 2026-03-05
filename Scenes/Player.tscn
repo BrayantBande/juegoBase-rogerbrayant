@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://se1j70gigjou" path="res://Items/FLASHLIGHT/scene.gltf" id="5_yoq75"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0oi55"]
-radius = 0.34521484
+radius = 0.3
 height = 1.8602104
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yoq75"]
@@ -33,7 +33,7 @@ safe_margin = 0.02
 script = ExtResource("1_5ixxa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=945974553]
-transform = Transform3D(-0.9, 0, -5.6824803e-08, 0, 1, 0, 7.86805e-08, 0, -0.65, 0, 0.93787193, -0.04186356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93787193, -0.04186356)
 shape = SubResource("CapsuleShape3D_0oi55")
 debug_color = Color(0.99771994, 0, 0.15965265, 1)
 

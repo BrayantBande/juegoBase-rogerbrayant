@@ -212,10 +212,6 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * velocidad_actual
 		velocity.z = direction.z * velocidad_actual
-		
-		# Forzamos al personaje hacia abajo ligeramente al moverse para que no "flote" al intentar bajar la rampa
-		if is_on_floor() and get_floor_normal() != Vector3.UP:
-			velocity.y -= 2.0 
 
 		if is_on_floor():
 			# (Si tienes una animación de agachado, la puedes poner aquí)
