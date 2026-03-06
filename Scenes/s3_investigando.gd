@@ -32,15 +32,14 @@ func actualizar_fisica(delta):
 	var pos_dest_plana = Vector2(enemigo.nav_agent.target_position.x, enemigo.nav_agent.target_position.z)
 	var distancia_al_destino = pos_enem_plana.distance_to(pos_dest_plana)
 	
-	if enemigo.nav_agent.is_navigation_finished() or distancia_al_destino < 1.5:
-		enemigo.velocity = Vector3.ZERO
+	if enemigo.nav_agent.is_navigation_finished() or distancia_al_destino < 1.5 or not enemigo.nav_agent.is_target_reachable():
+		enemigo.velocity.x = move_toward(enemigo.velocity.x, 0, delta * 15.0)
+		enemigo.velocity.z = move_toward(enemigo.velocity.z, 0, delta * 15.0)
 		tiempo_espera += delta
 		
 		# ¡LLEGÓ Y SE QUEDA QUIETO BUSCANDO!
 		if enemigo.anim.current_animation != "idle_anim":
 			enemigo.anim.play("idle_anim")
-		
-		print("S3: Buscando... ", snapped(tiempo_espera, 0.1), " seg")
 		
 		if tiempo_espera >= tiempo_max_espera:
 			print("S3: Falsa alarma. Volviendo a patrullar (S2).")
@@ -51,8 +50,8 @@ func actualizar_fisica(delta):
 		var direccion = enemigo.global_position.direction_to(siguiente_posicion)
 		direccion.y = 0 
 		direccion = direccion.normalized()
-		enemigo.velocity.x = direccion.x * (enemigo.velocidad_caminar*1.5)
-		enemigo.velocity.z = direccion.z * (enemigo.velocidad_caminar*1.5)
+		enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * (enemigo.velocidad_caminar * 1.5), delta * 8.0)
+		enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * (enemigo.velocidad_caminar * 1.5), delta * 8.0)
 		
 	enemigo.move_and_slide()
 

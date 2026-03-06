@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4117be86lxaf"
-path="res://.godot/imported/prueba.glb-c6c3e75c49d3b9aa2c69454fbf91c650.scn"
+uid="uid://650swjbirhfb"
+path="res://.godot/imported/Piso1Estructurado.glb-9d140e0259c6a11f7b71fe17549b72df.scn"
 
 [deps]
 
-source_file="res://Mapa/prueba.glb"
-dest_files=["res://.godot/imported/prueba.glb-c6c3e75c49d3b9aa2c69454fbf91c650.scn"]
+source_file="res://Mapa/Piso1Estructurado.glb"
+dest_files=["res://.godot/imported/Piso1Estructurado.glb-9d140e0259c6a11f7b71fe17549b72df.scn"]
 
 [params]
 

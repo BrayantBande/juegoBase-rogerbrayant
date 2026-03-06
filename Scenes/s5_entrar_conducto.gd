@@ -8,6 +8,9 @@ func entrar():
 	
 	if todos_los_conductos.size() == 0:
 		print("Error: No hay conductos en el mapa. Volviendo a S2.")
+		# Reiniciamos su velocidad a cero para evitar que siga con impulso viejo
+		enemigo.velocity.x = 0
+		enemigo.velocity.z = 0
 		transicion_solicitada.emit(self, "S2_Deambulando")
 		return
 		
@@ -42,7 +45,9 @@ func actualizar_fisica(_delta):
 	# ---------------------------------------------------------------
 
 	# Si por alguna razón el conducto desapareció, vuelve a patrullar
-	if not conducto_destino:
+	if not conducto_destino or not enemigo.nav_agent.is_target_reachable():
+		enemigo.velocity.x = move_toward(enemigo.velocity.x, 0, _delta * 12.0)
+		enemigo.velocity.z = move_toward(enemigo.velocity.z, 0, _delta * 12.0)
 		transicion_solicitada.emit(self, "S2_Deambulando")
 		return
 
@@ -67,17 +72,17 @@ func actualizar_fisica(_delta):
 			# Si está a más de 3 metros, camina normal
 			if enemigo.anim.current_animation != "walk_anim":
 				enemigo.anim.play("walk_anim")
-			# Usamos X y Z para no romper la gravedad y que no flote
-			enemigo.velocity.x = direccion.x * enemigo.velocidad_caminar
-			enemigo.velocity.z = direccion.z * enemigo.velocidad_caminar
+			# Usamos move_toward para hacerlo fluido
+			enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * enemigo.velocidad_caminar, _delta * 8.0)
+			enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * enemigo.velocidad_caminar, _delta * 8.0)
 			
 		else:
 			# Si está a 3 metros o menos, ¡se tira a gatear!
 			if enemigo.anim.current_animation != "crawl_anim":
 				enemigo.anim.play("crawl_anim")
-			# Va más lento al gatear (X y Z separados)
-			enemigo.velocity.x = direccion.x * (enemigo.velocidad_caminar * 0.7)
-			enemigo.velocity.z = direccion.z * (enemigo.velocidad_caminar * 0.7)
+			# Va más lento al gatear y fluido
+			enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * (enemigo.velocidad_caminar * 0.7), _delta * 8.0)
+			enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * (enemigo.velocidad_caminar * 0.7), _delta * 8.0)
 		# ------------------------------------------
 		
 		enemigo.move_and_slide()

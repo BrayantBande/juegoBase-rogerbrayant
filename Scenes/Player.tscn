@@ -28,7 +28,7 @@ _data = {
 [node name="Player" type="CharacterBody3D" unique_id=1191387589 groups=["jugador"]]
 wall_min_slide_angle = 0.0
 floor_max_angle = 1.0471976
-floor_snap_length = 0.5
+floor_snap_length = 0.2
 safe_margin = 0.02
 script = ExtResource("1_5ixxa")
 

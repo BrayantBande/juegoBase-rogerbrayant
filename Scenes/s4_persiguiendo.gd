@@ -31,7 +31,8 @@ func actualizar_fisica(delta):
 	# --- SISTEMA DE RECUPERACIÓN (Darle chance a Vance) ---
 	if tiempo_recuperacion > 0.0:
 		tiempo_recuperacion -= delta
-		enemigo.velocity = Vector3.ZERO 
+		enemigo.velocity.x = move_toward(enemigo.velocity.x, 0, delta * 20.0)
+		enemigo.velocity.z = move_toward(enemigo.velocity.z, 0, delta * 20.0)
 		enemigo.move_and_slide()
 		return 
 	# --------------------------------------------------------------
@@ -45,11 +46,19 @@ func actualizar_fisica(delta):
 	if distancia_al_jugador <= distancia_ataque:
 		print("¡ZAS! El monstruo te atacó. ¡CORRE!")
 		enemigo.anim.play("attack_anim")
+		
+		# ¡NUEVO!: Grito único de ataque
+		if enemigo.audios_ataque.size() > 0:
+			enemigo.ambiente_audio.stream = enemigo.audios_ataque.pick_random()
+			enemigo.ambiente_audio.pitch_scale = randf_range(0.8, 1.2)
+			enemigo.ambiente_audio.play()
+			
 		if jugador.has_method("recibir_dano"):
 			jugador.recibir_dano(34.0) 
 			
 		tiempo_recuperacion = 1.5
-		enemigo.velocity = Vector3.ZERO
+		enemigo.velocity.x = 0
+		enemigo.velocity.z = 0
 		enemigo.move_and_slide()
 		return 
 	# -------------------------
@@ -61,8 +70,8 @@ func actualizar_fisica(delta):
 		enemigo.nav_agent.target_position = enemigo.ultima_posicion_conocida
 	else:
 		tiempo_perdido += delta
-		if tiempo_perdido >= tiempo_para_perder:
-			print("Te perdí de vista... pasando a S3 para investigar.")
+		if tiempo_perdido >= tiempo_para_perder or not enemigo.nav_agent.is_target_reachable():
+			print("Te perdí de vista o no puedo alcanzarte... pasando a S3 para investigar.")
 			transicion_solicitada.emit(self, "S3_Investigando")
 			return 
 			
@@ -72,8 +81,8 @@ func actualizar_fisica(delta):
 	direccion.y = 0
 	direccion = direccion.normalized()
 	
-	enemigo.velocity.x = direccion.x * enemigo.velocidad_correr
-	enemigo.velocity.z = direccion.z * enemigo.velocidad_correr
+	enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * enemigo.velocidad_correr, delta * 12.0)
+	enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * enemigo.velocidad_correr, delta * 12.0)
 	enemigo.move_and_slide()
 	
 	# --- ¡AQUÍ ESTÁ LA MAGIA DEL AUDIO QUE FALTABA! ---

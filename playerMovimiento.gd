@@ -45,10 +45,10 @@ var t_bob = 0.0
 
 # ¡NUEVO! Variables para agacharse
 var esta_agachado: bool = false
-var altura_normal: float = 2.0
-var altura_agachado: float = 1.0
-var altura_camara_normal: float = 1.5
-var altura_camara_agachada: float = 0.5
+var altura_normal: float = 1.90 # La altura física del jugador
+var altura_agachado: float = 0.95 # A la mitad
+var altura_camara_normal: float = 1.75 # Los ojos un poco debajo del tope de la cabeza
+var altura_camara_agachada: float = 0.85 # Ojos al estar agachado
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -81,14 +81,17 @@ func _ready():
 	rayo_interaccion.add_exception(self)
 	
 	detector_techo.add_exception(self)
-	# Guardamos la altura original de la cámara basándonos en tu escena
-	altura_camara_normal = camara.position.y
+	# Forzamos los valores del script por encima de los de la escena de Godot
+	colision.shape.height = altura_normal
+	colision.position.y = altura_normal / 2.0
+	camara.position.y = altura_camara_normal
 	
 	# --- MEJORAS DE FÍSICAS PARA ESCALERAS ---
 	floor_snap_length = 0.5 # Fuerza al personaje a "pegarse" al suelo al bajar escalones
-	floor_constant_speed = true # Evita que salte o acelere raro al subir escaleras
+	floor_constant_speed = false # Evita que se atore la velocidad al chocar con escalones subiendo
+	floor_block_on_wall = false # Permite que el control de físicas resbale suavemente si golpea los bordes
 	floor_max_angle = deg_to_rad(60.0) # Aumentado a 60 grados para evitar que se considere pared
-	floor_stop_on_slope = false 
+	floor_stop_on_slope = true # Ayudará a no resbalar hacia abajo
 	# -----------------------------------------
 	
 	health_changed.emit(salud_actual, salud_maxima)
@@ -130,29 +133,13 @@ func _physics_process(delta):
 	var collision = $CollisionShape3D 
 	var hay_techo = $DetectorTecho.is_colliding() # Asegúrate que el nombre sea exacto
 
-	# 2. Lógica de Head Bob TJoC
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	var target_vars = _head_bob(t_bob)
-	
-	var altura_base = 1.5 
-	if collision.shape.height == altura_agachado:
-		altura_base = 0.5 
-
-	# Aplicamos posición (X, Y) y la rotación lateral (Z)
-	camara.transform.origin.y = lerp(camara.transform.origin.y, altura_base + target_vars.y, delta * 8.0)
-	camara.transform.origin.x = lerp(camara.transform.origin.x, target_vars.x, delta * 8.0)
-	
-	# El lerp_angle hace que el balanceo de la cámara sea fluido
-	camara.rotation.z = lerp_angle(camara.rotation.z, target_vars.z, delta * 5.0)
-	if not is_on_floor():
-		velocity.y -= gravity * delta
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	# --- ¡NUEVO! LÓGICA DE AGACHARSE ---
+	# --- ¡NUEVO! LÓGICA DE AGACHARSE Y ALTURA ---
 	if Input.is_action_pressed("agacharse"):
 		esta_agachado = true
 	else:
@@ -160,21 +147,27 @@ func _physics_process(delta):
 		if not detector_techo.is_colliding():
 			esta_agachado = false
 			
-	# Transición suave (Lerp) de la cámara y la colisión
+	var target_altura_cam = altura_camara_normal
+	var target_altura_col = altura_normal
+	
 	if esta_agachado:
-		# Achicamos la colisión Y bajamos su centro para que los pies toquen el suelo
-		colision.shape.height = lerp(colision.shape.height, altura_agachado, delta * 8.0)
-		colision.position.y = lerp(colision.position.y, altura_agachado / 2.0, delta * 8.0)
-		
-		# Bajamos la cámara a una altura decente (ajusta este 0.8 si quieres estar más alto o bajo)
-		camara.position.y = lerp(camara.position.y, 0.8, delta * 8.0)
-	else:
-		# Volvemos a la altura normal y subimos el centro de la colisión
-		colision.shape.height = lerp(colision.shape.height, altura_normal, delta * 8.0)
-		colision.position.y = lerp(colision.position.y, altura_normal / 2.0, delta * 8.0)
-		
-		# La cámara vuelve a su posición original
-		camara.position.y = lerp(camara.position.y, altura_camara_normal, delta * 8.0)
+		target_altura_cam = altura_camara_agachada
+		target_altura_col = altura_agachado
+
+	# 2. Lógica de Head Bob TJoC
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	var target_vars = _head_bob(t_bob)
+
+	# Transición suave (Lerp) de la colisión
+	colision.shape.height = lerp(colision.shape.height, target_altura_col, delta * 8.0)
+	colision.position.y = lerp(colision.position.y, target_altura_col / 2.0, delta * 8.0)
+	
+	# Transición suave de la cámara combinada con el Head Bob
+	camara.transform.origin.y = lerp(camara.transform.origin.y, target_altura_cam + target_vars.y, delta * 8.0)
+	camara.transform.origin.x = lerp(camara.transform.origin.x, target_vars.x, delta * 8.0)
+	
+	# El lerp_angle hace que el balanceo de la cámara sea fluido
+	camara.rotation.z = lerp_angle(camara.rotation.z, target_vars.z, delta * 5.0)
 	# ------------------------------------
 
 	# --- 3. SISTEMA DE ESTAMINA, SPRINT Y SIGILO ---
