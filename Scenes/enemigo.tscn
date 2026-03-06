@@ -391,14 +391,15 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ryvk"]
-height = 2.3
-radius = 0.35
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ryvk"]
+height = 2.85
+radius = 0.45
 
 [node name="Enemigo" type="CharacterBody3D" unique_id=1574111470 groups=["enemigo"]]
 script = ExtResource("1_6hm1l")
 
 [node name="EnemigoModel" parent="." unique_id=790216369 instance=ExtResource("2_0ryvk")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+transform = Transform3D(1.65, 0, 0, 0, 1.65, 0, 0, 0, 1.65, 0, 0.5, 0)
 
 [node name="Skeleton3D" parent="EnemigoModel" index="0" unique_id=1521492524]
 bones/1/position = Vector3(0, 0.10198416, -0.018585246)
@@ -554,13 +555,13 @@ bones/63/scale = Vector3(0.9999995, 1, 0.99999976)
 libraries/ = SubResource("AnimationLibrary_nrqrd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=319863590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1461657, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.425, 0)
 shape = SubResource("CapsuleShape3D_0ryvk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2074343]
 
 [node name="Vision" type="RayCast3D" parent="." unique_id=1457501364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5726803, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
 target_position = Vector3(0, 0, -10)
 
 [node name="MaquinaEstados" type="Node" parent="." unique_id=672696293 node_paths=PackedStringArray("estado_inicial")]

@@ -38,7 +38,7 @@ shape = SubResource("CapsuleShape3D_0oi55")
 debug_color = Color(0.99771994, 0, 0.15965265, 1)
 
 [node name="PlayerT" parent="." unique_id=582508383 instance=ExtResource("2_nn08x")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.073557615, 0)
+transform = Transform3D(-1.25, 0, -1.09278475e-07, 0, 1.25, 0, 1.09278475e-07, 0, -1.25, 0, 0.073557615, 0)
 
 [node name="Ch28_Body" parent="PlayerT/Skeleton3D" parent_id_path=PackedInt32Array(582508383, 1175929259) index="0" unique_id=1054946555]
 layers = 4

@@ -45,10 +45,10 @@ var t_bob = 0.0
 
 # ¡NUEVO! Variables para agacharse
 var esta_agachado: bool = false
-var altura_normal: float = 1.90 # La altura física del jugador
-var altura_agachado: float = 0.95 # A la mitad
-var altura_camara_normal: float = 1.75 # Los ojos un poco debajo del tope de la cabeza
-var altura_camara_agachada: float = 0.85 # Ojos al estar agachado
+var altura_normal: float = 2.40 # La altura física del jugador
+var altura_agachado: float = 1.20 # A la mitad
+var altura_camara_normal: float = 2.25 # Los ojos un poco debajo del tope de la cabeza
+var altura_camara_agachada: float = 1.05 # Ojos al estar agachado
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
