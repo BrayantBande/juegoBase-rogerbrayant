@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d3puk4jbpbt76"]
 
 [ext_resource type="Script" uid="uid://ou0storvo0x7" path="res://Scenes/zonaSegura.gd" id="1_uqtxj"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bdlwtx761e5f8" path="res://Scenes/mundo.occ" id="2_1bodn"]
 [ext_resource type="PackedScene" uid="uid://650swjbirhfb" path="res://Mapa/Piso1Estructurado.glb" id="5_qxsm7"]
 [ext_resource type="PackedScene" uid="uid://owrfm221ig6s" path="res://Items/Baterias/bateria_recogible.tscn" id="5_yf8a8"]
 [ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="6_qxsm7"]
@@ -21,15 +22,30 @@ agent_radius = 0.35
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqidu"]
 size = Vector3(5.9956055, 31.62561, 51.004665)
 
-[sub_resource type="Environment" id="Environment_5ckkb"]
+[sub_resource type="Environment" id="Environment_Realistic"]
 background_mode = 1
-background_color = Color(0.006466695, 0.0064666974, 0.0064666965, 1)
+background_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.039215688, 0.05490196, 0.078431375, 1)
-ambient_light_energy = 0.5
+ambient_light_color = Color(0.0392157, 0.054902, 0.0784314, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 3
+tonemap_exposure = 1.05
+tonemap_white = 1.0
+ssr_enabled = false
+ssao_enabled = true
+ssao_radius = 0.35
+ssao_intensity = 1.5
+ssil_enabled = false
+sdfgi_enabled = false
 glow_enabled = true
-glow_blend_mode = 2
-glow_hdr_threshold = 0.5
+glow_intensity = 0.5
+glow_strength = 1.0
+glow_bloom = 0.01
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.12549, 0.160784, 0.2, 1)
+volumetric_fog_length = 25.0
 
 [node name="Juego" type="Node3D" unique_id=83092484]
 
@@ -49,6 +65,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075683566, -13.13678, 17.
 visible = false
 shape = SubResource("BoxShape3D_gqidu")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="NavigationRegion3D/Mapa" unique_id=123456789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.5561, -0.7, -3.4237)
+occluder = ExtResource("2_1bodn")
+
 [node name="Piso1Estructurado" parent="NavigationRegion3D/Mapa" unique_id=1364581196 instance=ExtResource("5_qxsm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.55612, -0.7, -3.423685)
 
@@ -58,15 +78,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.55612, -0.7, -3.423685)
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -77.430084, 1.4380679, -1.65024)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2108903115]
-transform = Transform3D(0.68830997, -0.52557516, 0.49999997, 0.025911013, 0.70663184, 0.70710677, -0.7249537, -0.47375315, 0.49999997, 33.279907, 9.323355, 0)
-light_color = Color(0.6117647, 0.69411767, 0.76862746, 1)
-light_energy = 0.3
+transform = Transform3D(0.68831, -0.525575, 0.5, 0.025911, 0.706632, 0.707107, -0.724954, -0.473753, 0.5, 33.2799, 9.32336, 0)
+light_color = Color(0.611765, 0.694118, 0.768627, 1)
+light_energy = 0.15
 shadow_enabled = true
-shadow_opacity = 0.8
-shadow_caster_mask = 4294967279
+shadow_opacity = 0.95
+shadow_blur = 1.5
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646132796]
-environment = SubResource("Environment_5ckkb")
+environment = SubResource("Environment_Realistic")
 
 [node name="BateriaRecogible" parent="." unique_id=2116277780 instance=ExtResource("5_yf8a8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.97485, 0.62458944, -5.474898)
@@ -81,3 +103,5 @@ audios_ataque = Array[AudioStream]([ExtResource("11_ppd06")])
 
 [connection signal="body_entered" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_exited"]
+
+[editable path="NavigationRegion3D/Mapa/Piso1Estructurado"]

@@ -13,7 +13,7 @@ func entrar():
 	jugador = get_tree().get_first_node_in_group("jugador")
 	debe_esperar = false
 	apenas_arrancando = true
-	tiempo_ambiente = randf_range(5.0, 15.0) # Esperará entre 5 y 15 segundos para el primer gruñido
+	tiempo_ambiente = randf_range(3.0, 8.0) # Más rápido el primer gruñido
 	buscar_nuevo_punto()
 	# ¡LE DAMOS PLAY A CAMINAR!
 	enemigo.anim.play("walk_anim")
@@ -35,11 +35,11 @@ func actualizar_fisica(delta):
 	# --- SISTEMA DE SONIDOS AMBIENTALES ---
 	tiempo_ambiente -= delta
 	if tiempo_ambiente <= 0.0:
-		# Reinicia el temporizador para el próximo gruñido aleatorio (entre 8 a 20 segundos)
-		tiempo_ambiente = randf_range(8.0, 20.0)
+		# Reinicia el temporizador para el próximo gruñido aleatorio (entre 5 a 12 segundos)
+		tiempo_ambiente = randf_range(5.0, 12.0)
 		
 		# Si el usuario puso audios en el inspector, elige uno al azar y lo reproduce
-		if enemigo.audios_ambiente.size() > 0:
+		if enemigo.audios_ambiente.size() > 0 and not enemigo.ambiente_audio.playing:
 			enemigo.ambiente_audio.stream = enemigo.audios_ambiente.pick_random()
 			# Variamos un poco el tono para que el mismo gruñido suene distinto
 			enemigo.ambiente_audio.pitch_scale = randf_range(0.9, 1.1)

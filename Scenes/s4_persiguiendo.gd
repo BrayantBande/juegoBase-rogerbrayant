@@ -18,12 +18,17 @@ func entrar():
 	enemigo.anim.play("run_anim")
 	
 	# --- PRIMER GRITO ---
-	enemigo.grito_audio.pitch_scale = 1.0 # Tono normal al verte
+	if enemigo.audios_ataque.size() > 0:
+		enemigo.grito_audio.stream = enemigo.audios_ataque.pick_random()
+	elif enemigo.audios_ambiente.size() > 0:
+		enemigo.grito_audio.stream = enemigo.audios_ambiente.pick_random()
+	
+	enemigo.grito_audio.pitch_scale = randf_range(0.9, 1.1)
 	if not enemigo.grito_audio.playing:
 		enemigo.grito_audio.play()
 		
 	# ¡NUEVO! Iniciamos la cuenta regresiva para el siguiente gruñido
-	temporizador_grunido = randf_range(1.5, 3.0)
+	temporizador_grunido = randf_range(1.0, 2.5)
 
 func actualizar_fisica(delta):
 	if not jugador: return
@@ -86,16 +91,22 @@ func actualizar_fisica(delta):
 	enemigo.move_and_slide()
 	
 	# --- ¡AQUÍ ESTÁ LA MAGIA DEL AUDIO QUE FALTABA! ---
+	# --- ¡AQUÍ ESTÁ LA MAGIA DEL AUDIO QUE FALTABA! ---
 	if not enemigo.grito_audio.playing:
 		temporizador_grunido -= delta # El tiempo va bajando en cada frame
 		
 		# Si el cronómetro llega a cero, suelta otro rugido aleatorio
 		if temporizador_grunido <= 0.0:
+			if enemigo.audios_ataque.size() > 0:
+				enemigo.grito_audio.stream = enemigo.audios_ataque.pick_random()
+			elif enemigo.audios_ambiente.size() > 0:
+				enemigo.grito_audio.stream = enemigo.audios_ambiente.pick_random()
+				
 			enemigo.grito_audio.pitch_scale = randf_range(0.7, 1.1) 
 			enemigo.grito_audio.play()
 			
-			# Reinicia el cronómetro para esperar entre 2 y 5 segundos más
-			temporizador_grunido = randf_range(2.0, 5.0)
+			# Reinicia el cronómetro para esperar entre 1.5 y 3.5 segundos más (más frecuente)
+			temporizador_grunido = randf_range(1.5, 3.5)
 	# --------------------------------------------------
 
 func revisar_vision_s4() -> bool:
