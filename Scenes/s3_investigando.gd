@@ -12,8 +12,12 @@ func entrar():
 	tiempo_caminando = 0.0
 	
 	# Le decimos que vaya a la MEMORIA, no a tu ubicación actual secreta
-	enemigo.nav_agent.target_position = enemigo.ultima_posicion_conocida
+	# Mapeamos la memoria siempre al punto válido más cercano del NavMesh para evitar errores
+	var mapa_nav = enemigo.get_world_3d().get_navigation_map()
+	enemigo.nav_agent.target_position = NavigationServer3D.map_get_closest_point(mapa_nav, enemigo.ultima_posicion_conocida)
+	
 	enemigo.anim.play("walk_anim")
+	enemigo.anim.speed_scale = 1.0
 
 func actualizar_fisica(delta):
 	if revisar_vision_s3():

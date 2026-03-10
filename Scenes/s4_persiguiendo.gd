@@ -44,6 +44,7 @@ func actualizar_fisica(delta):
 	
 	if enemigo.anim.current_animation != "run_anim" and tiempo_recuperacion <= 0.0:
 		enemigo.anim.play("run_anim")
+		enemigo.anim.speed_scale = 1.2 # Corre más rápido la animación
 	
 	# --- SISTEMA DE ATAQUE ---
 	var distancia_al_jugador = enemigo.global_position.distance_to(jugador.global_position)
@@ -72,11 +73,16 @@ func actualizar_fisica(delta):
 	if revisar_vision_s4():
 		tiempo_perdido = 0.0
 		enemigo.ultima_posicion_conocida = jugador.global_position
-		enemigo.nav_agent.target_position = enemigo.ultima_posicion_conocida
+		
+		# Evitar crasheos si el jugador sale del NavMesh encontrando el punto válido más cercano
+		var mapa_nav = enemigo.get_world_3d().get_navigation_map()
+		enemigo.nav_agent.target_position = NavigationServer3D.map_get_closest_point(mapa_nav, enemigo.ultima_posicion_conocida)
 	else:
 		tiempo_perdido += delta
-		if tiempo_perdido >= tiempo_para_perder or not enemigo.nav_agent.is_target_reachable():
-			print("Te perdí de vista o no puedo alcanzarte... pasando a S3 para investigar.")
+		
+		# ¡NUEVO!: También se pierde si te lograste meter en una zona segura
+		if tiempo_perdido >= tiempo_para_perder or not enemigo.nav_agent.is_target_reachable() or (jugador.has_method("get") and jugador.get("esta_a_salvo")):
+			print("Te perdí de vista o te metiste en un lugar seguro... pasando a S3 para investigar.")
 			transicion_solicitada.emit(self, "S3_Investigando")
 			return 
 			

@@ -17,6 +17,7 @@ func entrar():
 	buscar_nuevo_punto()
 	# ¡LE DAMOS PLAY A CAMINAR!
 	enemigo.anim.play("walk_anim")
+	enemigo.anim.speed_scale = 1.0
 
 func actualizar_fisica(delta):
 	# 1. ¿Vemos al jugador? (Pasa a S4)

@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 # Variables de velocidad que usarán los estados
 @export var velocidad_caminar: float = 1.5
+@export var velocidad_correr: float = 3.5
 # Sonidos
 @export var audios_ambiente: Array[AudioStream]
 @export var audios_ataque: Array[AudioStream]
@@ -52,9 +53,9 @@ func _physics_process(delta):
 				# Si corre (S4, rapidez por encima de 2.0), el tono es más rápido y suena antes. Si camina, más natural.
 				if rapidez_actual > 2.0:
 					pasos_audio.pitch_scale = randf_range(1.15, 1.35)
-					temporizador_pasos = 0.35 # Medio segundo entre pasos al correr
+					temporizador_pasos = 0.28 # MÁS RÁPIDO: Casi 3 pasos por segundo al correr
 				else:
 					pasos_audio.pitch_scale = randf_range(0.95, 1.1)
-					temporizador_pasos = 0.65 # Casi un segundo entre pasos al caminar
+					temporizador_pasos = 0.55 # Ajustado para la animación de caminar normal
 					
 				pasos_audio.play()

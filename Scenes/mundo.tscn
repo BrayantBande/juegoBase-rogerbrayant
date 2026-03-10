@@ -20,7 +20,7 @@ agent_height = 2.3
 agent_radius = 0.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqidu"]
-size = Vector3(5.9956055, 31.62561, 51.004665)
+size = Vector3(0.22338867, 6.1922455, 11.58393)
 
 [sub_resource type="Environment" id="Environment_Realistic"]
 background_mode = 1
@@ -30,18 +30,12 @@ ambient_light_color = Color(0.0392157, 0.054902, 0.0784314, 1)
 ambient_light_energy = 0.1
 tonemap_mode = 3
 tonemap_exposure = 1.05
-tonemap_white = 1.0
-ssr_enabled = false
 ssao_enabled = true
 ssao_radius = 0.35
 ssao_intensity = 1.5
-ssil_enabled = false
-sdfgi_enabled = false
 glow_enabled = true
 glow_intensity = 0.5
-glow_strength = 1.0
 glow_bloom = 0.01
-glow_blend_mode = 1
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.12549, 0.160784, 0.2, 1)
@@ -61,8 +55,7 @@ transform = Transform3D(30.765373, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.960487, 0)
 script = ExtResource("1_uqtxj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Mapa/Area3D" unique_id=977772505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075683566, -13.13678, 17.914225)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5137925, -12.061607, -4.6484327)
 shape = SubResource("BoxShape3D_gqidu")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="NavigationRegion3D/Mapa" unique_id=123456789]
@@ -103,5 +96,3 @@ audios_ataque = Array[AudioStream]([ExtResource("11_ppd06")])
 
 [connection signal="body_entered" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_exited"]
-
-[editable path="NavigationRegion3D/Mapa/Piso1Estructurado"]

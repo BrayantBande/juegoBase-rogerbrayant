@@ -19,6 +19,10 @@ func _ready():
 	# Esperamos a que el padre (Enemigo) termine de cargar sus variables @onready
 	await get_parent().ready 
 	
+	# NUEVO: Esperar el primer frame de físicas para que el mapa de navegación se sincronice.
+	# Esto evita el error de "NavigationServer map query failed".
+	await get_tree().physics_frame
+	
 	# Ahora sí, arrancamos la máquina
 	if estado_inicial:
 		estado_inicial.entrar()

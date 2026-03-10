@@ -95,14 +95,9 @@ agacharse={
 
 [rendering]
 
-occlusion_culling/use_occlusion_culling=true
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=1
 scaling_3d/mode=2
 scaling_3d/scale=0.8
-anti_aliasing/quality/msaa_3d=1
+occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_size=2048
-environment/volumetric_fog/volume_size=64
-environment/volumetric_fog/volume_depth=64
-textures/vram_compression/import_etc2_astc=true
-
-[display]
-window/vsync/vsync_mode=1
