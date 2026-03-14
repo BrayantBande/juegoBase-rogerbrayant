@@ -33,10 +33,16 @@ process_mode = 3
 layout_mode = 2
 text = "Continuar"
 
+[node name="opciones" type="Button" parent="ColorRect/VBoxContainer" unique_id=748293845]
+process_mode = 3
+layout_mode = 2
+text = "Opciones"
+
 [node name="salirDelJuego" type="Button" parent="ColorRect/VBoxContainer" unique_id=1858052235]
 process_mode = 3
 layout_mode = 2
 text = "Salir del Juego"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/salirDelJuego" to="." method="_on_salir_del_juego_pressed"]

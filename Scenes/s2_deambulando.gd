@@ -14,6 +14,10 @@ func entrar():
 	debe_esperar = false
 	apenas_arrancando = true
 	tiempo_ambiente = randf_range(3.0, 8.0) # Más rápido el primer gruñido
+	
+	# Esperar un frame físico extra para evitar el error de NavigationServer "map query failed"
+	await get_tree().physics_frame
+	
 	buscar_nuevo_punto()
 	# ¡LE DAMOS PLAY A CAMINAR!
 	enemigo.anim.play("walk_anim")
@@ -95,6 +99,11 @@ func buscar_nuevo_punto():
 		
 	# Si no (92% de las veces), busca un punto aleatorio normal
 	var mapa_nav = enemigo.get_world_3d().get_navigation_map()
+	
+	# ¡Solución definitiva al error de sincronización!
+	if NavigationServer3D.map_get_iteration_id(mapa_nav) == 0:
+		await NavigationServer3D.map_changed
+		
 	var iteraciones = 0
 	var punto_valido = false
 	

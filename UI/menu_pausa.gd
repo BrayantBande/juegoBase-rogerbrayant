@@ -28,5 +28,16 @@ func _on_toggle_pause():
 func _on_continuar_pressed():
 	_on_toggle_pause() # Reutilizamos la lógica de arriba
 
+func _on_opciones_pressed() -> void:
+	# Ocultar botones e instanciar opciones
+	$ColorRect/VBoxContainer.hide()
+	var opciones_scene = load("res://UI/OptionsMenu.tscn").instantiate()
+	add_child(opciones_scene)
+	opciones_scene.connect("cerrar_opciones", _on_cerrar_opciones.bind(opciones_scene))
+	
+func _on_cerrar_opciones(nodo_opciones: Node) -> void:
+	nodo_opciones.queue_free()
+	$ColorRect/VBoxContainer.show()
+
 func _on_salir_del_juego_pressed():
 	get_tree().quit()

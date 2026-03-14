@@ -47,6 +47,13 @@ theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
 text = "INICIAR"
 
+[node name="Opciones" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "OPCIONES"
+
 [node name="Salir" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
@@ -55,4 +62,5 @@ theme_override_font_sizes/font_size = 40
 text = "SALIR"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

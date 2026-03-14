@@ -20,7 +20,9 @@ InventoryManager="*uid://cenc5vbw72owd"
 
 [display]
 
+window/size/mode=0
 window/stretch/mode="canvas_items"
+window/subwindows/embed_subwindows=false
 
 [godot_hub]
 

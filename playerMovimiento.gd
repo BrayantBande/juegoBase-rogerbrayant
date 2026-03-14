@@ -65,7 +65,22 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var colision = $CollisionShape3D
 @onready var detector_techo = $DetectorTecho # Lo crearemos en la escena
 
+# --- SISTEMA DE AUDIO (PASOS Y RESPIRACIÓN) ---
+@export_category("Audios Player")
+@export var sonidos_pasos_default: Array[AudioStream]
+@export var sonidos_pasos_madera: Array[AudioStream]
+@export var sonidos_pasos_metal: Array[AudioStream]
+@export var sonido_respiracion_agitada: AudioStream
+
+@onready var raycast_piso = $RayCastPiso
+@onready var audio_pasos = $PasosPlayer
+@onready var audio_respiracion = $RespiracionPlayer
+
+var tiempo_ultimo_paso = 0.0
+var esta_respirando_agitado = false
+
 # --- VARIABLES DE ESTADO ---
+var estaba_agachado = false # Para detectar transiciones
 var mirando_item = false
 func _head_bob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -102,6 +117,9 @@ func _ready():
 	# Escuchamos cambios en el inventario para mostrar/ocultar el modelo
 	InventoryManager.inventory_updated.connect(_actualizar_visibilidad_modelo)
 	_actualizar_visibilidad_modelo()
+	
+	# Desactivamos la sombra que proyecta el modelo 3D de la linterna
+	_desactivar_sombras_hijos(modelo_linterna)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -202,15 +220,27 @@ func _physics_process(delta):
 	# ----------------------------------------------
 
 	# 4. Movimiento y Animaciones
+	# Primero verificamos transiciones forzosas de la postura
+	if is_on_floor():
+		if esta_agachado and not estaba_agachado:
+			anim.play("Crouching/Agachandose")
+		elif not esta_agachado and estaba_agachado:
+			anim.play("Crouching/Parandose")
+	
+	var en_transicion = anim.current_animation in ["Crouching/Agachandose", "Crouching/Parandose"]
+
 	if direction:
 		velocity.x = direction.x * velocidad_actual
 		velocity.z = direction.z * velocidad_actual
 
-		if is_on_floor():
-			# (Si tienes una animación de agachado, la puedes poner aquí)
+		if is_on_floor() and not en_transicion:
+			# Lógica de animación según la velocidad
 			if velocidad_actual == VELOCIDAD_CORRER:
 				if anim.current_animation != "Run/Run":
 					anim.play("Run/Run")
+			elif velocidad_actual == VELOCIDAD_AGACHADO:
+				if anim.current_animation != "Crouching/Caminando_Agachado": 
+					anim.play("Crouching/Caminando_Agachado")
 			elif velocidad_actual == VELOCIDAD_CAMINAR:
 				if anim.current_animation != "Walking/Walking":
 					anim.play("Walking/Walking")
@@ -218,12 +248,67 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, velocidad_actual)
 		velocity.z = move_toward(velocity.z, 0, velocidad_actual)
 		
-		if is_on_floor() and anim.current_animation != "Idle/Idle":
-			anim.play("Idle/Idle")
+		if is_on_floor() and not en_transicion:
+			if esta_agachado:
+				if anim.current_animation != "Crouching/AgachadoQuieto":
+					anim.play("Crouching/AgachadoQuieto")
+			else:
+				if anim.current_animation != "Idle/Idle":
+					anim.play("Idle/Idle")
+					
+	# Guardar memoria para el próximo ciclo
+	estaba_agachado = esta_agachado
 
 	move_and_slide() # [cite: 60]
 	
+	# --- SISTEMA DE PASOS ---
+	if is_on_floor() and direction != Vector3.ZERO:
+		tiempo_ultimo_paso += delta
+		var intervalo_actual = 0.6
+		var volumen_paso = 0.0
+		var pitch_paso = 0.75 # ORIGINAL ERA 1.0 (Bajamos el Pitch para que suene más pesado y masculino)
+		
+		if velocidad_actual == VELOCIDAD_CORRER:
+			intervalo_actual = 0.35
+			volumen_paso = 5.0
+			pitch_paso = 0.9 # ORIGINAL ERA 1.2
+		elif velocidad_actual == VELOCIDAD_AGACHADO:
+			intervalo_actual = 0.8
+			volumen_paso = -6.0 # Subido de -15.0 para que se escuche algo, pero suave
+			pitch_paso = 0.6 # ORIGINAL ERA 0.8
+			
+		if tiempo_ultimo_paso >= intervalo_actual:
+			_reproducir_sonido_paso(volumen_paso, pitch_paso)
+			tiempo_ultimo_paso = 0.0
+	else:
+		tiempo_ultimo_paso = 0.0
+		
+	# --- SISTEMA DE RESPIRACIÓN (ESTAMINA) ---
+	# Empieza a respirar agitado al terminar de correr si la estamina bajó de un cierto límite (ej. se gastó mucho)
+	if not Input.is_action_pressed("correr") and estamina_actual < (estamina_maxima * 0.2) and not esta_respirando_agitado:
+		esta_respirando_agitado = true
+		if audio_respiracion and sonido_respiracion_agitada:
+			audio_respiracion.stream = sonido_respiracion_agitada
+			audio_respiracion.play()
+	# Se le quita la respiración agitada cuando recupera el 60% de la estamina para que empiece a calmarse
+	elif estamina_actual >= estamina_maxima * 0.6 and esta_respirando_agitado:
+		esta_respirando_agitado = false
+		
 func _process(_delta):
+	# --- FADE OUT DE RESPIRACIÓN MUY GRADUAL ---
+	if audio_respiracion:
+		if esta_respirando_agitado:
+			# Si está agitado, el volumen sube suavemente hasta 0 dB (volumen normal)
+			audio_respiracion.volume_db = lerp(audio_respiracion.volume_db, 0.0, _delta * 2.0)
+		else:
+			# Si se está calmando, baja muuuuy lentamente hasta -40dB (silencio casi total)
+			audio_respiracion.volume_db = lerp(audio_respiracion.volume_db, -40.0, _delta * 0.5)
+			
+			# Si ya casi no se escucha, apagamos el motor del audio
+			if audio_respiracion.volume_db <= -38.0 and audio_respiracion.playing:
+				audio_respiracion.stop()
+				audio_respiracion.volume_db = 0.0 # Reseteo para la próxima carrera
+				
 	# --- SISTEMA DE LINTERNA ---
 	if linterna.visible and bateria_actual > 0:
 		bateria_actual -= consumo_bateria * _delta # [cite: 72]
@@ -290,3 +375,37 @@ func _actualizar_visibilidad_modelo():
 		modelo_linterna.visible = true
 	else:
 		modelo_linterna.visible = false
+
+func _reproducir_sonido_paso(vol_db, pitch):
+	if not audio_pasos or sonidos_pasos_default.is_empty():
+		return
+		
+	var array_sonidos = sonidos_pasos_default
+	var tipo_suelo = "Default"
+	
+	if raycast_piso and raycast_piso.is_colliding():
+		var colisionador = raycast_piso.get_collider()
+		if colisionador:
+			if colisionador.is_in_group("superficie_madera") and not sonidos_pasos_madera.is_empty():
+				array_sonidos = sonidos_pasos_madera
+				tipo_suelo = "Madera"
+			elif colisionador.is_in_group("superficie_metal") and not sonidos_pasos_metal.is_empty():
+				array_sonidos = sonidos_pasos_metal
+				tipo_suelo = "Metal"
+				
+	var sonido_azar = array_sonidos[randi() % array_sonidos.size()]
+	audio_pasos.stream = sonido_azar
+	audio_pasos.volume_db = vol_db
+	audio_pasos.pitch_scale = pitch + randf_range(-0.1, 0.1) # Variación
+	audio_pasos.play()
+	
+	if audio_pasos.stream and audio_pasos.stream.resource_path != "":
+		print("Paso [", tipo_suelo, "]: ", audio_pasos.stream.resource_path.get_file())
+	else:
+		print("Paso [", tipo_suelo, "] reproducido.")
+
+func _desactivar_sombras_hijos(nodo: Node):
+	if nodo is GeometryInstance3D:
+		nodo.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	for hijo in nodo.get_children():
+		_desactivar_sombras_hijos(hijo)
