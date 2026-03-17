@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dyxlfyvgrfob"]
+
+[ext_resource type="Texture2D" uid="uid://b6f34uibpo2nk" path="res://assets/recursos/Texturas/PisoCuadros/floor_tiles_06_diff_2k.png" id="1_oepwp"]
+[ext_resource type="Texture2D" uid="uid://xgxsta1tult" path="res://assets/recursos/Texturas/PisoCuadros/floor_tiles_06_nor_gl_2k.png" id="2_ynaky"]
+[ext_resource type="Texture2D" uid="uid://b3yoadpt7infr" path="res://assets/recursos/Texturas/PisoCuadros/floor_tiles_06_rough_2k.png" id="3_ipgtq"]
+
+[resource]
+albedo_texture = ExtResource("1_oepwp")
+roughness_texture = ExtResource("3_ipgtq")
+normal_enabled = true
+normal_texture = ExtResource("2_ynaky")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true

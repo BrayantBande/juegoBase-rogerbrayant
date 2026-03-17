@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://devmkjlvf3y4w"
-path.s3tc="res://.godot/imported/material_normal.png-ba77bdeb230759a6de714ff74e6b7c5b.s3tc.ctex"
-path.etc2="res://.godot/imported/material_normal.png-ba77bdeb230759a6de714ff74e6b7c5b.etc2.ctex"
+path.s3tc="res://.godot/imported/material_normal.png-5b5021bd5b1405a6aff24ad42fd46a6d.s3tc.ctex"
+path.etc2="res://.godot/imported/material_normal.png-5b5021bd5b1405a6aff24ad42fd46a6d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/LLAVES/key_with_tag/textures/material_normal.png"
-dest_files=["res://.godot/imported/material_normal.png-ba77bdeb230759a6de714ff74e6b7c5b.s3tc.ctex", "res://.godot/imported/material_normal.png-ba77bdeb230759a6de714ff74e6b7c5b.etc2.ctex"]
+source_file="res://Items/Llaves/key_with_tag/textures/material_normal.png"
+dest_files=["res://.godot/imported/material_normal.png-5b5021bd5b1405a6aff24ad42fd46a6d.s3tc.ctex", "res://.godot/imported/material_normal.png-5b5021bd5b1405a6aff24ad42fd46a6d.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3oanc6w8ysdu"
-path.s3tc="res://.godot/imported/material_baseColor.png-e1ea7afc9c7a43df6e58b34133a60b9e.s3tc.ctex"
-path.etc2="res://.godot/imported/material_baseColor.png-e1ea7afc9c7a43df6e58b34133a60b9e.etc2.ctex"
+path.s3tc="res://.godot/imported/material_baseColor.png-1645e3a76d3da1b92546f1659e60e51d.s3tc.ctex"
+path.etc2="res://.godot/imported/material_baseColor.png-1645e3a76d3da1b92546f1659e60e51d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/LLAVES/key_with_tag/textures/material_baseColor.png"
-dest_files=["res://.godot/imported/material_baseColor.png-e1ea7afc9c7a43df6e58b34133a60b9e.s3tc.ctex", "res://.godot/imported/material_baseColor.png-e1ea7afc9c7a43df6e58b34133a60b9e.etc2.ctex"]
+source_file="res://Items/Llaves/key_with_tag/textures/material_baseColor.png"
+dest_files=["res://.godot/imported/material_baseColor.png-1645e3a76d3da1b92546f1659e60e51d.s3tc.ctex", "res://.godot/imported/material_baseColor.png-1645e3a76d3da1b92546f1659e60e51d.etc2.ctex"]
 
 [params]
 

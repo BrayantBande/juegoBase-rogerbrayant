@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckj1ehcta28sq"
-path.s3tc="res://.godot/imported/material_metallicRoughness.png-5fa682f14e93cf5b397677834897c4a0.s3tc.ctex"
-path.etc2="res://.godot/imported/material_metallicRoughness.png-5fa682f14e93cf5b397677834897c4a0.etc2.ctex"
+path.s3tc="res://.godot/imported/material_metallicRoughness.png-613a4128589292a70806f9b06c96fc72.s3tc.ctex"
+path.etc2="res://.godot/imported/material_metallicRoughness.png-613a4128589292a70806f9b06c96fc72.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/LLAVES/key_with_tag/textures/material_metallicRoughness.png"
-dest_files=["res://.godot/imported/material_metallicRoughness.png-5fa682f14e93cf5b397677834897c4a0.s3tc.ctex", "res://.godot/imported/material_metallicRoughness.png-5fa682f14e93cf5b397677834897c4a0.etc2.ctex"]
+source_file="res://Items/Llaves/key_with_tag/textures/material_metallicRoughness.png"
+dest_files=["res://.godot/imported/material_metallicRoughness.png-613a4128589292a70806f9b06c96fc72.s3tc.ctex", "res://.godot/imported/material_metallicRoughness.png-613a4128589292a70806f9b06c96fc72.etc2.ctex"]
 
 [params]
 

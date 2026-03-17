@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://chfyo7cwjx3hy"
-path="res://.godot/imported/13280_autosave.glb-c9a495a06dfdc8f87622eb270a3b913b.scn"
+path="res://.godot/imported/13280_autosave.glb-68d584ec18f69eee0ddbc0bab9b2c508.scn"
 
 [deps]
 
-source_file="res://Items/COLMILLO_ENEMIGO/13280_autosave.glb"
-dest_files=["res://.godot/imported/13280_autosave.glb-c9a495a06dfdc8f87622eb270a3b913b.scn"]
+source_file="res://Items/Colmillo_Enemigo/13280_autosave.glb"
+dest_files=["res://.godot/imported/13280_autosave.glb-68d584ec18f69eee0ddbc0bab9b2c508.scn"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bes4w2576x5f0"
-path.s3tc="res://.godot/imported/Fillet001_occlusion.png-2ed3d1520eca97c6d88b46d8795b6e65.s3tc.ctex"
-path.etc2="res://.godot/imported/Fillet001_occlusion.png-2ed3d1520eca97c6d88b46d8795b6e65.etc2.ctex"
+path.s3tc="res://.godot/imported/Fillet001_occlusion.png-6c8f87d87475da9cde724aa2c2a2bcdf.s3tc.ctex"
+path.etc2="res://.godot/imported/Fillet001_occlusion.png-6c8f87d87475da9cde724aa2c2a2bcdf.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/ALICATE/textures/Fillet001_occlusion.png"
-dest_files=["res://.godot/imported/Fillet001_occlusion.png-2ed3d1520eca97c6d88b46d8795b6e65.s3tc.ctex", "res://.godot/imported/Fillet001_occlusion.png-2ed3d1520eca97c6d88b46d8795b6e65.etc2.ctex"]
+source_file="res://Items/Alicate/textures/Fillet001_occlusion.png"
+dest_files=["res://.godot/imported/Fillet001_occlusion.png-6c8f87d87475da9cde724aa2c2a2bcdf.s3tc.ctex", "res://.godot/imported/Fillet001_occlusion.png-6c8f87d87475da9cde724aa2c2a2bcdf.etc2.ctex"]
 
 [params]
 

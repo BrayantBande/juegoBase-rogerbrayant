@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c71lha108wqy0"]
+
+[ext_resource type="Texture2D" uid="uid://bcuaxj4hmyuq5" path="res://assets/recursos/Texturas/PisoCeramicaRota/Tiles133C_2K-PNG_Color.png" id="1_i2v65"]
+[ext_resource type="Texture2D" uid="uid://dj62g7ecob4y6" path="res://assets/recursos/Texturas/PisoCeramicaRota/Tiles133C_2K-PNG_NormalGL.png" id="2_1dkww"]
+[ext_resource type="Texture2D" uid="uid://bhsudfqsivtsl" path="res://assets/recursos/Texturas/PisoCeramicaRota/Tiles133C_2K-PNG_Roughness.png" id="3_olbhn"]
+
+[resource]
+albedo_texture = ExtResource("1_i2v65")
+roughness_texture = ExtResource("3_olbhn")
+normal_enabled = true
+normal_texture = ExtResource("2_1dkww")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
