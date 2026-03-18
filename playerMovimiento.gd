@@ -35,8 +35,8 @@ const VELOCIDAD_CAMINAR = 1.5
 const VELOCIDAD_CORRER = 4.0
 var nivel_ruido = 0.0 
 var velocidad_actual = VELOCIDAD_CAMINAR 
-const SENSITIVITY = 0.003 
-
+var sensitivity_x: float = 0.003
+var sensitivity_y: float = 0.003
 # --- CONFIGURACIÓN ESTILO TJOC ---
 const BOB_FREQ = 6.5 
 const BOB_AMP = 0.12 
@@ -96,6 +96,8 @@ func _ready():
 	rayo_interaccion.add_exception(self)
 	
 	detector_techo.add_exception(self)
+	_cargar_preferencias()
+	
 	# Forzamos los valores del script por encima de los de la escena de Godot
 	colision.shape.height = altura_normal
 	colision.position.y = altura_normal / 2.0
@@ -123,8 +125,8 @@ func _ready():
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation.y -= event.relative.x * SENSITIVITY
-		camara.rotation.x -= event.relative.y * SENSITIVITY
+		rotation.y -= event.relative.x * sensitivity_x
+		camara.rotation.x -= event.relative.y * sensitivity_y
 		camara.rotation.x = clamp(camara.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _input(event):
@@ -376,6 +378,11 @@ func _actualizar_visibilidad_modelo():
 	else:
 		modelo_linterna.visible = false
 
+func teleport(nueva_pos: Vector3):
+	global_position = nueva_pos
+	velocity = Vector3.ZERO # Resetear inercia
+	print("Teletransportado a: ", nueva_pos)
+
 func _reproducir_sonido_paso(vol_db, pitch):
 	if not audio_pasos or sonidos_pasos_default.is_empty():
 		return
@@ -409,3 +416,17 @@ func _desactivar_sombras_hijos(nodo: Node):
 		nodo.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	for hijo in nodo.get_children():
 		_desactivar_sombras_hijos(hijo)
+
+func aplicar_sensibilidad(x: float, y: float):
+	sensitivity_x = x
+	sensitivity_y = y
+
+func _cargar_preferencias():
+	var file_path = "user://game_settings.json"
+	if FileAccess.file_exists(file_path):
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		var dict = JSON.parse_string(file.get_as_text())
+		file.close()
+		if dict != null and typeof(dict) == TYPE_DICTIONARY:
+			if dict.has("sensibilidad_ui_x"): sensitivity_x = float(dict["sensibilidad_ui_x"]) * 0.00075
+			if dict.has("sensibilidad_ui_y"): sensitivity_y = float(dict["sensibilidad_ui_y"]) * 0.00075

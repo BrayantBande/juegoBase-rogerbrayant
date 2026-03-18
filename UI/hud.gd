@@ -39,6 +39,19 @@ func _ready():
 		player.toggle_mod_menu.connect(_on_toggle_mod_menu)
 		mod_menu.closed.connect(_on_toggle_mod_menu)
 		mod_menu.event_triggered.connect(_on_event_triggered)
+		mod_menu.teleport_requested.connect(_on_teleport_requested)
+		mod_menu.save_position_requested.connect(_on_save_position_requested)
+
+func _on_save_position_requested(custom_name: String):
+	var player = get_parent()
+	if player:
+		mod_menu.add_teleport_button(player.global_position, custom_name)
+
+func _on_teleport_requested(pos: Vector3):
+	var player = get_parent()
+	if player and player.has_method("teleport"):
+		player.teleport(pos)
+		_on_toggle_mod_menu() # Cerrar el menú después de teletransportarse
 
 func _input(event):
 	if event.is_action_pressed("inventario"):
