@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dabgh4abcvsgl"
-path.s3tc="res://.godot/imported/13280_autosave_BLANCO Color base.png-70a3b3f622e7114e759813e87d290b33.s3tc.ctex"
-path.etc2="res://.godot/imported/13280_autosave_BLANCO Color base.png-70a3b3f622e7114e759813e87d290b33.etc2.ctex"
+path.s3tc="res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.s3tc.ctex"
+path.etc2="res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Items/Colmillo_Enemigo/13280_autosave_BLANCO Color base.png"
-dest_files=["res://.godot/imported/13280_autosave_BLANCO Color base.png-70a3b3f622e7114e759813e87d290b33.s3tc.ctex", "res://.godot/imported/13280_autosave_BLANCO Color base.png-70a3b3f622e7114e759813e87d290b33.etc2.ctex"]
+source_file="res://Items/COLMILLO_ENEMIGO/13280_autosave_BLANCO Color base.png"
+dest_files=["res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.s3tc.ctex", "res://.godot/imported/13280_autosave_BLANCO Color base.png-a6a8fa4a7ed3b43eeb1f3a1331fc845a.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csdssjgpuwg6v"
-path.s3tc="res://.godot/imported/Ring_normal.png-d02b6399ea8b6c84bfbf15aa96ac74ad.s3tc.ctex"
-path.etc2="res://.godot/imported/Ring_normal.png-d02b6399ea8b6c84bfbf15aa96ac74ad.etc2.ctex"
+path.s3tc="res://.godot/imported/Ring_normal.png-b0cb034ab798b9363a6116b88fe3942e.s3tc.ctex"
+path.etc2="res://.godot/imported/Ring_normal.png-b0cb034ab798b9363a6116b88fe3942e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/Llaves/key_with_tag/textures/Ring_normal.png"
-dest_files=["res://.godot/imported/Ring_normal.png-d02b6399ea8b6c84bfbf15aa96ac74ad.s3tc.ctex", "res://.godot/imported/Ring_normal.png-d02b6399ea8b6c84bfbf15aa96ac74ad.etc2.ctex"]
+source_file="res://Items/LLAVES/key_with_tag/textures/Ring_normal.png"
+dest_files=["res://.godot/imported/Ring_normal.png-b0cb034ab798b9363a6116b88fe3942e.s3tc.ctex", "res://.godot/imported/Ring_normal.png-b0cb034ab798b9363a6116b88fe3942e.etc2.ctex"]
 
 [params]
 

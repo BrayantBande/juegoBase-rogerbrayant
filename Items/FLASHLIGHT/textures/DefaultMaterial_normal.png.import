@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://81yj1e5uwn8s"
-path.s3tc="res://.godot/imported/DefaultMaterial_normal.png-5bd2cbebead77da2c4592a7767719115.s3tc.ctex"
-path.etc2="res://.godot/imported/DefaultMaterial_normal.png-5bd2cbebead77da2c4592a7767719115.etc2.ctex"
+path.s3tc="res://.godot/imported/DefaultMaterial_normal.png-381a22cc0cc1decc16bbe21ee241beb5.s3tc.ctex"
+path.etc2="res://.godot/imported/DefaultMaterial_normal.png-381a22cc0cc1decc16bbe21ee241beb5.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/FlashLight/textures/DefaultMaterial_normal.png"
-dest_files=["res://.godot/imported/DefaultMaterial_normal.png-5bd2cbebead77da2c4592a7767719115.s3tc.ctex", "res://.godot/imported/DefaultMaterial_normal.png-5bd2cbebead77da2c4592a7767719115.etc2.ctex"]
+source_file="res://Items/FLASHLIGHT/textures/DefaultMaterial_normal.png"
+dest_files=["res://.godot/imported/DefaultMaterial_normal.png-381a22cc0cc1decc16bbe21ee241beb5.s3tc.ctex", "res://.godot/imported/DefaultMaterial_normal.png-381a22cc0cc1decc16bbe21ee241beb5.etc2.ctex"]
 
 [params]
 

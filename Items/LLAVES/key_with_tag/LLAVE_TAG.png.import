@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c56lfy8vammpt"
-path="res://.godot/imported/LLAVE_TAG.png-766b0dad3b820e1d27f0641cb720f4d4.ctex"
+path="res://.godot/imported/LLAVE_TAG.png-c390e1485539fda7522cc4b71eed6a09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Llaves/key_with_tag/LLAVE_TAG.png"
-dest_files=["res://.godot/imported/LLAVE_TAG.png-766b0dad3b820e1d27f0641cb720f4d4.ctex"]
+source_file="res://Items/LLAVES/key_with_tag/LLAVE_TAG.png"
+dest_files=["res://.godot/imported/LLAVE_TAG.png-c390e1485539fda7522cc4b71eed6a09.ctex"]
 
 [params]
 

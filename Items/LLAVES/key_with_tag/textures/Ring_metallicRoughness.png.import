@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce55jqnoqtsri"
-path.s3tc="res://.godot/imported/Ring_metallicRoughness.png-aa0b62bd2219122b6cbe3b69fa6cd8c1.s3tc.ctex"
-path.etc2="res://.godot/imported/Ring_metallicRoughness.png-aa0b62bd2219122b6cbe3b69fa6cd8c1.etc2.ctex"
+path.s3tc="res://.godot/imported/Ring_metallicRoughness.png-2fa1981e14dc0d97672969d67a3107bc.s3tc.ctex"
+path.etc2="res://.godot/imported/Ring_metallicRoughness.png-2fa1981e14dc0d97672969d67a3107bc.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/Llaves/key_with_tag/textures/Ring_metallicRoughness.png"
-dest_files=["res://.godot/imported/Ring_metallicRoughness.png-aa0b62bd2219122b6cbe3b69fa6cd8c1.s3tc.ctex", "res://.godot/imported/Ring_metallicRoughness.png-aa0b62bd2219122b6cbe3b69fa6cd8c1.etc2.ctex"]
+source_file="res://Items/LLAVES/key_with_tag/textures/Ring_metallicRoughness.png"
+dest_files=["res://.godot/imported/Ring_metallicRoughness.png-2fa1981e14dc0d97672969d67a3107bc.s3tc.ctex", "res://.godot/imported/Ring_metallicRoughness.png-2fa1981e14dc0d97672969d67a3107bc.etc2.ctex"]
 
 [params]
 

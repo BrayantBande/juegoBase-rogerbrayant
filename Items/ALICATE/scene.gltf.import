@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d07iuex28lqrf"
-path="res://.godot/imported/scene.gltf-46110100b66844fb2bdc6eec14222d5a.scn"
+path="res://.godot/imported/scene.gltf-253443b9d90367e7abcf898028629b4f.scn"
 
 [deps]
 
-source_file="res://Items/Alicate/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-46110100b66844fb2bdc6eec14222d5a.scn"]
+source_file="res://Items/ALICATE/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-253443b9d90367e7abcf898028629b4f.scn"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1wfsha2jgl54"
-path.s3tc="res://.godot/imported/Fillet001_diffuse.jpeg-213fa9b64fecc24e02f0d274cd72b663.s3tc.ctex"
-path.etc2="res://.godot/imported/Fillet001_diffuse.jpeg-213fa9b64fecc24e02f0d274cd72b663.etc2.ctex"
+path.s3tc="res://.godot/imported/Fillet001_diffuse.jpeg-8aa8a37414da693b0315ccdbfdcb286f.s3tc.ctex"
+path.etc2="res://.godot/imported/Fillet001_diffuse.jpeg-8aa8a37414da693b0315ccdbfdcb286f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/Alicate/textures/Fillet001_diffuse.jpeg"
-dest_files=["res://.godot/imported/Fillet001_diffuse.jpeg-213fa9b64fecc24e02f0d274cd72b663.s3tc.ctex", "res://.godot/imported/Fillet001_diffuse.jpeg-213fa9b64fecc24e02f0d274cd72b663.etc2.ctex"]
+source_file="res://Items/ALICATE/textures/Fillet001_diffuse.jpeg"
+dest_files=["res://.godot/imported/Fillet001_diffuse.jpeg-8aa8a37414da693b0315ccdbfdcb286f.s3tc.ctex", "res://.godot/imported/Fillet001_diffuse.jpeg-8aa8a37414da693b0315ccdbfdcb286f.etc2.ctex"]
 
 [params]
 

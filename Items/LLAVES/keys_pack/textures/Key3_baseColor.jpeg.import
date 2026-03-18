@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc1wkywfir4h3"
-path.s3tc="res://.godot/imported/Key3_baseColor.jpeg-6afb0705f128ccd6c167df2bbd10f727.s3tc.ctex"
-path.etc2="res://.godot/imported/Key3_baseColor.jpeg-6afb0705f128ccd6c167df2bbd10f727.etc2.ctex"
+path.s3tc="res://.godot/imported/Key3_baseColor.jpeg-1b4a47bcae5433efbc5c7ceb412cade9.s3tc.ctex"
+path.etc2="res://.godot/imported/Key3_baseColor.jpeg-1b4a47bcae5433efbc5c7ceb412cade9.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/Llaves/keys_pack/textures/Key3_baseColor.jpeg"
-dest_files=["res://.godot/imported/Key3_baseColor.jpeg-6afb0705f128ccd6c167df2bbd10f727.s3tc.ctex", "res://.godot/imported/Key3_baseColor.jpeg-6afb0705f128ccd6c167df2bbd10f727.etc2.ctex"]
+source_file="res://Items/LLAVES/keys_pack/textures/Key3_baseColor.jpeg"
+dest_files=["res://.godot/imported/Key3_baseColor.jpeg-1b4a47bcae5433efbc5c7ceb412cade9.s3tc.ctex", "res://.godot/imported/Key3_baseColor.jpeg-1b4a47bcae5433efbc5c7ceb412cade9.etc2.ctex"]
 
 [params]
 
