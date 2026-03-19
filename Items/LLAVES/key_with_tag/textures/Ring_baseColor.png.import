@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7ihn7ciy8vwo"
-path.s3tc="res://.godot/imported/Ring_baseColor.png-2e4205e110a5123e7bdcaa02203c8c55.s3tc.ctex"
-path.etc2="res://.godot/imported/Ring_baseColor.png-2e4205e110a5123e7bdcaa02203c8c55.etc2.ctex"
+path.s3tc="res://.godot/imported/Ring_baseColor.png-210560d99e8e2c0c66f90360727f6f82.s3tc.ctex"
+path.etc2="res://.godot/imported/Ring_baseColor.png-210560d99e8e2c0c66f90360727f6f82.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/LLAVES/key_with_tag/textures/Ring_baseColor.png"
-dest_files=["res://.godot/imported/Ring_baseColor.png-2e4205e110a5123e7bdcaa02203c8c55.s3tc.ctex", "res://.godot/imported/Ring_baseColor.png-2e4205e110a5123e7bdcaa02203c8c55.etc2.ctex"]
+source_file="res://Items/Llaves/key_with_tag/textures/Ring_baseColor.png"
+dest_files=["res://.godot/imported/Ring_baseColor.png-210560d99e8e2c0c66f90360727f6f82.s3tc.ctex", "res://.godot/imported/Ring_baseColor.png-210560d99e8e2c0c66f90360727f6f82.etc2.ctex"]
 
 [params]
 

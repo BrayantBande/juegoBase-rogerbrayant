@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqnytrpgvmoea"
-path="res://.godot/imported/BLANCO Color base.png-29cd6f5c9a2815af01c42e974a80124c.ctex"
+path="res://.godot/imported/BLANCO Color base.png-d7c0cebadd9dfb9cc5656673b546aaa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/COLMILLO_ENEMIGO/BLANCO Color base.png"
-dest_files=["res://.godot/imported/BLANCO Color base.png-29cd6f5c9a2815af01c42e974a80124c.ctex"]
+source_file="res://Items/Colmillo_Enemigo/BLANCO Color base.png"
+dest_files=["res://.godot/imported/BLANCO Color base.png-d7c0cebadd9dfb9cc5656673b546aaa4.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctidb8gynncgf"
-path.s3tc="res://.godot/imported/KeyTag_normal.png-f375e27edaac3db5287977d1e9bf8db6.s3tc.ctex"
-path.etc2="res://.godot/imported/KeyTag_normal.png-f375e27edaac3db5287977d1e9bf8db6.etc2.ctex"
+path.s3tc="res://.godot/imported/KeyTag_normal.png-267ed2d2cbab6ea50877fc8a131d1bdb.s3tc.ctex"
+path.etc2="res://.godot/imported/KeyTag_normal.png-267ed2d2cbab6ea50877fc8a131d1bdb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/LLAVES/key_with_tag/textures/KeyTag_normal.png"
-dest_files=["res://.godot/imported/KeyTag_normal.png-f375e27edaac3db5287977d1e9bf8db6.s3tc.ctex", "res://.godot/imported/KeyTag_normal.png-f375e27edaac3db5287977d1e9bf8db6.etc2.ctex"]
+source_file="res://Items/Llaves/key_with_tag/textures/KeyTag_normal.png"
+dest_files=["res://.godot/imported/KeyTag_normal.png-267ed2d2cbab6ea50877fc8a131d1bdb.s3tc.ctex", "res://.godot/imported/KeyTag_normal.png-267ed2d2cbab6ea50877fc8a131d1bdb.etc2.ctex"]
 
 [params]
 

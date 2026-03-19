@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deoarlf6jeito"
-path.s3tc="res://.godot/imported/Fillet001_normal.png-dd090a97369fb50e170a1bce2ad7c978.s3tc.ctex"
-path.etc2="res://.godot/imported/Fillet001_normal.png-dd090a97369fb50e170a1bce2ad7c978.etc2.ctex"
+path.s3tc="res://.godot/imported/Fillet001_normal.png-7952ebb76f4246e2b0aec2524a25ec69.s3tc.ctex"
+path.etc2="res://.godot/imported/Fillet001_normal.png-7952ebb76f4246e2b0aec2524a25ec69.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/ALICATE/textures/Fillet001_normal.png"
-dest_files=["res://.godot/imported/Fillet001_normal.png-dd090a97369fb50e170a1bce2ad7c978.s3tc.ctex", "res://.godot/imported/Fillet001_normal.png-dd090a97369fb50e170a1bce2ad7c978.etc2.ctex"]
+source_file="res://Items/Alicate/textures/Fillet001_normal.png"
+dest_files=["res://.godot/imported/Fillet001_normal.png-7952ebb76f4246e2b0aec2524a25ec69.s3tc.ctex", "res://.godot/imported/Fillet001_normal.png-7952ebb76f4246e2b0aec2524a25ec69.etc2.ctex"]
 
 [params]
 

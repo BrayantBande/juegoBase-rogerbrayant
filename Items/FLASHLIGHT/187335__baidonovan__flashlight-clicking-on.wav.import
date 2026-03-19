@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c627dnxybfvtu"
-path="res://.godot/imported/187335__baidonovan__flashlight-clicking-on.wav-d861930738081169487fc45eb449330d.sample"
+path="res://.godot/imported/187335__baidonovan__flashlight-clicking-on.wav-2a13a8325bea4c581c1e6121d3bfd4fb.sample"
 
 [deps]
 
-source_file="res://Items/FLASHLIGHT/187335__baidonovan__flashlight-clicking-on.wav"
-dest_files=["res://.godot/imported/187335__baidonovan__flashlight-clicking-on.wav-d861930738081169487fc45eb449330d.sample"]
+source_file="res://Items/FlashLight/187335__baidonovan__flashlight-clicking-on.wav"
+dest_files=["res://.godot/imported/187335__baidonovan__flashlight-clicking-on.wav-2a13a8325bea4c581c1e6121d3bfd4fb.sample"]
 
 [params]
 

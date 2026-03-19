@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://duf4censh3l7c"]
+
+[ext_resource type="Texture2D" uid="uid://cttpwti23t0ew" path="res://assets/recursos/Texturas/ConcretoDañado2/Concrete023_2K-PNG_Color.png" id="1_0i6ri"]
+[ext_resource type="Texture2D" uid="uid://h2fd0oidpgq3" path="res://assets/recursos/Texturas/ConcretoDañado2/Concrete023_2K-PNG_NormalGL.png" id="2_dajva"]
+[ext_resource type="Texture2D" uid="uid://bxbj6thqjwpuf" path="res://assets/recursos/Texturas/ConcretoDañado2/Concrete023_2K-PNG_Roughness.png" id="3_a67g7"]
+
+[resource]
+albedo_texture = ExtResource("1_0i6ri")
+roughness_texture = ExtResource("3_a67g7")
+normal_enabled = true
+normal_texture = ExtResource("2_dajva")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true

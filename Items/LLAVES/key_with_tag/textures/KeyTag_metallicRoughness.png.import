@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://owfulysorv2"
-path.s3tc="res://.godot/imported/KeyTag_metallicRoughness.png-02fa83a6a530bfebd41a067858705fdf.s3tc.ctex"
-path.etc2="res://.godot/imported/KeyTag_metallicRoughness.png-02fa83a6a530bfebd41a067858705fdf.etc2.ctex"
+path.s3tc="res://.godot/imported/KeyTag_metallicRoughness.png-effeb1ad1afd31a0f060bdf8d92f4a4f.s3tc.ctex"
+path.etc2="res://.godot/imported/KeyTag_metallicRoughness.png-effeb1ad1afd31a0f060bdf8d92f4a4f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Items/LLAVES/key_with_tag/textures/KeyTag_metallicRoughness.png"
-dest_files=["res://.godot/imported/KeyTag_metallicRoughness.png-02fa83a6a530bfebd41a067858705fdf.s3tc.ctex", "res://.godot/imported/KeyTag_metallicRoughness.png-02fa83a6a530bfebd41a067858705fdf.etc2.ctex"]
+source_file="res://Items/Llaves/key_with_tag/textures/KeyTag_metallicRoughness.png"
+dest_files=["res://.godot/imported/KeyTag_metallicRoughness.png-effeb1ad1afd31a0f060bdf8d92f4a4f.s3tc.ctex", "res://.godot/imported/KeyTag_metallicRoughness.png-effeb1ad1afd31a0f060bdf8d92f4a4f.etc2.ctex"]
 
 [params]
 

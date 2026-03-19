@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://j22dw17r5qrt"
-path="res://.godot/imported/LLAVE_ANTIGUA_ICONO.png-5829fcfc690c27b148d5a8f480aa54ee.ctex"
+path="res://.godot/imported/LLAVE_ANTIGUA_ICONO.png-1731e4a186fc952c1075b3023a7b2f83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/LLAVES/keys_pack/LLAVE_ANTIGUA_ICONO.png"
-dest_files=["res://.godot/imported/LLAVE_ANTIGUA_ICONO.png-5829fcfc690c27b148d5a8f480aa54ee.ctex"]
+source_file="res://Items/Llaves/keys_pack/LLAVE_ANTIGUA_ICONO.png"
+dest_files=["res://.godot/imported/LLAVE_ANTIGUA_ICONO.png-1731e4a186fc952c1075b3023a7b2f83.ctex"]
 
 [params]
 

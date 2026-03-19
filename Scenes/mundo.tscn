@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://d3puk4jbpbt76"]
 
 [ext_resource type="Script" uid="uid://ou0storvo0x7" path="res://Scenes/zonaSegura.gd" id="1_uqtxj"]
-[ext_resource type="Material" uid="uid://dyxlfyvgrfob" path="res://assets/recursos/Texturas/PisoCuadros/Suelo_HospitalCuadros.tres" id="3_1bodn"]
-[ext_resource type="Material" uid="uid://cg1q3gkrur0n4" path="res://assets/recursos/Texturas/PisoMadera/PisoMadera.tres" id="4_6bs12"]
 [ext_resource type="PackedScene" uid="uid://owrfm221ig6s" path="res://Items/Baterias/bateria_recogible.tscn" id="5_yf8a8"]
 [ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="6_qxsm7"]
 [ext_resource type="AudioStream" uid="uid://ckepnplxsqxq2" path="res://assets/recursos/Audios/Deambulando1.mp3" id="7_m1vgi"]
@@ -10,10 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://e112jej22ckq" path="res://assets/recursos/Audios/deambulando3.mp3" id="9_6bs12"]
 [ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
 [ext_resource type="AudioStream" uid="uid://c82wni5a81gd5" path="res://assets/recursos/Audios/deambulando4.mp3" id="10_amofe"]
-[ext_resource type="PackedScene" uid="uid://djqp8h735jvg6" path="res://Mapa/PisoPlano.glb" id="11_6bs12"]
+[ext_resource type="PackedScene" uid="uid://bwj2pda7yt50q" path="res://Mapa/Mapa2.glb" id="11_m1vgi"]
 [ext_resource type="AudioStream" uid="uid://drj4rvpwahl08" path="res://assets/recursos/Audios/Ataque.mp3" id="11_ppd06"]
-[ext_resource type="Material" uid="uid://cafqva3h4trjw" path="res://assets/recursos/Texturas/Concreto/Concreto.tres" id="14_amofe"]
-[ext_resource type="Material" uid="uid://c71lha108wqy0" path="res://assets/recursos/Texturas/PisoCeramicaRota/PisoCeramicaRota.tres" id="15_ppd06"]
+[ext_resource type="Material" uid="uid://cafqva3h4trjw" path="res://assets/recursos/Texturas/Concreto/Concreto.tres" id="12_w4e5f"]
+[ext_resource type="Material" uid="uid://dyxlfyvgrfob" path="res://assets/recursos/Texturas/PisoCuadros/Suelo_HospitalCuadros.tres" id="13_hppdt"]
+[ext_resource type="Material" uid="uid://cg1q3gkrur0n4" path="res://assets/recursos/Texturas/PisoMadera/PisoMadera.tres" id="14_rr27p"]
+[ext_resource type="Material" uid="uid://c71lha108wqy0" path="res://assets/recursos/Texturas/PisoCeramicaRota/PisoCeramicaRota.tres" id="15_f3x5k"]
+[ext_resource type="Material" uid="uid://duf4censh3l7c" path="res://assets/recursos/Texturas/ConcretoDañado2/ConcretoDañado2.tres" id="16_d67sf"]
 [ext_resource type="PackedScene" uid="uid://bpjoheioasv0s" path="res://Items/FlashLight/flashlight_recogible.tscn" id="22_light"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4cw5y"]
@@ -64,18 +65,26 @@ shape = SubResource("BoxShape3D_gqidu")
 [node name="BateriaRecogible" parent="Entidades_Objetos" unique_id=2116277780 instance=ExtResource("5_yf8a8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.97485, 0.62458944, -5.474898)
 
+[node name="BateriaRecogible2" parent="Entidades_Objetos" unique_id=954039556 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.57412, 0.62458944, -5.474898)
+
+[node name="BateriaRecogible3" parent="Entidades_Objetos" unique_id=1664378462 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.21155, 0.62458944, -5.474898)
+
+[node name="BateriaRecogible4" parent="Entidades_Objetos" unique_id=851717075 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.878716, 0.62458944, -5.474898)
+
+[node name="BateriaRecogible5" parent="Entidades_Objetos" unique_id=724941177 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.621315, 0.62458944, -5.474898)
+
+[node name="BateriaRecogible6" parent="Entidades_Objetos" unique_id=2084157588 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.27414, 0.62458944, -5.474898)
+
+[node name="BateriaRecogible7" parent="Entidades_Objetos" unique_id=1944906619 instance=ExtResource("5_yf8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.94712, 0.62458944, -5.474898)
+
 [node name="FlashlightRecogible" parent="Entidades_Objetos" unique_id=2116277792 instance=ExtResource("22_light")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9157, 0.39131582, -6.9058237)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2108903115]
-transform = Transform3D(0.68831, -0.525575, 0.5, 0.025911, 0.706632, 0.707107, -0.724954, -0.473753, 0.5, 33.2799, 9.32336, 0)
-light_color = Color(0.611765, 0.694118, 0.768627, 1)
-light_energy = 0.15
-shadow_enabled = true
-shadow_opacity = 0.95
-shadow_blur = 1.5
-directional_shadow_mode = 1
-directional_shadow_blend_splits = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646132796]
 environment = SubResource("Environment_Realistic")
@@ -88,64 +97,98 @@ audios_ataque = Array[AudioStream]([ExtResource("11_ppd06")])
 [node name="Player" parent="." unique_id=1191387589 instance=ExtResource("9_hppdt")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -77.77302, 0.7833731, -3.4627357)
 
-[node name="PisoPlano" parent="." unique_id=1397688262 instance=ExtResource("11_6bs12")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.97931, 0, -5.9985538)
+[node name="Mapa2" parent="." unique_id=443372046 instance=ExtResource("11_m1vgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.14654, -1.4015622, -4.021206)
 
-[node name="Escalera" parent="PisoPlano" index="0" unique_id=2051134606]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="Escalera" parent="Mapa2" index="0" unique_id=1094583157]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="Escalera2" parent="PisoPlano" index="1" unique_id=307030721]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="Escalera2" parent="Mapa2" index="1" unique_id=2055056491]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="Escalera3" parent="PisoPlano" index="2" unique_id=67687174]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="Escalera3" parent="Mapa2" index="2" unique_id=1226905343]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="EscaleraMorgue" parent="PisoPlano" index="3" unique_id=586531298]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="EscaleraMorgue" parent="Mapa2" index="3" unique_id=408537804]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="RampaMorgue" parent="PisoPlano" index="4" unique_id=180258385]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="RampaMorgue" parent="Mapa2" index="4" unique_id=597264124]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="Piso1hospital" parent="PisoPlano" index="5" unique_id=1011928231]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="Escaleraseg" parent="Mapa2" index="5" unique_id=2006865551]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="Lobby1PISO" parent="PisoPlano" index="6" unique_id=14600799]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="Piso1hospital" parent="Mapa2" index="19" unique_id=1632547243]
+surface_material_override/0 = ExtResource("13_hppdt")
 
-[node name="Pasillo1Piso" parent="PisoPlano" index="7" unique_id=873419357]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="Lobby1PISO" parent="Mapa2" index="20" unique_id=1571443745]
+surface_material_override/0 = ExtResource("13_hppdt")
 
-[node name="Recepcion1Piso" parent="PisoPlano" index="8" unique_id=853474435]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="Pasillo1Piso" parent="Mapa2" index="21" unique_id=164834853]
+surface_material_override/0 = ExtResource("13_hppdt")
 
-[node name="OficinaDrPiso" parent="PisoPlano" index="9" unique_id=390840346]
-surface_material_override/0 = ExtResource("4_6bs12")
+[node name="Recepcion1Piso" parent="Mapa2" index="22" unique_id=255983818]
+surface_material_override/0 = ExtResource("13_hppdt")
 
-[node name="PasilloPiso" parent="PisoPlano" index="10" unique_id=1144946809]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="OficinaDrPiso" parent="Mapa2" index="23" unique_id=502640141]
+surface_material_override/0 = ExtResource("14_rr27p")
 
-[node name="Pasillo2Piso" parent="PisoPlano" index="11" unique_id=358213805]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="PasilloPiso" parent="Mapa2" index="24" unique_id=1222095685]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="PediatraPiso" parent="PisoPlano" index="12" unique_id=691815484]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="Pasillo2Piso" parent="Mapa2" index="25" unique_id=2041654538]
+surface_material_override/0 = ExtResource("13_hppdt")
 
-[node name="RadiografiaPiso" parent="PisoPlano" index="13" unique_id=1298617343]
-surface_material_override/0 = ExtResource("15_ppd06")
+[node name="PediatraPiso" parent="Mapa2" index="26" unique_id=589780979]
+surface_material_override/0 = ExtResource("13_hppdt")
 
-[node name="ArchivosPiso" parent="PisoPlano" index="14" unique_id=789189800]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="RadiografiaPiso" parent="Mapa2" index="27" unique_id=2095546980]
+surface_material_override/0 = ExtResource("15_f3x5k")
 
-[node name="SeguridadPiso" parent="PisoPlano" index="15" unique_id=1707317030]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="ArchivosPiso" parent="Mapa2" index="28" unique_id=427679170]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="FinalPasilloPiso" parent="PisoPlano" index="16" unique_id=384295382]
-surface_material_override/0 = ExtResource("3_1bodn")
+[node name="SeguridadPiso" parent="Mapa2" index="29" unique_id=377862725]
+surface_material_override/0 = ExtResource("12_w4e5f")
 
-[node name="MorguePiso" parent="PisoPlano" index="17" unique_id=205076071]
-surface_material_override/0 = ExtResource("14_amofe")
+[node name="FinalPasilloPiso" parent="Mapa2" index="30" unique_id=1486538950]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="MorguePiso" parent="Mapa2" index="31" unique_id=1183251682]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Lobby2Piso" parent="Mapa2" index="43" unique_id=260071654]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="PasilloHab2Piso" parent="Mapa2" index="44" unique_id=1680202820]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion1Piso" parent="Mapa2" index="45" unique_id=956727716]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion2Piso" parent="Mapa2" index="46" unique_id=1079661716]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion3Piso" parent="Mapa2" index="47" unique_id=1616610404]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion4Piso" parent="Mapa2" index="48" unique_id=1128999355]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="HabitacionJugPiso" parent="Mapa2" index="49" unique_id=1633709083]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="BañosPiso2Piso" parent="Mapa2" index="50" unique_id=715270961]
+surface_material_override/0 = ExtResource("15_f3x5k")
+
+[node name="ConsejeriaPiso" parent="Mapa2" index="51" unique_id=685808996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.57649, 6.5750246, 12.512279)
+surface_material_override/0 = ExtResource("16_d67sf")
+
+[node name="FinalPiso2Piso" parent="Mapa2" index="52" unique_id=389678035]
+surface_material_override/0 = ExtResource("13_hppdt")
 
 [connection signal="body_entered" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_exited"]
 
-[editable path="PisoPlano"]
+[editable path="Mapa2"]
