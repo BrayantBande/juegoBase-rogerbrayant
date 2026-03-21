@@ -20,8 +20,8 @@ func entrar():
 	
 	buscar_nuevo_punto()
 	# ¡LE DAMOS PLAY A CAMINAR!
-	enemigo.anim.play("walk_anim")
-	enemigo.anim.speed_scale = 1.0
+	enemigo.anim.play("walk_anim", 0.3)
+	enemigo.anim.speed_scale = 1.3
 
 func actualizar_fisica(delta):
 	# 1. ¿Vemos al jugador? (Pasa a S4)
@@ -59,13 +59,14 @@ func actualizar_fisica(delta):
 		
 		# Animación de descanso
 		if enemigo.anim.current_animation != "idle_anim":
-			enemigo.anim.play("idle_anim")
+			enemigo.anim.play("idle_anim", 0.3)
+			enemigo.anim.speed_scale = 1.0
 			
 		if tiempo_parado >= espera_maxima:
 			debe_esperar = false
 			apenas_arrancando = true
 			buscar_nuevo_punto()
-			enemigo.anim.play("walk_anim")
+			enemigo.anim.play("walk_anim", 0.3)
 		return
 
 	# Cortafuegos: Le damos a Godot 1 frame para procesar el path antes de preguntarle si terminó

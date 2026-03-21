@@ -16,8 +16,8 @@ func entrar():
 	var mapa_nav = enemigo.get_world_3d().get_navigation_map()
 	enemigo.nav_agent.target_position = NavigationServer3D.map_get_closest_point(mapa_nav, enemigo.ultima_posicion_conocida)
 	
-	enemigo.anim.play("walk_anim")
-	enemigo.anim.speed_scale = 1.0
+	enemigo.anim.play("walk_anim", 0.3)
+	enemigo.anim.speed_scale = 1.3
 
 func actualizar_fisica(delta):
 	if revisar_vision_s3():
@@ -43,7 +43,8 @@ func actualizar_fisica(delta):
 		
 		# ¡LLEGÓ Y SE QUEDA QUIETO BUSCANDO!
 		if enemigo.anim.current_animation != "idle_anim":
-			enemigo.anim.play("idle_anim")
+			enemigo.anim.play("idle_anim", 0.3)
+			enemigo.anim.speed_scale = 1.0
 		
 		if tiempo_espera >= tiempo_max_espera:
 			print("S3: Falsa alarma. Volviendo a patrullar (S2).")

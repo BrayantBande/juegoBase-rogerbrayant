@@ -121,6 +121,29 @@ func _on_toggle_mod_menu():
 func _on_event_triggered(event_name: String):
 	if event_name == "evento_1":
 		_ejecutar_evento_1()
+	elif event_name == "toggle_night_vision":
+		_toggle_night_vision()
+
+var nv_light: DirectionalLight3D = null
+
+func _toggle_night_vision():
+	var player = get_parent()
+	if not player: return
+	
+	if nv_light == null:
+		nv_light = DirectionalLight3D.new()
+		nv_light.light_color = Color(1.0, 1.0, 1.0) # Luz blanca normal para ver todo claro
+		nv_light.light_energy = 0.5
+		nv_light.shadow_enabled = false
+		player.add_child(nv_light)
+	else:
+		nv_light.visible = not nv_light.visible
+		
+	# Sonido opcional para el mod menu
+	if flash_audio.stream == null:
+		pass # Podríamos poner un sonido de click
+	
+	_on_toggle_mod_menu() # Cerrar menu al activar
 
 func _ejecutar_evento_1():
 	# 1. Cerrar el menú y resumir el juego

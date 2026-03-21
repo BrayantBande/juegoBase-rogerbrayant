@@ -43,15 +43,15 @@ func actualizar_fisica(delta):
 	# --------------------------------------------------------------
 	
 	if enemigo.anim.current_animation != "run_anim" and tiempo_recuperacion <= 0.0:
-		enemigo.anim.play("run_anim")
-		enemigo.anim.speed_scale = 1.2 # Corre más rápido la animación
+		enemigo.anim.play("run_anim", 0.15)
+		enemigo.anim.speed_scale = 1.0 # Corre de forma más realista
 	
 	# --- SISTEMA DE ATAQUE ---
 	var distancia_al_jugador = enemigo.global_position.distance_to(jugador.global_position)
 	
 	if distancia_al_jugador <= distancia_ataque:
 		print("¡ZAS! El monstruo te atacó. ¡CORRE!")
-		enemigo.anim.play("attack_anim")
+		enemigo.anim.play("attack_anim", 0.15)
 		
 		# ¡NUEVO!: Grito único de ataque
 		if enemigo.audios_ataque.size() > 0:
@@ -86,15 +86,26 @@ func actualizar_fisica(delta):
 			transicion_solicitada.emit(self, "S3_Investigando")
 			return 
 			
-	# 2. Correr hacia ti
-	var siguiente_posicion = enemigo.nav_agent.get_next_path_position()
-	var direccion = enemigo.global_position.direction_to(siguiente_posicion)
-	direccion.y = 0
-	direccion = direccion.normalized()
-	
-	enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * enemigo.velocidad_correr, delta * 12.0)
-	enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * enemigo.velocidad_correr, delta * 12.0)
-	enemigo.move_and_slide()
+	# 2. Correr hacia ti (Solo si tiene ruta válida de navegación)
+	if not enemigo.nav_agent.is_target_reachable() and not enemigo.nav_agent.is_navigation_finished():
+		enemigo.velocity.x = move_toward(enemigo.velocity.x, 0, delta * 12.0)
+		enemigo.velocity.z = move_toward(enemigo.velocity.z, 0, delta * 12.0)
+		enemigo.move_and_slide()
+		if enemigo.anim.current_animation != "idle_anim":
+			enemigo.anim.play("idle_anim", 0.3)
+	else:
+		var siguiente_posicion = enemigo.nav_agent.get_next_path_position()
+		var direccion = enemigo.global_position.direction_to(siguiente_posicion)
+		direccion.y = 0
+		direccion = direccion.normalized()
+		
+		# Seguimos corriendo solo si la lógica alcanzó aquí
+		if enemigo.anim.current_animation != "run_anim":
+			enemigo.anim.play("run_anim", 0.15)
+			
+		enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * enemigo.velocidad_correr, delta * 12.0)
+		enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * enemigo.velocidad_correr, delta * 12.0)
+		enemigo.move_and_slide()
 	
 	# --- ¡AQUÍ ESTÁ LA MAGIA DEL AUDIO QUE FALTABA! ---
 	# --- ¡AQUÍ ESTÁ LA MAGIA DEL AUDIO QUE FALTABA! ---

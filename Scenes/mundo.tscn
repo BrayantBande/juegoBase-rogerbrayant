@@ -2,14 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ou0storvo0x7" path="res://Scenes/zonaSegura.gd" id="1_uqtxj"]
 [ext_resource type="PackedScene" uid="uid://owrfm221ig6s" path="res://Items/Baterias/bateria_recogible.tscn" id="5_yf8a8"]
-[ext_resource type="PackedScene" uid="uid://ju35t7xhulwl" path="res://Scenes/enemigo.tscn" id="6_qxsm7"]
-[ext_resource type="AudioStream" uid="uid://ckepnplxsqxq2" path="res://assets/recursos/Audios/Deambulando1.mp3" id="7_m1vgi"]
-[ext_resource type="AudioStream" uid="uid://dtitr3s6xec6d" path="res://assets/recursos/Audios/Deambulando2.mp3" id="8_1bodn"]
-[ext_resource type="AudioStream" uid="uid://e112jej22ckq" path="res://assets/recursos/Audios/deambulando3.mp3" id="9_6bs12"]
 [ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
-[ext_resource type="AudioStream" uid="uid://c82wni5a81gd5" path="res://assets/recursos/Audios/deambulando4.mp3" id="10_amofe"]
 [ext_resource type="PackedScene" uid="uid://bwj2pda7yt50q" path="res://Mapa/Mapa2.glb" id="11_m1vgi"]
-[ext_resource type="AudioStream" uid="uid://drj4rvpwahl08" path="res://assets/recursos/Audios/Ataque.mp3" id="11_ppd06"]
 [ext_resource type="Material" uid="uid://cafqva3h4trjw" path="res://assets/recursos/Texturas/Concreto/Concreto.tres" id="12_w4e5f"]
 [ext_resource type="Material" uid="uid://dyxlfyvgrfob" path="res://assets/recursos/Texturas/PisoCuadros/Suelo_HospitalCuadros.tres" id="13_hppdt"]
 [ext_resource type="Material" uid="uid://cg1q3gkrur0n4" path="res://assets/recursos/Texturas/PisoMadera/PisoMadera.tres" id="14_rr27p"]
@@ -22,7 +16,7 @@ agent_height = 2.3
 agent_radius = 0.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqidu"]
-size = Vector3(0.22338867, 6.1922455, 11.58393)
+size = Vector3(1.5422974, 6.1922455, 57.719822)
 
 [sub_resource type="Environment" id="Environment_Realistic"]
 background_mode = 1
@@ -57,8 +51,99 @@ transform = Transform3D(30.765373, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.960487, 0)
 script = ExtResource("1_uqtxj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Mapa/Area3D" unique_id=977772505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5137925, -12.061607, -4.6484327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2040691, -12.061607, 18.419514)
 shape = SubResource("BoxShape3D_gqidu")
+
+[node name="Mapa2" parent="NavigationRegion3D" unique_id=443372046 instance=ExtResource("11_m1vgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.14654, -2.1015623, -4.021206)
+
+[node name="Escalera" parent="NavigationRegion3D/Mapa2" index="0" unique_id=1094583157]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Escalera2" parent="NavigationRegion3D/Mapa2" index="1" unique_id=2055056491]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Escalera3" parent="NavigationRegion3D/Mapa2" index="2" unique_id=1226905343]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="EscaleraMorgue" parent="NavigationRegion3D/Mapa2" index="3" unique_id=408537804]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="RampaMorgue" parent="NavigationRegion3D/Mapa2" index="4" unique_id=597264124]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Escaleraseg" parent="NavigationRegion3D/Mapa2" index="5" unique_id=2006865551]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Piso1hospital" parent="NavigationRegion3D/Mapa2" index="19" unique_id=1632547243]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Lobby1PISO" parent="NavigationRegion3D/Mapa2" index="20" unique_id=1571443745]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Pasillo1Piso" parent="NavigationRegion3D/Mapa2" index="21" unique_id=164834853]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Recepcion1Piso" parent="NavigationRegion3D/Mapa2" index="22" unique_id=255983818]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="OficinaDrPiso" parent="NavigationRegion3D/Mapa2" index="23" unique_id=502640141]
+surface_material_override/0 = ExtResource("14_rr27p")
+
+[node name="PasilloPiso" parent="NavigationRegion3D/Mapa2" index="24" unique_id=1222095685]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Pasillo2Piso" parent="NavigationRegion3D/Mapa2" index="25" unique_id=2041654538]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="PediatraPiso" parent="NavigationRegion3D/Mapa2" index="26" unique_id=589780979]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="RadiografiaPiso" parent="NavigationRegion3D/Mapa2" index="27" unique_id=2095546980]
+surface_material_override/0 = ExtResource("15_f3x5k")
+
+[node name="ArchivosPiso" parent="NavigationRegion3D/Mapa2" index="28" unique_id=427679170]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="SeguridadPiso" parent="NavigationRegion3D/Mapa2" index="29" unique_id=377862725]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="FinalPasilloPiso" parent="NavigationRegion3D/Mapa2" index="30" unique_id=1486538950]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="MorguePiso" parent="NavigationRegion3D/Mapa2" index="31" unique_id=1183251682]
+surface_material_override/0 = ExtResource("12_w4e5f")
+
+[node name="Lobby2Piso" parent="NavigationRegion3D/Mapa2" index="43" unique_id=260071654]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="PasilloHab2Piso" parent="NavigationRegion3D/Mapa2" index="44" unique_id=1680202820]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion1Piso" parent="NavigationRegion3D/Mapa2" index="45" unique_id=956727716]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion2Piso" parent="NavigationRegion3D/Mapa2" index="46" unique_id=1079661716]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion3Piso" parent="NavigationRegion3D/Mapa2" index="47" unique_id=1616610404]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="Habitacion4Piso" parent="NavigationRegion3D/Mapa2" index="48" unique_id=1128999355]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="HabitacionJugPiso" parent="NavigationRegion3D/Mapa2" index="49" unique_id=1633709083]
+surface_material_override/0 = ExtResource("13_hppdt")
+
+[node name="BañosPiso2Piso" parent="NavigationRegion3D/Mapa2" index="50" unique_id=715270961]
+surface_material_override/0 = ExtResource("15_f3x5k")
+
+[node name="ConsejeriaPiso" parent="NavigationRegion3D/Mapa2" index="51" unique_id=685808996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.57649, 6.5750246, 12.512279)
+surface_material_override/0 = ExtResource("16_d67sf")
+
+[node name="FinalPiso2Piso" parent="NavigationRegion3D/Mapa2" index="52" unique_id=389678035]
+surface_material_override/0 = ExtResource("13_hppdt")
 
 [node name="Entidades_Objetos" type="Node3D" parent="." unique_id=1694996298]
 
@@ -89,106 +174,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9157, 0.39131582, -6.9058
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646132796]
 environment = SubResource("Environment_Realistic")
 
-[node name="Enemigo" parent="." unique_id=1574111470 instance=ExtResource("6_qxsm7")]
-transform = Transform3D(-0.75701785, 0, -0.65339416, 0, 1, 0, 0.65339416, 0, -0.75701785, -73.17143, 0.68491316, 20.647938)
-audios_ambiente = Array[AudioStream]([ExtResource("7_m1vgi"), ExtResource("8_1bodn"), ExtResource("9_6bs12"), ExtResource("10_amofe")])
-audios_ataque = Array[AudioStream]([ExtResource("11_ppd06")])
-
 [node name="Player" parent="." unique_id=1191387589 instance=ExtResource("9_hppdt")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -77.77302, 0.7833731, -3.4627357)
-
-[node name="Mapa2" parent="." unique_id=443372046 instance=ExtResource("11_m1vgi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.14654, -1.4015622, -4.021206)
-
-[node name="Escalera" parent="Mapa2" index="0" unique_id=1094583157]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="Escalera2" parent="Mapa2" index="1" unique_id=2055056491]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="Escalera3" parent="Mapa2" index="2" unique_id=1226905343]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="EscaleraMorgue" parent="Mapa2" index="3" unique_id=408537804]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="RampaMorgue" parent="Mapa2" index="4" unique_id=597264124]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="Escaleraseg" parent="Mapa2" index="5" unique_id=2006865551]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="Piso1hospital" parent="Mapa2" index="19" unique_id=1632547243]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Lobby1PISO" parent="Mapa2" index="20" unique_id=1571443745]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Pasillo1Piso" parent="Mapa2" index="21" unique_id=164834853]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Recepcion1Piso" parent="Mapa2" index="22" unique_id=255983818]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="OficinaDrPiso" parent="Mapa2" index="23" unique_id=502640141]
-surface_material_override/0 = ExtResource("14_rr27p")
-
-[node name="PasilloPiso" parent="Mapa2" index="24" unique_id=1222095685]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="Pasillo2Piso" parent="Mapa2" index="25" unique_id=2041654538]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="PediatraPiso" parent="Mapa2" index="26" unique_id=589780979]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="RadiografiaPiso" parent="Mapa2" index="27" unique_id=2095546980]
-surface_material_override/0 = ExtResource("15_f3x5k")
-
-[node name="ArchivosPiso" parent="Mapa2" index="28" unique_id=427679170]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="SeguridadPiso" parent="Mapa2" index="29" unique_id=377862725]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="FinalPasilloPiso" parent="Mapa2" index="30" unique_id=1486538950]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="MorguePiso" parent="Mapa2" index="31" unique_id=1183251682]
-surface_material_override/0 = ExtResource("12_w4e5f")
-
-[node name="Lobby2Piso" parent="Mapa2" index="43" unique_id=260071654]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="PasilloHab2Piso" parent="Mapa2" index="44" unique_id=1680202820]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Habitacion1Piso" parent="Mapa2" index="45" unique_id=956727716]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Habitacion2Piso" parent="Mapa2" index="46" unique_id=1079661716]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Habitacion3Piso" parent="Mapa2" index="47" unique_id=1616610404]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="Habitacion4Piso" parent="Mapa2" index="48" unique_id=1128999355]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="HabitacionJugPiso" parent="Mapa2" index="49" unique_id=1633709083]
-surface_material_override/0 = ExtResource("13_hppdt")
-
-[node name="BañosPiso2Piso" parent="Mapa2" index="50" unique_id=715270961]
-surface_material_override/0 = ExtResource("15_f3x5k")
-
-[node name="ConsejeriaPiso" parent="Mapa2" index="51" unique_id=685808996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.57649, 6.5750246, 12.512279)
-surface_material_override/0 = ExtResource("16_d67sf")
-
-[node name="FinalPiso2Piso" parent="Mapa2" index="52" unique_id=389678035]
-surface_material_override/0 = ExtResource("13_hppdt")
 
 [connection signal="body_entered" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion3D/Mapa/Area3D" to="NavigationRegion3D/Mapa/Area3D" method="_on_body_exited"]
 
-[editable path="Mapa2"]
+[editable path="NavigationRegion3D/Mapa2"]

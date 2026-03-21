@@ -13,7 +13,7 @@ var gravedad = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Referencias a sus herramientas para que los estados puedan usarlas
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var vision_raycast: RayCast3D = $Vision
-@onready var anim = $EnemigoModel/AnimationPlayer
+@onready var anim: AnimationPlayer = $IdleEnemigo/AnimationPlayer
 @onready var grito_audio = $GritoAudio
 @onready var pasos_audio = $PasosAudio
 @onready var ambiente_audio = $AmbienteAudio
@@ -29,9 +29,83 @@ func _ready():
 	floor_snap_length = 0.2
 	safe_margin = 0.08
 
+	# --- CARGAR ANIMACIONES NUEVAS DE GABRIEL ---
+	var current_global = anim.get_animation_library("")
+	var new_global = AnimationLibrary.new()
+	
+	if current_global:
+		for anim_name in current_global.get_animation_list():
+			var a = current_global.get_animation(anim_name)
+			new_global.add_animation(anim_name, a)
+			if "Idle" in anim_name or "idle" in anim_name:
+				if not new_global.has_animation("idle_anim"):
+					new_global.add_animation("idle_anim", a)
+
+	# Función lambda auxiliar para extraer la animación del archivo .res
+	# (ya que el archivo podría exportarse como Animation o como AnimationLibrary entero)
+	var load_anim_res = func(res_path: String, target_name: String):
+		var res = load(res_path)
+		var anim: Animation = null
+		
+		if res is AnimationLibrary:
+			var anims = res.get_animation_list()
+			if anims.size() > 0:
+				anim = res.get_animation(anims[0])
+		elif res is Animation:
+			anim = res
+			
+		if anim != null:
+			# --- ELIMINAR ROOT MOTION (MOVIMIENTO FANTASMA/LIBRE) ---
+			# Si las animaciones se programaron para desplazarse por el espacio
+			# bloqueamos sus ejes X y Z para que se mantenga "En el Sitio"
+			for t in range(anim.get_track_count()):
+				var path = String(anim.track_get_path(t))
+				if path.ends_with(":position"):
+					# Detectamos huesos principales
+					if "Hips" in path or "Root" in path or "Pelvis" in path or "mixamorig" in path or path.get_file() == "position":
+						for k in range(anim.track_get_key_count(t)):
+							var val = anim.track_get_key_value(t, k)
+							if typeof(val) == TYPE_VECTOR3:
+								val.x = 0
+								val.z = 0 # Anula el avance de arrastre
+								anim.track_set_key_value(t, k, val)
+								
+			new_global.add_animation(target_name, anim)
+
+	load_anim_res.call("res://Enemigo/Gabriel/AttackAnim.res", "attack_anim")
+	load_anim_res.call("res://Enemigo/Gabriel/crawlAnim.res", "crawl_anim")
+	load_anim_res.call("res://Enemigo/Gabriel/runAnim.res", "run_anim")
+	load_anim_res.call("res://Enemigo/Gabriel/runCrawlAnim.res", "run_crawl_anim")
+	load_anim_res.call("res://Enemigo/Gabriel/walkAnim.res", "walk_anim")
+	
+	# --- FORZAR LOOPING ---
+	# Por si las animaciones de Gabriel no se exportaron marcadas con "Bucle" / "Loop"
+	for n in ["walk_anim", "run_anim", "crawl_anim", "run_crawl_anim", "idle_anim"]:
+		if new_global.has_animation(n):
+			new_global.get_animation(n).loop_mode = Animation.LOOP_LINEAR
+			
+	if current_global:
+		anim.remove_animation_library("")
+	anim.add_animation_library("", new_global)
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravedad * delta
+		
+	# --- SISTEMA DE EMERGENCIA: SI BORRARON EL NAVMESH, EL ENEMIGO NO SE MUEVE ---
+	var mapa_nav = get_world_3d().get_navigation_map()
+	if NavigationServer3D.map_get_iteration_id(mapa_nav) == 0:
+		velocity.x = move_toward(velocity.x, 0, delta * 15.0)
+		velocity.z = move_toward(velocity.z, 0, delta * 15.0)
+		
+		# Forzamos relajación
+		if is_on_floor() and anim.current_animation != "idle_anim":
+			anim.play("idle_anim", 0.3)
+			
+		move_and_slide()
+		return
+	# -----------------------------------------------------------------------------
+		
 	# Si el monstruo se está moviendo lo suficiente...
 	var flat_velocity = Vector2(velocity.x, velocity.z)
 	if flat_velocity.length() > 0.2:

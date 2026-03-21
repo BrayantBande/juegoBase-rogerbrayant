@@ -3,7 +3,8 @@ extends Estado
 func entrar():
 	print("S1: Enemigo DESACTIVADO. Ignorando al jugador.")
 	enemigo.velocity = Vector3.ZERO # Se queda quieto
-	enemigo.anim.play("idle_anim")
+	enemigo.anim.play("idle_anim", 0.3)
+	enemigo.anim.speed_scale = 1.0
 	# Opcional: podrías poner enemigo.visible = false si quieres que desaparezca
 
 func actualizar_fisica(_delta):

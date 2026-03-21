@@ -24,7 +24,8 @@ func entrar():
 			
 	# Le decimos al GPS que vaya a ese conducto
 	enemigo.nav_agent.target_position = conducto_destino.global_position
-	enemigo.anim.play("walk_anim")
+	enemigo.anim.play("walk_anim", 0.3)
+	enemigo.anim.speed_scale = 1.3
 	
 func actualizar_fisica(_delta):
 	# --- ¡NUEVO! INTERRUPCIÓN POR VISIÓN BLINDADA ---
@@ -71,7 +72,8 @@ func actualizar_fisica(_delta):
 		if distancia_al_destino > 3.0:
 			# Si está a más de 3 metros, camina normal
 			if enemigo.anim.current_animation != "walk_anim":
-				enemigo.anim.play("walk_anim")
+				enemigo.anim.play("walk_anim", 0.2)
+				enemigo.anim.speed_scale = 1.3
 			# Usamos move_toward para hacerlo fluido
 			enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * enemigo.velocidad_caminar, _delta * 8.0)
 			enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * enemigo.velocidad_caminar, _delta * 8.0)
@@ -79,7 +81,8 @@ func actualizar_fisica(_delta):
 		else:
 			# Si está a 3 metros o menos, ¡se tira a gatear!
 			if enemigo.anim.current_animation != "crawl_anim":
-				enemigo.anim.play("crawl_anim")
+				enemigo.anim.play("crawl_anim", 0.25)
+				enemigo.anim.speed_scale = 1.0
 			# Va más lento al gatear y fluido
 			enemigo.velocity.x = move_toward(enemigo.velocity.x, direccion.x * (enemigo.velocidad_caminar * 0.7), _delta * 8.0)
 			enemigo.velocity.z = move_toward(enemigo.velocity.z, direccion.z * (enemigo.velocidad_caminar * 0.7), _delta * 8.0)

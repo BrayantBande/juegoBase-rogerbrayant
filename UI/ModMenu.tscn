@@ -65,6 +65,14 @@ text = "EVENTO 1: FLASH (PNG + SONIDO)"
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 
+[node name="BtnNightVision" type="Button" parent="VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "TESTEO: ILUMINAR MAPA"
+
 [node name="TeleportTitle" type="Label" parent="VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
@@ -102,4 +110,5 @@ theme_override_font_sizes/font_size = 20
 text = "CERRAR (ESC o B)"
 
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/GridContainer/BtnEvento1" to="." method="_on_btn_event_pressed" binds= ["evento_1"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/GridContainer/BtnNightVision" to="." method="_on_btn_event_pressed" binds= ["toggle_night_vision"]]
 [connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
