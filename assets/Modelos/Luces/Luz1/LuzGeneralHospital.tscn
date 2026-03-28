@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cu8c8nxbyud5o"]
+
+[ext_resource type="PackedScene" uid="uid://bywa6f0r4d64s" path="res://assets/Modelos/Luces/Luz1/LuzGeneralHospital.glb" id="1_8rltf"]
+[ext_resource type="Script" uid="uid://drlcm6rrgov3y" path="res://assets/Modelos/Luces/Luz1/LuzGeneralHospital.gd" id="2_script"]
+
+[node name="Sketchfab_Scene" unique_id=449622214 instance=ExtResource("1_8rltf")]
+script = ExtResource("2_script")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="0" unique_id=1197985756]
+transform = Transform3D(1, 0, 0, 0, -0.000345306, 1, 0, -1, -0.000345306, 0, -0.141127, 0)
+light_color = Color(0.858824, 0.941176, 0.819608, 1)
+light_energy = 0.7
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_normal_bias = 2.0
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="OmniFill" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(0.858824, 0.941176, 0.819608, 1)
+light_energy = 0.15
+shadow_enabled = false
+omni_range = 8.0

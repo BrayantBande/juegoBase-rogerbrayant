@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwj2pda7yt50q"
-path="res://.godot/imported/Mapa2.glb-eef6e20467f0d021d8232092efa78524.scn"
+uid="uid://cupriclj0xxcg"
+path="res://.godot/imported/LuzCilindro.glb-0711508b590c4f62d901d45749e32c30.scn"
 
 [deps]
 
-source_file="res://Mapa/Mapa2.glb"
-dest_files=["res://.godot/imported/Mapa2.glb-eef6e20467f0d021d8232092efa78524.scn"]
+source_file="res://assets/Modelos/Luces/Luz2/LuzCilindro.glb"
+dest_files=["res://.godot/imported/LuzCilindro.glb-0711508b590c4f62d901d45749e32c30.scn"]
 
 [params]
 

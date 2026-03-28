@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cax23xy0c46a8"]
+
+[ext_resource type="PackedScene" path="res://assets/Modelos/Luces/Luz2/LuzCilindro.glb" id="1_scene"]
+[ext_resource type="Script" path="res://assets/Modelos/Luces/Luz1/LuzGeneralHospital.gd" id="2_script"]
+
+[node name="LuzSecundaria" type="Node3D"]
+script = ExtResource("2_script")
+base_energy = 0.85
+tiempo_mimimo = 3.0
+tiempo_maximo = 15.0
+probabilidad_apagada = 0.25
+
+[node name="LuzCilindro" parent="." instance=ExtResource("1_scene")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.4, 0)
+light_color = Color(1, 0.96, 0.88, 1)
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_normal_bias = 2.0
+spot_range = 14.0
+spot_angle = 68.0
+
+[node name="OmniFill" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(1, 0.96, 0.88, 1)
+light_energy = 0.15
+shadow_enabled = false
+omni_range = 8.0
