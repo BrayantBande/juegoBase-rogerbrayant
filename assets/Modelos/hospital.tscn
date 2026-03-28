@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://dfoknb42o4xkd"]
 
 [ext_resource type="PackedScene" uid="uid://rwjpjywndeaj" path="res://Mapa/Hospital.glb" id="1_gt3u5"]
-[ext_resource type="Material" uid="uid://dyxlfyvgrfob" path="res://assets/recursos/Texturas/PisoCuadros/Suelo_HospitalCuadros.tres" id="2_dlpgo"]
-[ext_resource type="Material" uid="uid://duf4censh3l7c" path="res://assets/recursos/Texturas/ConcretoDañado2/ConcretoDañado2.tres" id="2_g50nb"]
+[ext_resource type="Material" uid="uid://dyxlfyvgrfob" path="res://assets/recursos/Texturas/Materiales/Suelo_HospitalCuadros.tres" id="2_dlpgo"]
+[ext_resource type="Material" uid="uid://duf4censh3l7c" path="res://assets/recursos/Texturas/Materiales/ConcretoDañado2.tres" id="2_g50nb"]
 [ext_resource type="PackedScene" uid="uid://cu8c8nxbyud5o" path="res://assets/Modelos/Luces/Luz1/LuzGeneralHospital.tscn" id="2_pfsaf"]
-[ext_resource type="Material" uid="uid://cafqva3h4trjw" path="res://assets/recursos/Texturas/Concreto/Concreto.tres" id="3_nauww"]
+[ext_resource type="Material" uid="uid://cafqva3h4trjw" path="res://assets/recursos/Texturas/Materiales/Concreto.tres" id="3_nauww"]
 [ext_resource type="PackedScene" uid="uid://cax23xy0c46a8" path="res://assets/Modelos/Luces/Luz2/LuzSecundaria.tscn" id="4_icq7w"]
-[ext_resource type="Material" uid="uid://cg1q3gkrur0n4" path="res://assets/recursos/Texturas/PisoMadera/PisoMadera.tres" id="5_c6kj3"]
-[ext_resource type="Material" uid="uid://c71lha108wqy0" path="res://assets/recursos/Texturas/PisoCeramicaRota/PisoCeramicaRota.tres" id="6_amsus"]
-[ext_resource type="Material" uid="uid://0y5jav4rqhr2" path="res://assets/recursos/Texturas/ConcretoDañado1/ConcretoDañado1.tres" id="7_n4sf0"]
+[ext_resource type="Material" uid="uid://cg1q3gkrur0n4" path="res://assets/recursos/Texturas/Materiales/PisoMadera.tres" id="5_c6kj3"]
+[ext_resource type="Material" uid="uid://c71lha108wqy0" path="res://assets/recursos/Texturas/Materiales/PisoCeramicaRota.tres" id="6_amsus"]
+[ext_resource type="Material" uid="uid://0y5jav4rqhr2" path="res://assets/recursos/Texturas/Materiales/ConcretoDañado1.tres" id="7_n4sf0"]
+[ext_resource type="Material" uid="uid://cd227684u0oob" path="res://assets/recursos/Texturas/Materiales/ConcretoVerde.tres" id="7_wtx3n"]
 [ext_resource type="Script" uid="uid://hgjj8825jtbf" path="res://EventoApagon.gd" id="11_nauww"]
+[ext_resource type="AudioStream" uid="uid://b47h1v1bxyls7" path="res://assets/recursos/Audios/PuertaCerrandose.wav" id="12_amsus"]
 [ext_resource type="AudioStream" uid="uid://b1k7dp04hf5ww" path="res://assets/recursos/Audios/EventoLuces.ogg" id="12_c6kj3"]
 [ext_resource type="AudioStream" uid="uid://b2xxo6tjgfpfe" path="res://assets/recursos/Audios/GritoEvento.wav" id="13_amsus"]
 
@@ -34,8 +36,45 @@ surface_material_override/0 = ExtResource("2_g50nb")
 [node name="Escaleraseg" parent="." index="5" unique_id=1341398626]
 surface_material_override/0 = ExtResource("2_g50nb")
 
+[node name="EntradaPrincipal" parent="." index="6" unique_id=194542678]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Lobby1" parent="." index="7" unique_id=808356746]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Pasillo1" parent="." index="8" unique_id=85491514]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
 [node name="Recepcion1" parent="." index="9" unique_id=167134603]
 surface_material_override/0 = ExtResource("3_nauww")
+surface_material_override/1 = ExtResource("7_wtx3n")
+
+[node name="Pasillo2" parent="." index="10" unique_id=1543077660]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="OficinaDr" parent="." index="11" unique_id=1523207329]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Pediatra" parent="." index="12" unique_id=349217178]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Radiografia" parent="." index="13" unique_id=1011612215]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="FinalPasillo" parent="." index="14" unique_id=482320620]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Morgue" parent="." index="15" unique_id=1068006927]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Seguridad" parent="." index="16" unique_id=1885316385]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Archivos" parent="." index="17" unique_id=1608346026]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Pasillo" parent="." index="18" unique_id=1775760106]
+surface_material_override/0 = ExtResource("7_wtx3n")
 
 [node name="CollisionShape3D" parent="Pasillo/StaticBody3D" parent_id_path=PackedInt32Array(582257843) index="0" unique_id=1169412222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023973465, 4.7683716e-07, 0.0025634766)
@@ -78,6 +117,40 @@ surface_material_override/0 = ExtResource("2_dlpgo")
 
 [node name="MorguePiso" parent="." index="31" unique_id=661534099]
 surface_material_override/0 = ExtResource("2_g50nb")
+
+[node name="EscalerasSeg" parent="." index="32" unique_id=1019409154]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Lobby2" parent="." index="33" unique_id=1166949577]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="PasilloHab2" parent="." index="34" unique_id=918133925]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="BañosPiso2" parent="." index="35" unique_id=2105191613]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Consejeria" parent="." index="36" unique_id=1093823974]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Habitacion2" parent="." index="37" unique_id=1843715193]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Habitacion3" parent="." index="38" unique_id=930747344]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Habitacion1" parent="." index="39" unique_id=467614168]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="Habitacion4" parent="." index="40" unique_id=1396483640]
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="HabitacionJug" parent="." index="41" unique_id=1668556729]
+material_override = ExtResource("7_wtx3n")
+surface_material_override/0 = ExtResource("7_wtx3n")
+
+[node name="FinalPiso2" parent="." index="42" unique_id=1025738770]
+surface_material_override/0 = ExtResource("7_wtx3n")
 
 [node name="Lobby2Piso" parent="." index="43" unique_id=20495324]
 surface_material_override/0 = ExtResource("2_dlpgo")
@@ -376,6 +449,7 @@ script = ExtResource("11_nauww")
 luces_del_pasillo = [NodePath("../Pasillo13"), NodePath("../Pasillo12"), NodePath("../Pasillo11"), NodePath("../Pasillo10"), NodePath("../Pasillo9"), NodePath("../Pasillo8"), NodePath("../Pasillo7"), NodePath("../Pasillo6"), NodePath("../Pasillo5"), NodePath("../Pasillo4"), NodePath("../Pasillo3"), NodePath("../Pasillo14"), NodePath("../Pasillo15")]
 aceleracion = 0.9
 sonido_grito_inicial = ExtResource("13_amsus")
+sonido_puerta_final = ExtResource("12_amsus")
 tiempo_a_oscuras = 10.0
 sonido_apagon = ExtResource("12_c6kj3")
 volumen_extra = 30.0

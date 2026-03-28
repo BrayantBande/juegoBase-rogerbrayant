@@ -22,8 +22,8 @@ var salud_actual: float = 100.0
 
 var estamina_maxima = 100.0
 var estamina_actual = 100.0
-var consumo_estamina = 20.0  
-var recarga_estamina = 14.28 
+var consumo_estamina = 10.0 # Antes 20.0 (Durará el doble en cansarse)
+var recarga_estamina = 16.0 # Recarga levemente más rápida
 
 var tiempo_sin_correr = 0.0 
 var espera_recarga = 3.0   
@@ -32,7 +32,7 @@ var esta_a_salvo: bool = false
 
 const VELOCIDAD_AGACHADO = 1.0
 const VELOCIDAD_CAMINAR = 1.5
-const VELOCIDAD_CORRER = 4.0
+const VELOCIDAD_CORRER = 4.5 # Bajamos a 4.5 (estaba en 4.8) para un escape más pesado
 var nivel_ruido = 0.0 
 var velocidad_actual = VELOCIDAD_CAMINAR 
 var sensitivity_x: float = 0.003

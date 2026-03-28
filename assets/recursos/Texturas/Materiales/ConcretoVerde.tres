@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cd227684u0oob"]
+
+[ext_resource type="Texture2D" uid="uid://6ir8mmdn7jp8" path="res://assets/recursos/Texturas/ConcretoVerde/painted_concrete_diff_2k.png" id="1_bsy62"]
+[ext_resource type="Texture2D" uid="uid://cqpobau056ws4" path="res://assets/recursos/Texturas/ConcretoVerde/painted_concrete_nor_gl_2k.png" id="2_02dfr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6gfv0"]
+load_path = "res://.godot/imported/painted_concrete_ao_2k.png-665c7c619b54d3d2733fba3148de9f47.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d44oq"]
+load_path = "res://.godot/imported/painted_concrete_rough_2k.png-a659bd660d99fc824b90b04354f0d345.s3tc.ctex"
+
+[resource]
+albedo_texture = ExtResource("1_bsy62")
+roughness_texture = SubResource("CompressedTexture2D_d44oq")
+normal_enabled = true
+normal_texture = ExtResource("2_02dfr")
+ao_enabled = true
+ao_texture = SubResource("CompressedTexture2D_6gfv0")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true

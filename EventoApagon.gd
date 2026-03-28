@@ -48,8 +48,8 @@ func _on_body_entered(body):
 			
 		# ¡COOLDOWN DE TERROR! Silencio mortal mientras asimila lo que escuchó a lo lejos.
 		await get_tree().create_timer(tiempo_espera_antes_de_apagon).timeout
-	# ==========================================================
-
+	# =======================================================
+	
 	var tiempo_de_espera = tiempo_inicial
 	
 	for luz in luces_del_pasillo:
@@ -80,7 +80,27 @@ func _on_body_entered(body):
 		# LA ACELERACIÓN
 		# Multiplica el tiempo, logrando un ritmo descontrolado al final (baja hasta un mínimo de 0.08 segundos)
 		tiempo_de_espera = max(0.08, tiempo_de_espera * aceleracion)
+	
+	# === AUDIO FINAL (PUERTAZO AMBIENTAL CERCANO) ===
+	# Esperar 1 angustiante segundo a solas en la oscuridad:
+	await get_tree().create_timer(1.0).timeout
+	
+	if sonido_puerta_final != null and luces_del_pasillo.size() > 0:
+		# En lugar de usar la del fondo, buscamos la luz que está exactamente a la mitad del camino
+		var indice_mitad = int(luces_del_pasillo.size() / 2.0)
+		var luz_mitad = luces_del_pasillo[indice_mitad]
 		
+		if is_instance_valid(luz_mitad):
+			var parlante_puerta = AudioStreamPlayer3D.new()
+			parlante_puerta.stream = sonido_puerta_final
+			parlante_puerta.volume_db = 18.0
+			parlante_puerta.max_distance = 400.0
+			parlante_puerta.unit_size = 25.0 
+			luz_mitad.add_child(parlante_puerta)
+			parlante_puerta.play()
+			parlante_puerta.finished.connect(parlante_puerta.queue_free)
+	# ================================================
+	
 	# === FINAL DEL EVENTO: ¿VUELVE LA LUZ? ===
 	if restaurar_luces_al_final:
 		# Todo queda en completa oscuridad y silencio sepulcral durante X segundos
