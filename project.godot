@@ -23,6 +23,12 @@ InventoryManager="*uid://cenc5vbw72owd"
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://assets/recursos/Texturas/Materiales/": "orange"
+}
+
 [godot_hub]
 
 godot_hub/create_time="2026-02-20 21:26:18.743796"

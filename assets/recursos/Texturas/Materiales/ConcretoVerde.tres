@@ -16,5 +16,7 @@ normal_enabled = true
 normal_texture = ExtResource("2_02dfr")
 ao_enabled = true
 ao_texture = SubResource("CompressedTexture2D_6gfv0")
+detail_blend_mode = 3
+detail_uv_layer = 1
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true

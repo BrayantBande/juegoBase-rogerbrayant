@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://byn56jfh1u65k"]
+
+[ext_resource type="Texture2D" uid="uid://dctv7npgewvpo" path="res://assets/recursos/Texturas/Sello/white_plaster_02_diff_2k.png" id="1_na4q3"]
+[ext_resource type="Texture2D" uid="uid://mtns1vrnlxdr" path="res://assets/recursos/Texturas/Sello/white_plaster_02_nor_gl_2k.png" id="2_d6u2n"]
+[ext_resource type="Texture2D" uid="uid://ckbio5h0xv5lv" path="res://assets/recursos/Texturas/Sello/white_plaster_02_rough_2k.png" id="3_jgh52"]
+
+[resource]
+albedo_texture = ExtResource("1_na4q3")
+roughness_texture = ExtResource("3_jgh52")
+normal_enabled = true
+normal_texture = ExtResource("2_d6u2n")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true

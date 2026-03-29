@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dfoknb42o4xkd" path="res://assets/Modelos/hospital.tscn" id="4_glouy"]
 [ext_resource type="PackedScene" uid="uid://owrfm221ig6s" path="res://Items/Baterias/bateria_recogible.tscn" id="5_yf8a8"]
+[ext_resource type="Script" uid="uid://hgjj8825jtbf" path="res://EventoApagon.gd" id="6_7j6if"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bdlwtx761e5f8" path="res://Scenes/mundo.occ" id="7_has1v"]
+[ext_resource type="AudioStream" uid="uid://b2xxo6tjgfpfe" path="res://assets/recursos/Audios/GritoEvento.wav" id="7_m1vgi"]
+[ext_resource type="AudioStream" uid="uid://b47h1v1bxyls7" path="res://assets/recursos/Audios/PuertaCerrandose.wav" id="8_1bodn"]
+[ext_resource type="AudioStream" uid="uid://b1k7dp04hf5ww" path="res://assets/recursos/Audios/EventoLuces.ogg" id="9_6bs12"]
 [ext_resource type="PackedScene" uid="uid://deucitqur2ft" path="res://Scenes/Player.tscn" id="9_hppdt"]
 [ext_resource type="PackedScene" uid="uid://bpjoheioasv0s" path="res://Items/FlashLight/flashlight_recogible.tscn" id="22_light"]
 
@@ -26,6 +30,9 @@ glow_bloom = 0.01
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.12549, 0.160784, 0.2, 1)
 volumetric_fog_length = 25.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_amofe"]
+size = Vector3(1.3380127, 3.4750977, 6.8670654)
 
 [node name="Juego" type="Node3D" unique_id=83092484]
 
@@ -70,3 +77,21 @@ environment = SubResource("Environment_Realistic")
 
 [node name="Player" parent="." unique_id=1191387589 instance=ExtResource("9_hppdt")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -13.61203, 6.309868, 25.840416)
+
+[node name="EventoLucesPasillo" type="Area3D" parent="." unique_id=1661138594 node_paths=PackedStringArray("luces_del_pasillo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.045105, 7.322731, 17.9174)
+script = ExtResource("6_7j6if")
+luces_del_pasillo = [NodePath("../NavigationRegion3D/Hospital/LP13"), NodePath("../NavigationRegion3D/Hospital/LP12"), NodePath("../NavigationRegion3D/Hospital/LP11"), NodePath("../NavigationRegion3D/Hospital/LP10"), NodePath("../NavigationRegion3D/Hospital/LP9"), NodePath("../NavigationRegion3D/Hospital/LP8"), NodePath("../NavigationRegion3D/Hospital/LP7"), NodePath("../NavigationRegion3D/Hospital/LP6"), NodePath("../NavigationRegion3D/Hospital/LP5"), NodePath("../NavigationRegion3D/Hospital/LP4"), NodePath("../NavigationRegion3D/Hospital/LP3"), NodePath("../NavigationRegion3D/Hospital/LP2"), NodePath("../NavigationRegion3D/Hospital/LP1")]
+aceleracion = 0.9
+sonido_grito_inicial = ExtResource("7_m1vgi")
+sonido_puerta_final = ExtResource("8_1bodn")
+tiempo_a_oscuras = 10.0
+sonido_apagon = ExtResource("9_6bs12")
+volumen_extra = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventoLucesPasillo" unique_id=1645667152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2926779, -0.3195362, -0.6499634)
+shape = SubResource("BoxShape3D_amofe")
+debug_color = Color(0.99123865, 0, 0.29720622, 1)
+
+[editable path="NavigationRegion3D/Hospital"]
